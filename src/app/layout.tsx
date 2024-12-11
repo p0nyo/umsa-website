@@ -1,17 +1,16 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import "./globals.css";
+import { Poppins } from "next/font/google";
+import clsx from "clsx";
+import Head from "next/head";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+const poppins = Poppins({
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["300", "500", "600", "800", "900"],
+  style: ["normal", "italic"],
+  variable: "--font-poppins",
+})
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -25,10 +24,22 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <Head>
+        <script
+          src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"
+          type="text/javascript">
+        </script>
+      </Head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+        className={clsx(poppins.className, 
+          'italic',
+        "bg-starImg bg-cover bg-fixed")}>
+        <div className="relative min-h-screen">
+          <div className="opacity-65 absolute inset-0 bg-blueOverlay bg-fixed z-0"></div>
+          <div className="relative z-10">
+            {children}
+          </div>
+        </div>
       </body>
     </html>
   );
