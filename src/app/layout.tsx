@@ -3,6 +3,12 @@ import "./globals.css";
 import { Poppins } from "next/font/google";
 import clsx from "clsx";
 import Head from "next/head";
+import { createClient } from "@/prismicio";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import { ArrowDown01Icon } from "hugeicons-react"; 
+import Globe from "./components/Globe";
+import ParticleBackground from "./components/ParticleBackground";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -33,11 +39,20 @@ export default function RootLayout({
       <body
         className={clsx(poppins.className, 
           'italic',
+          'bg-umsaBlue',
         "bg-starImg bg-cover bg-fixed")}>
         <div className="relative min-h-screen">
           <div className="opacity-65 absolute inset-0 bg-blueOverlay bg-fixed z-0"></div>
+          <ParticleBackground />
           <div className="relative z-10">
-            {children}
+            <div className="min-h-screen flex flex-col">
+              <Header />
+              <Globe />
+            </div>
+            <div className="mx-36">
+              {children}
+            </div>
+            <Footer />
           </div>
         </div>
       </body>
