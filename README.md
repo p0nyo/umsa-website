@@ -10,6 +10,8 @@
   - [ ] image carousel
 - [ ] teams page
   - [ ] get photos
+- [ ] sponsor list
+- [ ] finish footer
 
 ## wip
 
