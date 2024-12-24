@@ -1,6 +1,22 @@
-export default function Team() {
-    return(
-        <div className="text-white min-h-screen my-32">
+import { Content } from "@prismicio/client";
+import { SliceComponentProps } from "@prismicio/react";
+
+/**
+ * Props for `Team`.
+ */
+export type TeamProps = SliceComponentProps<Content.TeamSlice>;
+
+/**
+ * Component for "Team" Slices.
+ */
+const Team = ({ slice }: TeamProps): JSX.Element => {
+  return (
+    <section
+      data-slice-type={slice.slice_type}
+      data-slice-variation={slice.variation}
+      id="team"
+    >
+      <div className="text-white min-h-screen my-32">
             <p className="text-9xl"> 
                 <span className="font-light">
                     team
@@ -16,5 +32,8 @@ export default function Team() {
                 </div>
             </div>
         </div>
-    )
-}
+    </section>
+  );
+};
+
+export default Team;

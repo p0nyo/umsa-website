@@ -1,9 +1,26 @@
-export default function Events() {
-    return(
-        <div className="text-white min-h-screen my-32">
+import { Content } from "@prismicio/client";
+import { SliceComponentProps } from "@prismicio/react";
+import { ArrowDown01Icon } from "hugeicons-react" 
+
+/**
+ * Props for `About`.
+ */
+export type AboutProps = SliceComponentProps<Content.AboutSlice>;
+
+/**
+ * Component for "About" Slices.
+ */
+const About = ({ slice }: AboutProps): JSX.Element => {
+  return (
+    <section
+      data-slice-type={slice.slice_type}
+      data-slice-variation={slice.variation}
+      id="about"
+    >
+      <div className="text-white min-h-screen my-32">
             <p className="text-9xl"> 
                 <span className="font-light">
-                    events by
+                    we are
                 </span> 
                 <span className="font-bold">
                     &nbsp;umsa. 
@@ -15,6 +32,10 @@ export default function Events() {
                     <div className="h-36 w-36 border-white border-4"></div>
                 </div>
             </div>
+            <ArrowDown01Icon />
         </div>
-    )
-}
+    </section>
+  );
+};
+
+export default About;

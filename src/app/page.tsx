@@ -5,14 +5,16 @@ import About from "./components/About";
 import Events from "./components/Events";
 import Team from "./components/Team";
 
-export default function Home() {
-  return (
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <div className="w-full">
-          <About />
-          <Events />
-          <Team /> 
-        </div>
-      </main>
-  );
+import { Metadata } from "next";
+import { SliceZone } from "@prismicio/react";
+
+import { createClient } from "@/prismicio";
+import { components } from "@/slices";
+
+
+export default async function Page() {
+  const client = createClient();
+  const page = await client.getSingle("single_scroll_page");
+
+  return <SliceZone slices={page.data.slices} components={components} />
 }

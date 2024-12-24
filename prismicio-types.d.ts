@@ -69,7 +69,156 @@ export type SettingsDocument<Lang extends string = string> =
     Lang
   >;
 
-export type AllDocumentTypes = SettingsDocument;
+type SingleScrollPageDocumentDataSlicesSlice =
+  | TeamSlice
+  | EventsSlice
+  | AboutSlice;
+
+/**
+ * Content for Single Scroll Page documents
+ */
+interface SingleScrollPageDocumentData {
+  /**
+   * Slice Zone field in *Single Scroll Page*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: single_scroll_page.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<SingleScrollPageDocumentDataSlicesSlice> /**
+   * Meta Title field in *Single Scroll Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: single_scroll_page.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Single Scroll Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: single_scroll_page.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Single Scroll Page*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: single_scroll_page.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Single Scroll Page document from Prismic
+ *
+ * - **API ID**: `single_scroll_page`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type SingleScrollPageDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<SingleScrollPageDocumentData>,
+    "single_scroll_page",
+    Lang
+  >;
+
+export type AllDocumentTypes = SettingsDocument | SingleScrollPageDocument;
+
+/**
+ * Default variation for About Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type AboutSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  never
+>;
+
+/**
+ * Slice variation for *About*
+ */
+type AboutSliceVariation = AboutSliceDefault;
+
+/**
+ * About Shared Slice
+ *
+ * - **API ID**: `about`
+ * - **Description**: About
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type AboutSlice = prismic.SharedSlice<"about", AboutSliceVariation>;
+
+/**
+ * Default variation for Events Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type EventsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  never
+>;
+
+/**
+ * Slice variation for *Events*
+ */
+type EventsSliceVariation = EventsSliceDefault;
+
+/**
+ * Events Shared Slice
+ *
+ * - **API ID**: `events`
+ * - **Description**: Events
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type EventsSlice = prismic.SharedSlice<"events", EventsSliceVariation>;
+
+/**
+ * Default variation for Team Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TeamSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  never
+>;
+
+/**
+ * Slice variation for *Team*
+ */
+type TeamSliceVariation = TeamSliceDefault;
+
+/**
+ * Team Shared Slice
+ *
+ * - **API ID**: `team`
+ * - **Description**: Team
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TeamSlice = prismic.SharedSlice<"team", TeamSliceVariation>;
 
 declare module "@prismicio/client" {
   interface CreateClient {
@@ -91,6 +240,22 @@ declare module "@prismicio/client" {
   }
 
   namespace Content {
-    export type { SettingsDocument, SettingsDocumentData, AllDocumentTypes };
+    export type {
+      SettingsDocument,
+      SettingsDocumentData,
+      SingleScrollPageDocument,
+      SingleScrollPageDocumentData,
+      SingleScrollPageDocumentDataSlicesSlice,
+      AllDocumentTypes,
+      AboutSlice,
+      AboutSliceVariation,
+      AboutSliceDefault,
+      EventsSlice,
+      EventsSliceVariation,
+      EventsSliceDefault,
+      TeamSlice,
+      TeamSliceVariation,
+      TeamSliceDefault,
+    };
   }
 }
