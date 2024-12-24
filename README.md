@@ -12,6 +12,7 @@
   - [ ] get photos
 - [ ] sponsor list
 - [ ] finish footer
+- [x] add prismic slices
 
 ## wip
 
