@@ -28,7 +28,7 @@ const About = ({ slice }: AboutProps): JSX.Element => {
             </p>
             <div className="grid grid-cols-2 min-h-screen items-center">
                 <p className="text-left">Connecting Malaysians across campus, our club celebrates Malaysian culture, fosters friendships, and creates a welcoming space for students. From cultural events to social gatherings, we bring a piece of home to university life.</p>
-                <div className="content-end">
+                <div className="">
                     <div className="h-36 w-36 border-white border-4"></div>
                 </div>
             </div>
