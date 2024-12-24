@@ -1,9 +1,7 @@
 import Image from "next/image";
 import Header from "./components/Header";
 import Globe from "./components/Globe";
-import About from "./components/About";
-import Events from "./components/Events";
-import Team from "./components/Team";
+
 
 import { Metadata } from "next";
 import { SliceZone } from "@prismicio/react";

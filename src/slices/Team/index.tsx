@@ -17,7 +17,7 @@ const Team = ({ slice }: TeamProps): JSX.Element => {
       id="team"
     >
       <div className="text-white min-h-screen my-32">
-            <p className="text-9xl"> 
+            <p className="text-8xl"> 
                 <span className="font-light">
                     team
                 </span> 

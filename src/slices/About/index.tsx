@@ -18,7 +18,7 @@ const About = ({ slice }: AboutProps): JSX.Element => {
       id="about"
     >
       <div className="text-white min-h-screen my-32">
-            <p className="text-9xl"> 
+            <p className="text-8xl"> 
                 <span className="font-light">
                     we are
                 </span> 
