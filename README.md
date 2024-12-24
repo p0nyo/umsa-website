@@ -1,12 +1,14 @@
 # TODO
-- [ ] fixed header with dynamic colour change according to background
+- [ ] fixed header with dynamic colour change according to background (maybe)
+- [x] fixed header with blurred background
 - [ ] add arrows at bottom of page
 - [ ] shooting stars (maybe)
+- [ ] image carousel across the landing page
 - [ ] pulsing globe icon
 - [ ] loading screen animation -> rotating globe
 - [ ] about page
   - [ ] image carousel
-  - [ ] stretch grid to parent container size
+  - [x] stretch grid to parent container size
   - [x] format description text
   - [ ] globe background
 - [ ] events page

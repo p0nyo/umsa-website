@@ -17,6 +17,7 @@ export default {
         blueOverlay: "linear-gradient(to bottom, rgba(3,37,101,1) 10%, rgba(6,74,203,0.3) 52%, rgba(3,37,101,1) 100%)",
       },
       fontSize: {
+        "9xl": "8rem",
         "10xl": "16rem",
       },
       backgroundColor: {

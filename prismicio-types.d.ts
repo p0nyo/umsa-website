@@ -140,6 +140,48 @@ export type SingleScrollPageDocument<Lang extends string = string> =
 export type AllDocumentTypes = SettingsDocument | SingleScrollPageDocument;
 
 /**
+ * Item in *About → Default → Primary → About Images*
+ */
+export interface AboutSliceDefaultPrimaryAboutImagesItem {
+  /**
+   * About Image field in *About → Default → Primary → About Images*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.default.primary.about_images[].about_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  about_image: prismic.ImageField<never>;
+}
+
+/**
+ * Primary content in *About → Default → Primary*
+ */
+export interface AboutSliceDefaultPrimary {
+  /**
+   * About Description field in *About → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.default.primary.about_description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  about_description: prismic.KeyTextField;
+
+  /**
+   * About Images field in *About → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.default.primary.about_images[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  about_images: prismic.GroupField<
+    Simplify<AboutSliceDefaultPrimaryAboutImagesItem>
+  >;
+}
+
+/**
  * Default variation for About Slice
  *
  * - **API ID**: `default`
@@ -148,7 +190,7 @@ export type AllDocumentTypes = SettingsDocument | SingleScrollPageDocument;
  */
 export type AboutSliceDefault = prismic.SharedSliceVariation<
   "default",
-  Record<string, never>,
+  Simplify<AboutSliceDefaultPrimary>,
   never
 >;
 
@@ -248,6 +290,8 @@ declare module "@prismicio/client" {
       SingleScrollPageDocumentDataSlicesSlice,
       AllDocumentTypes,
       AboutSlice,
+      AboutSliceDefaultPrimaryAboutImagesItem,
+      AboutSliceDefaultPrimary,
       AboutSliceVariation,
       AboutSliceDefault,
       EventsSlice,

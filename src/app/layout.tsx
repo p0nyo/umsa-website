@@ -14,7 +14,7 @@ import { createClient } from "@/prismicio";
 const poppins = Poppins({
   subsets: ["latin"],
   display: "swap",
-  weight: ["300", "500", "600", "800", "900"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
   style: ["normal", "italic"],
   variable: "--font-poppins",
 })
@@ -56,12 +56,12 @@ export default function RootLayout({
         <div className="relative min-h-screen">
           <div className="opacity-65 absolute inset-0 bg-blueOverlay bg-fixed z-0"></div>
           <ParticleBackground />
-          <div className="relative z-10">
+          <div className="relative z-10" id="landing">
             <div className="min-h-screen flex flex-col">
               <Header />
               <Globe />
             </div>
-            <div className="mx-36">
+            <div>
               {children}
             </div>
             <Footer />

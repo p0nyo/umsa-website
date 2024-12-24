@@ -10,7 +10,34 @@
       "docURL": "...",
       "version": "initial",
       "description": "Default",
-      "imageUrl": ""
+      "imageUrl": "",
+      "primary": {
+        "about_description": {
+          "type": "Text",
+          "config": {
+            "label": "About Description",
+            "placeholder": ""
+          }
+        },
+        "about_images": {
+          "type": "Group",
+          "config": {
+            "label": "About Images",
+            "repeat": true,
+            "fields": {
+              "about_image": {
+                "type": "Image",
+                "config": {
+                  "label": "About Image",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
     }
   ]
 }
