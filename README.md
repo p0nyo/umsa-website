@@ -5,13 +5,17 @@
 - [ ] pulsing globe icon
 - [ ] loading screen animation -> rotating globe
 - [ ] about page
-  - [ ] find photo gallery inspiration
-  - [ ] format description text
-- [ ] events page
   - [ ] image carousel
+  - [ ] stretch grid to parent container size
+  - [x] format description text
+  - [ ] globe background
+- [ ] events page
+  - [ ] image gallery
   - [ ] link to "all events" -> "home/events"
+  - [ ] globe background
 - [ ] teams page
   - [ ] get photos
+  - [ ] globe background
 - [ ] sponsor list
 - [ ] finish footer
 - [x] add prismic slices
