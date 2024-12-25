@@ -23,6 +23,23 @@ export default {
       backgroundColor: {
         umsaBlue: "rgba(12,30,70,1)"
       },
+      animation: {
+        "spin-slow": "scale 10s linear infinite",
+        "pulse-slow": "pulse 3.5s ease-in-out infinite",
+        "pulse-scale": "pulseScale 5s ease-in-out infinite"
+      },
+      keyframes: {
+        pulseScale: {
+          "0%, 100%": {
+            transform: 'scale(1)',
+            opacity: '0.3',
+          },
+          "50%": {
+            transform: "scale(1.04)",
+            opacity: '0.6',
+          },
+        },
+      },
     },
   },
   plugins: [],

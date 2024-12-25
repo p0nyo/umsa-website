@@ -4,7 +4,7 @@
 - [ ] add arrows at bottom of page
 - [ ] shooting stars (maybe)
 - [ ] image carousel across the landing page
-- [ ] pulsing globe icon
+- [x] pulsing globe icon
 - [ ] loading screen animation -> rotating globe
 - [ ] about page
   - [ ] image carousel
