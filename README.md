@@ -3,7 +3,8 @@
 - [x] fixed header with blurred background
 - [ ] add arrows at bottom of page
 - [ ] shooting stars (maybe)
-- [ ] image carousel across the landing page
+- [x] images across the landing page
+  - [ ] image carousel (potentially)
 - [x] pulsing globe icon
 - [ ] loading screen animation -> rotating globe
 - [ ] hover effects for all icons
@@ -12,7 +13,7 @@
     - [ ] image carousel (potentially)
   - [x] stretch grid to parent container size
   - [x] format description text
-  - [ ] globe background
+  - [x] globe background
 - [ ] events page
   - [ ] image gallery
   - [ ] link to "all events" -> "home/events"
