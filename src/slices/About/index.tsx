@@ -27,20 +27,20 @@ const About = ({ slice }: AboutProps): JSX.Element => {
         <span className="font-bold opacity-90">&nbsp;umsa.</span>
       </p>
       <div className="grid grid-cols-2 h-full flex-1 gap-x-10 z-10">
-        <div className="flex flex-col gap-y-10 items-start justify-center">
+        <div className="flex flex-col gap-y-6 items-start justify-center">
           <div>
             <p className="text-left text-2xl font-extralight opacity-80 leading-loose">
               {slice.primary.about_description}
             </p>
           </div>
-          <div className="grid grid-cols-3"> 
+          <div className="grid grid-cols-3 gap-x-3"> 
             <a href="https://www.instagram.com/umsanz/" target="_blank">
               <img src="/instagram.svg"></img>
             </a>
             <a href="https://www.facebook.com/umsanz/" target="_blank">
               <img src="/facebook.svg"></img>
             </a>
-            <a href="">
+            <a href="mailto:comm.umsanz@gmail.com">
               <img src="/email.svg"></img>
             </a>
           </div>
@@ -50,7 +50,7 @@ const About = ({ slice }: AboutProps): JSX.Element => {
         </div>
       </div>
       {/* <ArrowDown01Icon /> */}
-      <img className="absolute bottom-0 w-100xl z-0 opacity-30" src="/umsa-globe.svg"></img>
+      <img className="absolute bottom-0 right-0 translate-y-1/2 translate-x-1/3 w-3/4 z-0 opacity-30" src="/umsa-globe.svg"></img>
     </div>
     
     </Bounded>

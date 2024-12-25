@@ -35,11 +35,11 @@ export default {
         pulseScale: {
           "0%, 100%": {
             transform: 'scale(1)',
-            opacity: '0.3',
+            opacity: '0.5',
           },
           "50%": {
             transform: "scale(1.04)",
-            opacity: '0.6',
+            opacity: '0.9',
           },
         },
       },

@@ -53,14 +53,12 @@ export default function RootLayout({
           'italic',
           'bg-umsaBlue',
         "bg-starImg bg-cover bg-fixed")}>
-        <div className="relative min-h-screen">
+        <div className="relative min-h-screen overflow-x-hidden">
           <div className="opacity-65 absolute inset-0 bg-blueOverlay bg-fixed z-0"></div>
           <ParticleBackground />
+          <Header />
           <div className="relative z-10" id="landing">
-            <div className="min-h-screen flex flex-col">
-              <Header />
-              <Globe />
-            </div>
+            <Globe />
             <div>
               {children}
             </div>
