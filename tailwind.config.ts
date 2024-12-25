@@ -23,6 +23,9 @@ export default {
       backgroundColor: {
         umsaBlue: "rgba(12,30,70,1)"
       },
+      width: {
+        "100xl": "1000px",
+      },
       animation: {
         "spin-slow": "scale 10s linear infinite",
         "pulse-slow": "pulse 3.5s ease-in-out infinite",

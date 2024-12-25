@@ -17,7 +17,8 @@ const About = ({ slice }: AboutProps): JSX.Element => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       id="about"
-      className="text-white"
+      // className="text-white opacity bg-[url('/umsa-globe.svg')] bg-no-repeat bg-[length:auto_600px] bg-right-bottom overflow-visible"
+      className="relative text-white"
 
     >
     <div className="text-white min-h-screen flex flex-col">
@@ -25,19 +26,33 @@ const About = ({ slice }: AboutProps): JSX.Element => {
         <span className="font-light opacity-60">we are</span>
         <span className="font-bold opacity-90">&nbsp;umsa.</span>
       </p>
-      <div className="grid grid-cols-[0.5fr,auto] h-full flex-1">
-        <div className="flex items-center">
-          <p className="text-left text-2xl font-light leading-loose">
-            {slice.primary.about_description}
-          </p>
-          
+      <div className="grid grid-cols-2 h-full flex-1 gap-x-10 z-10">
+        <div className="flex flex-col gap-y-10 items-start justify-center">
+          <div>
+            <p className="text-left text-2xl font-extralight opacity-80 leading-loose">
+              {slice.primary.about_description}
+            </p>
+          </div>
+          <div className="grid grid-cols-3"> 
+            <a href="https://www.instagram.com/umsanz/" target="_blank">
+              <img src="/instagram.svg"></img>
+            </a>
+            <a href="https://www.facebook.com/umsanz/" target="_blank">
+              <img src="/facebook.svg"></img>
+            </a>
+            <a href="">
+              <img src="/email.svg"></img>
+            </a>
+          </div>
         </div>
         <div className="flex justify-center items-center">
-          <div className="h-36 w-36 border-white border-4"></div>
+          <img className="rounded-md" src="/about-image.jpg"></img>
         </div>
       </div>
       {/* <ArrowDown01Icon /> */}
+      <img className="absolute bottom-0 w-100xl z-0 opacity-30" src="/umsa-globe.svg"></img>
     </div>
+    
     </Bounded>
   );
 };

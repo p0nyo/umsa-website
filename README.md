@@ -6,8 +6,10 @@
 - [ ] image carousel across the landing page
 - [x] pulsing globe icon
 - [ ] loading screen animation -> rotating globe
+- [ ] hover effects for all icons
 - [ ] about page
-  - [ ] image carousel
+  - [x] image 
+    - [ ] image carousel (potentially)
   - [x] stretch grid to parent container size
   - [x] format description text
   - [ ] globe background
