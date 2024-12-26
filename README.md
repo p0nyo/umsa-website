@@ -1,11 +1,13 @@
 # TODO
 - [x] fixed header with blurred background
   - [ ] fixed header with dynamic colour change according to background (maybe)
-- [ ] add arrows at bottom of page
+- [x] add arrow to bottom of landing page
 - [ ] shooting stars (maybe)
 - [x] images across the landing page
   - [ ] image carousel (potentially)
 - [x] pulsing globe icon
+- [ ] parallax scrolling
+- [ ] shrinking navbar on scroll
 - [ ] loading screen animation -> rotating globe
 - [ ] hover effects for all icons
 - [ ] about page
