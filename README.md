@@ -1,6 +1,6 @@
 # TODO
-- [ ] fixed header with dynamic colour change according to background (maybe)
 - [x] fixed header with blurred background
+  - [ ] fixed header with dynamic colour change according to background (maybe)
 - [ ] add arrows at bottom of page
 - [ ] shooting stars (maybe)
 - [x] images across the landing page
