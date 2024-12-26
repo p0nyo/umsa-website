@@ -29,7 +29,8 @@ export default {
       animation: {
         "spin-slow": "scale 10s linear infinite",
         "pulse-slow": "pulse 3.5s ease-in-out infinite",
-        "pulse-scale": "pulseScale 5s ease-in-out infinite"
+        "pulse-scale": "pulseScale 5s ease-in-out infinite",
+        "bounce-custom": "bounceCustom 2.5s ease-in-out infinite"
       },
       keyframes: {
         pulseScale: {
@@ -42,8 +43,24 @@ export default {
             opacity: '0.9',
           },
         },
+        bounceCustom: {
+          "0%, 100%": {
+            transform: "translateY(0)",
+          },
+          "50%": {
+            transform: "translateY(-15px)"
+          }
+        }
       },
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addComponents, theme }) {
+      addComponents({
+        '.scale-hover': {
+          '@apply hover:scale-125 transition-transform duration-300': {},
+        },
+      });
+    },
+  ],
 } satisfies Config;

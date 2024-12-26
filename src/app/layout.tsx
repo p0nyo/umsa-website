@@ -6,7 +6,7 @@ import Head from "next/head";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { ArrowDown01Icon } from "hugeicons-react"; 
-import Globe from "./components/Globe";
+import Globe from "./components/Landing";
 import ParticleBackground from "./components/ParticleBackground";
 
 import { createClient } from "@/prismicio";

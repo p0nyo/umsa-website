@@ -6,10 +6,12 @@
 - [x] images across the landing page
   - [ ] image carousel (potentially)
 - [x] pulsing globe icon
+
 - [ ] parallax scrolling
 - [ ] shrinking navbar on scroll
 - [ ] loading screen animation -> rotating globe
-- [ ] hover effects for all icons
+- [x] hover effects for all icons
+  - [ ] fix: hover:scaling doesnt go past bounds of parent container
 - [ ] about page
   - [x] image 
     - [ ] image carousel (potentially)

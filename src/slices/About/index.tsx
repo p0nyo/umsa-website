@@ -34,13 +34,13 @@ const About = ({ slice }: AboutProps): JSX.Element => {
             </p>
           </div>
           <div className="grid grid-cols-3 gap-x-3"> 
-            <a href="https://www.instagram.com/umsanz/" target="_blank">
+            <a href="https://www.instagram.com/umsanz/" target="_blank" className="scale-hover">
               <img src="/instagram.svg"></img>
             </a>
-            <a href="https://www.facebook.com/umsanz/" target="_blank">
+            <a href="https://www.facebook.com/umsanz/" target="_blank" className="scale-hover">
               <img src="/facebook.svg"></img>
             </a>
-            <a href="mailto:comm.umsanz@gmail.com">
+            <a href="mailto:comm.umsanz@gmail.com" className="scale-hover">
               <img src="/email.svg"></img>
             </a>
           </div>

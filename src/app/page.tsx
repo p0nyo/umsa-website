@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Header from "./components/Header";
-import Globe from "./components/Globe";
+import Globe from "./components/Landing";
 
 
 import { Metadata } from "next";
