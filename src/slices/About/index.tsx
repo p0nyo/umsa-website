@@ -22,9 +22,9 @@ const About = ({ slice }: AboutProps): JSX.Element => {
 
     >
     <div className="text-white min-h-screen flex flex-col">
-      <p className="text-9xl">
-        <span className="font-light opacity-60">we are</span>
-        <span className="font-bold opacity-90">&nbsp;umsa.</span>
+      <p className="text-9xl transparent-y-gradient">
+        <span className="font-light">we are</span>
+        <span className="font-bold">&nbsp;umsa.</span>
       </p>
       <div className="grid grid-cols-2 h-full flex-1 gap-x-10 z-10">
         <div className="flex flex-col gap-y-6 items-start justify-center">
@@ -46,11 +46,10 @@ const About = ({ slice }: AboutProps): JSX.Element => {
           </div>
         </div>
         <div className="flex justify-center items-center">
-          <img className="rounded-md" src="/about-image.jpg"></img>
+          <img className="rounded-md" draggable="false" src="/about-image.jpg"></img>
         </div>
       </div>
-      {/* <ArrowDown01Icon /> */}
-      <img className="absolute bottom-0 right-0 translate-y-1/2 translate-x-1/3 w-3/4 z-0 opacity-30" src="/umsa-globe.svg"></img>
+      <img className="absolute bottom-0 right-0 translate-y-1/2 translate-x-1/3 w-3/4 -z-50 opacity-15" draggable="false" src="/umsa-globe.svg"></img>
     </div>
     
     </Bounded>

@@ -6,12 +6,12 @@
 - [x] images across the landing page
   - [ ] image carousel (potentially)
 - [x] pulsing globe icon
-
+- [ ] migrate to firebase
 - [ ] parallax scrolling
 - [ ] shrinking navbar on scroll
 - [ ] loading screen animation -> rotating globe
 - [x] hover effects for all icons
-  - [ ] fix: hover:scaling doesnt go past bounds of parent container
+  - [ ] fix: hover:scaling doesnt go past bounds of parent container (landing page)
 - [ ] about page
   - [x] image 
     - [ ] image carousel (potentially)
@@ -19,8 +19,10 @@
   - [x] format description text
   - [x] globe background
 - [ ] events page
-  - [ ] image gallery
-  - [ ] link to "all events" -> "home/events"
+  - [ ] image carousel
+  - [ ] link to "all events" -> "home/events" from "view all"
+  - [ ] coming soon events -> add prismic repeatables
+  - [ ] links to events
   - [ ] globe background
 - [ ] teams page
   - [ ] get photos

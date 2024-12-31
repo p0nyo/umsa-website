@@ -18,7 +18,7 @@ const Team = ({ slice }: TeamProps): JSX.Element => {
       id="team"
     >
       <div className="text-white min-h-screen">
-            <p className="text-9xl"> 
+            <p className="text-9xl transparent-y-gradient"> 
                 <span className="font-light opacity-60">
                     team
                 </span> 
@@ -26,11 +26,32 @@ const Team = ({ slice }: TeamProps): JSX.Element => {
                     &nbsp;umsa. 
                 </span>
             </p>
-            <div className="grid grid-cols-2 items-center">
-                <p className="text-left">Connecting Malaysians across campus, our club celebrates Malaysian culture, fosters friendships, and creates a welcoming space for students. From cultural events to social gatherings, we bring a piece of home to university life.</p>
-                <div className="content-end">
-                    <div className="h-36 w-36 border-white border-4"></div>
+
+            <span className="text-7xl text-white font-light transparent-y-gradient"> 
+              executives.
+            </span>
+
+            <div className="grid grid-cols-4 my-8 gap-x-5 items-start min-h-screen">
+              <div className="h-2/3">
+                <div className="h-full ">
+                  <img className="object-cover h-full rounded-md transparent-y-gradient-sm" src="/joseph-team.jpeg"></img>
                 </div>
+              </div>
+              <div className="h-1/3">
+                <div className="h-full">
+                  <img className="object-cover h-full w-full rounded-md transparent-y-gradient-sm" src="/joseph-team.jpeg"></img>
+                </div>
+              </div>
+              <div className="h-1/3">
+                <div className="h-full">
+                  <img className="object-cover h-full w-full rounded-md transparent-y-gradient-sm" src="/joseph-team.jpeg"></img>
+                </div>
+              </div>
+              <div className="h-1/3">
+                <div className="h-full">
+                  <img className="object-cover h-full w-full rounded-md transparent-y-gradient-sm" src="/joseph-team.jpeg"></img>
+                </div>
+              </div>
             </div>
         </div>
     </Bounded>

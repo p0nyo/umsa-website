@@ -209,6 +209,88 @@ type AboutSliceVariation = AboutSliceDefault;
 export type AboutSlice = prismic.SharedSlice<"about", AboutSliceVariation>;
 
 /**
+ * Item in *Events → Default → Primary → Upcoming Events*
+ */
+export interface EventsSliceDefaultPrimaryUpcomingEventsItem {
+  /**
+   * Event Title field in *Events → Default → Primary → Upcoming Events*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: events.default.primary.upcoming_events[].event_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  event_title: prismic.KeyTextField;
+
+  /**
+   * Event Time field in *Events → Default → Primary → Upcoming Events*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: events.default.primary.upcoming_events[].event_time
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  event_time: prismic.KeyTextField;
+
+  /**
+   * Event Date field in *Events → Default → Primary → Upcoming Events*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: events.default.primary.upcoming_events[].event_date
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  event_date: prismic.KeyTextField;
+
+  /**
+   * Event Location field in *Events → Default → Primary → Upcoming Events*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: events.default.primary.upcoming_events[].event_location
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  event_location: prismic.KeyTextField;
+
+  /**
+   * Event Instagram Link field in *Events → Default → Primary → Upcoming Events*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: events.default.primary.upcoming_events[].event_instagram_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  event_instagram_link: prismic.LinkField;
+
+  /**
+   * Event Form Link field in *Events → Default → Primary → Upcoming Events*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: events.default.primary.upcoming_events[].event_form_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  event_form_link: prismic.LinkField;
+}
+
+/**
+ * Primary content in *Events → Default → Primary*
+ */
+export interface EventsSliceDefaultPrimary {
+  /**
+   * Upcoming Events field in *Events → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: events.default.primary.upcoming_events[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  upcoming_events: prismic.GroupField<
+    Simplify<EventsSliceDefaultPrimaryUpcomingEventsItem>
+  >;
+}
+
+/**
  * Default variation for Events Slice
  *
  * - **API ID**: `default`
@@ -217,7 +299,7 @@ export type AboutSlice = prismic.SharedSlice<"about", AboutSliceVariation>;
  */
 export type EventsSliceDefault = prismic.SharedSliceVariation<
   "default",
-  Record<string, never>,
+  Simplify<EventsSliceDefaultPrimary>,
   never
 >;
 
@@ -295,6 +377,8 @@ declare module "@prismicio/client" {
       AboutSliceVariation,
       AboutSliceDefault,
       EventsSlice,
+      EventsSliceDefaultPrimaryUpcomingEventsItem,
+      EventsSliceDefaultPrimary,
       EventsSliceVariation,
       EventsSliceDefault,
       TeamSlice,

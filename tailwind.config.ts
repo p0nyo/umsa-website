@@ -18,7 +18,10 @@ export default {
       },
       fontSize: {
         "9xl": "8rem",
-        "10xl": "16rem",
+        "10xl": "20rem",
+      },
+      textColor: {
+        umsaBlue: "rgba(12,30,70,1)"
       },
       backgroundColor: {
         umsaBlue: "rgba(12,30,70,1)"
@@ -36,11 +39,11 @@ export default {
         pulseScale: {
           "0%, 100%": {
             transform: 'scale(1)',
-            opacity: '0.5',
+            opacity: '0.8',
           },
           "50%": {
             transform: "scale(1.04)",
-            opacity: '0.9',
+            opacity: '1',
           },
         },
         bounceCustom: {
