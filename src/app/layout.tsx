@@ -52,7 +52,7 @@ export default function RootLayout({
         className={clsx(poppins.className, 
           'italic',
           'bg-umsaBlue',
-        "bg-starImg bg-cover bg-fixed")}>
+        "bg-none md:bg-starImg lg:bg-starImg bg-cover bg-fixed")}>
         <div className="relative min-h-screen overflow-x-hidden">
           <div className="opacity-65 absolute inset-0 bg-blueOverlay bg-fixed z-0"></div>
           <ParticleBackground />

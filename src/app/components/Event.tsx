@@ -24,7 +24,7 @@ export default function Event({
                     <img className="h-16 w-auto" src="/umsa-globe1.svg"></img>
                 </div>
                 <div className="flex flex-col gap-y-1">
-                    <p className="text-4xl opacity-100 whitespace-nowrap">malaysian mania</p>
+                    <p className="text-2xl opacity-100 whitespace-nowrap">malaysian mania</p>
                     <p className="text-lg font-extraligh whitespace-nowrap">
                         <span>18.07.24</span>
                         <span>&nbsp;&nbsp;-&nbsp;&nbsp;</span>
