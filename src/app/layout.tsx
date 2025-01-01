@@ -9,7 +9,6 @@ import { ArrowDown01Icon } from "hugeicons-react";
 import Globe from "./components/Landing";
 import ParticleBackground from "./components/ParticleBackground";
 
-import { createClient } from "@/prismicio";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -19,21 +18,6 @@ const poppins = Poppins({
   variable: "--font-poppins",
 })
 
-export async function generateMetadata(): Promise<Metadata> {
-  const client = createClient();
-
-  const page = await client.getSingle("settings");
-
-
-
-  return {
-    title: page.data.site_title,
-    description: page.data.meta_description,
-    openGraph: {
-      images: [page.data.og_image.url || ""],
-    },
-  }
-}
 
 export default function RootLayout({
   children,
@@ -53,15 +37,12 @@ export default function RootLayout({
           'italic',
           'bg-umsaBlue',
         "bg-none md:bg-starImg lg:bg-starImg bg-cover bg-fixed")}>
-        <div className="relative min-h-screen overflow-x-hidden">
+        <div className="relative min-h-screen overflow-x-hidden" id="landing">
           <div className="opacity-65 absolute inset-0 bg-blueOverlay bg-fixed z-0"></div>
           <ParticleBackground />
-          <Header />
-          <div className="relative z-10" id="landing">
-            <Globe />
-            <div>
-              {children}
-            </div>
+          <div className="relative">
+            <Header />
+            {children}
             <Footer />
           </div>
         </div>

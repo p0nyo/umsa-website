@@ -1,23 +1,10 @@
-import { Content } from "@prismicio/client";
-import { SliceComponentProps } from "@prismicio/react";
+
 import Bounded from "@/app/components/Bounded";
 
-/**
- * Props for `Team`.
- */
-export type TeamProps = SliceComponentProps<Content.TeamSlice>;
-
-/**
- * Component for "Team" Slices.
- */
-const Team = ({ slice }: TeamProps): JSX.Element => {
+export default function Team() {
   return (
-    <div className="relative">
-      <Bounded
-        data-slice-type={slice.slice_type}
-        data-slice-variation={slice.variation}
-        id="team"
-      >
+    <div className="relative" id="team">
+      <Bounded>
         <div className="text-white min-h-screen">
               <p className="text-9xl transparent-y-gradient"> 
                   <span className="font-light opacity-60">
@@ -59,5 +46,3 @@ const Team = ({ slice }: TeamProps): JSX.Element => {
     </div>
   );
 };
-
-export default Team;

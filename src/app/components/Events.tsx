@@ -1,24 +1,13 @@
-import { Content } from "@prismicio/client";
-import { SliceComponentProps } from "@prismicio/react";
+
 import Bounded from "@/app/components/Bounded";
 import Event from "@/app/components/Event"
 import Footer from "@/app/components/Footer";
 
-/**
- * Props for `Events`.
- */
-export type EventsProps = SliceComponentProps<Content.EventsSlice>;
 
-/**
- * Component for "Events" Slices.
- */
-const Events = ({ slice }: EventsProps): JSX.Element => {
+export default function Events() {
   return (
-    <div className="relative">
+    <div className="relative" id="events">
       <Bounded
-        data-slice-type={slice.slice_type}
-        data-slice-variation={slice.variation}
-        id="events"
         className="relative text-white"
       >
         <div className="">
@@ -61,7 +50,6 @@ const Events = ({ slice }: EventsProps): JSX.Element => {
           <span className="text-5xl text-white font-light transparent-y-gradient"> 
             upcoming...  
           </span>
-          {/* <p>{slice.primary.upcoming_events[1]?.event_title}</p> */}
           <Event />
           <Event />
           <img className="absolute bottom-0 right-0 translate-y-2/3 -translate-x-2/3 w-3/4 -z-50 opacity-15" draggable="false" src="/umsa-globe.svg"></img>
@@ -71,5 +59,3 @@ const Events = ({ slice }: EventsProps): JSX.Element => {
     </div>
   );
 };
-
-export default Events;

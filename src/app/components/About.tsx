@@ -1,26 +1,13 @@
-import { Content } from "@prismicio/client";
-import { SliceComponentProps } from "@prismicio/react";
+
 import { ArrowDown01Icon } from "hugeicons-react" 
 import Bounded from "@/app/components/Bounded";
 
-/**
- * Props for `About`.
- */
-export type AboutProps = SliceComponentProps<Content.AboutSlice>;
-
-/**
- * Component for "About" Slices.
- */
-const About = ({ slice }: AboutProps): JSX.Element => {
+export default function About() {
   return (
-    <div className="relative">
+    <div className="relative" id="about">
       <Bounded
-        data-slice-type={slice.slice_type}
-        data-slice-variation={slice.variation}
-        id="about"
         // className="text-white opacity bg-[url('/umsa-globe.svg')] bg-no-repeat bg-[length:auto_600px] bg-right-bottom overflow-visible"
         className="relative"
-
       >
       <div className="text-white min-h-screen flex flex-col p-10">
         <p className="text-9xl transparent-y-gradient">
@@ -30,8 +17,8 @@ const About = ({ slice }: AboutProps): JSX.Element => {
         <div className="grid grid-cols-2 h-full flex-1 gap-x-10 z-10">
           <div className="flex flex-col gap-y-6 items-start justify-center">
             <div>
-              <p className="text-left text-lg font-extralight opacity-80 leading-loose text-justify">
-                {slice.primary.about_description}
+              <p className="text-lg font-extralight opacity-80 leading-loose text-justify">
+                Connecting Malaysians across campus, our club celebrates Malaysian culture, fosters friendships, and creates a welcoming space for students. From cultural events to social gatherings, we bring a piece of home to university life.
               </p>
             </div>
             <div className=""> 
@@ -64,4 +51,3 @@ const About = ({ slice }: AboutProps): JSX.Element => {
   );
 };
 
-export default About;

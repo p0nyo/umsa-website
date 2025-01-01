@@ -1,7 +1,6 @@
-import { KeyTextField } from "@prismicio/client";
 
 interface EventProps {
-    title: KeyTextField | null | undefined;
+    title: null | undefined;
     time: string | null | undefined;
     date: string | null | undefined;
     location: string | null | undefined;
@@ -9,14 +8,7 @@ interface EventProps {
     form_link: string | null | undefined;
 }
 
-export default function Event({
-    title,
-    time,
-    date,
-    location,
-    instagram_link,
-    form_link,
-}: EventProps) {
+export default function Event() {
     return (
         <div className="flex flex-col my-10">
             <div className="flex w-full gap-x-5 bg-white rounded-md bg-opacity-20 py-4 px-4">

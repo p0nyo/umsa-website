@@ -7,6 +7,7 @@
   - [ ] image carousel (potentially)
 - [x] pulsing globe icon
 - [ ] migrate to firebase
+  - [x] remove prismic implemention
 - [ ] parallax scrolling
 - [ ] shrinking navbar on scroll
 - [ ] loading screen animation -> rotating globe
