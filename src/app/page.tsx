@@ -5,11 +5,6 @@ import About from "./components/About";
 import Events from "./components/Events";
 import Team from "./components/Team";
 
-
-import { Metadata } from "next";
-
-
-
 export default function Home() {
   return (
     <div>

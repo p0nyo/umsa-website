@@ -4,9 +4,9 @@
 - [x] add arrow to bottom of landing page
 - [ ] shooting stars (maybe)
 - [x] images across the landing page
-  - [ ] image carousel (potentially)
+  - [x] image carousel (potentially)
 - [x] pulsing globe icon
-- [ ] migrate to firebase
+- [ ] create custom cms (do last)
   - [x] remove prismic implemention
 - [ ] parallax scrolling
 - [ ] shrinking navbar on scroll
@@ -14,6 +14,7 @@
 - [x] hover effects for all icons
   - [ ] fix: hover:scaling doesnt go past bounds of parent container (landing page)
 - [ ] about page
+  - [ ] update description
   - [x] image 
     - [ ] image carousel (potentially)
   - [x] stretch grid to parent container size
@@ -22,15 +23,14 @@
 - [ ] events page
   - [ ] image carousel
   - [ ] link to "all events" -> "home/events" from "view all"
-  - [ ] coming soon events -> add prismic repeatables
+  - [ ] coming soon events 
   - [ ] links to events
   - [ ] globe background
 - [ ] teams page
   - [ ] get photos
   - [ ] globe background
 - [ ] sponsor list
-- [ ] finish footer
-- [x] add prismic slices
+- [x] finish footer
 
 ## wip
 

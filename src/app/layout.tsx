@@ -5,8 +5,6 @@ import clsx from "clsx";
 import Head from "next/head";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import { ArrowDown01Icon } from "hugeicons-react"; 
-import Globe from "./components/Landing";
 import ParticleBackground from "./components/ParticleBackground";
 
 
@@ -17,6 +15,13 @@ const poppins = Poppins({
   style: ["normal", "italic"],
   variable: "--font-poppins",
 })
+
+ 
+export const metadata: Metadata = {
+  title: 'UMSA New Zealand',
+  description: 'The Official Page of the Union of Malaysian Students in Auckland',
+}
+ 
 
 
 export default function RootLayout({
