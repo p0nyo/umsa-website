@@ -1,12 +1,12 @@
 
 import Bounded from "@/app/components/Bounded";
 import Event from "@/app/components/Event"
-import Footer from "@/app/components/Footer";
 
 
 export default function Events() {
   return (
-    <div className="relative" id="events">
+    <div className="relative bg-starImg bg-cover min-h-screen" id="events">
+      <div className="absolute inset-0 bg-blueOverlay opacity-65"></div>
       <Bounded
         className="relative text-white"
       >
@@ -47,11 +47,13 @@ export default function Events() {
               </div>
             </div>
           </div>
-          <span className="text-5xl text-white font-light transparent-y-gradient"> 
+          <span className="text-4xl text-white font-light transparent-y-gradient"> 
             upcoming...  
           </span>
-          <Event />
-          <Event />
+          <div className="grid grid-cols-2 gap-x-5">
+            <Event />
+            <Event />
+          </div>
           <img className="absolute bottom-0 right-0 translate-y-2/3 -translate-x-2/3 w-3/4 -z-50 opacity-15" draggable="false" src="/umsa-globe.svg"></img>
         </div>
 

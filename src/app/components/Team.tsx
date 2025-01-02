@@ -3,19 +3,19 @@ import Bounded from "@/app/components/Bounded";
 
 export default function Team() {
   return (
-    <div className="relative" id="team">
+    <div className="relative bg-white" id="team">
       <Bounded>
-        <div className="text-white min-h-screen">
-              <p className="text-9xl transparent-y-gradient"> 
-                  <span className="font-light opacity-60">
+        <div className="text-umsaBlue min-h-screen">
+              <p className="text-8xl"> 
+                  <span className="font-light">
                       team
                   </span> 
-                  <span className="font-bold opacity-90">
+                  <span className="font-bold">
                       &nbsp;umsa. 
                   </span>
               </p>
 
-              <span className="text-7xl text-white font-light transparent-y-gradient"> 
+              <span className="text-4xl font-light"> 
                 executives.
               </span>
 

@@ -43,8 +43,8 @@ export default function RootLayout({
           'bg-umsaBlue',
         "bg-none md:bg-starImg lg:bg-starImg bg-cover bg-fixed")}>
         <div className="relative min-h-screen overflow-x-hidden" id="landing">
-          <div className="opacity-65 absolute inset-0 bg-blueOverlay bg-fixed z-0"></div>
-          <ParticleBackground />
+          {/* <div className="opacity-65 absolute inset-0 bg-blueOverlay bg-fixed z-0"></div> */}
+          {/* <ParticleBackground /> */}
           <div className="relative">
             <Header />
             {children}

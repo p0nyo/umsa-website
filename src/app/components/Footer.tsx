@@ -7,10 +7,18 @@ export default function Footer() {
                 </div>
                 <div className="flex w-full items-center col-span-1">
                     <div className="flex flex-col gap-y-4 text-2xl font-extralight text-left w-full">
-                        <p>home</p>
-                        <p>about</p>
-                        <p>events</p>
-                        <p>our team</p>
+                        <a className="scale-hover" href="#landing">
+                            <p>home</p>
+                        </a>
+                        <a className="scale-hover" href="#about">
+                            <p>about</p>
+                        </a>
+                        <a className="scale-hover" href="#events">
+                            <p>events</p>
+                        </a>
+                        <a className="scale-hover" href="#team">
+                            <p>our team</p>
+                        </a>
                     </div>
                 </div>
             </div>

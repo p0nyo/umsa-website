@@ -5,19 +5,23 @@ import Bounded from "@/app/components/Bounded";
 export default function About() {
   return (
     <div className="relative" id="about">
+      <div className="absolute inset-0 bg-white"></div>
       <Bounded
         // className="text-white opacity bg-[url('/umsa-globe.svg')] bg-no-repeat bg-[length:auto_600px] bg-right-bottom overflow-visible"
         className="relative"
       >
-      <div className="text-white min-h-screen flex flex-col p-10">
-        <p className="text-9xl transparent-y-gradient">
-          <span className="font-light">we are</span>
-          <span className="font-bold">&nbsp;umsa.</span>
-        </p>
+      <div className="text-umsaBlue flex flex-col">
+        <div>
+          <p className="text-8xl">
+            <span className="font-light">we are</span>
+            <span className="font-bold">&nbsp;umsa.</span>
+          </p>
+        </div>
         <div className="grid grid-cols-2 h-full flex-1 gap-x-10 z-10">
           <div className="flex flex-col gap-y-6 items-start justify-center">
-            <div>
-              <p className="text-lg font-extralight opacity-80 leading-loose text-justify">
+            <div className="flex flex-col gap-y-6">
+              <p className="text-4xl font-extrabold whitespace-nowrap">a home away from home.</p>
+              <p className="text-lg font-light leading-loose text-justify">
                 Connecting Malaysians across campus, our club celebrates Malaysian culture, fosters friendships, and creates a welcoming space for students. From cultural events to social gatherings, we bring a piece of home to university life.
               </p>
             </div>
@@ -46,7 +50,7 @@ export default function About() {
         <img className="absolute bottom-0 right-0 translate-y-1/2 translate-x-1/3 w-3/4 -z-50 opacity-15" draggable="false" src="/umsa-globe.svg"></img>
       </div>  
       </Bounded>
-      <div className=" opacity-80 max-w-6xl mx-auto border-white border-2 rounded-md"></div>
+      {/* <div className=" opacity-80 max-w-6xl mx-auto border-white border-2 rounded-md"></div> */}
     </div>
   );
 };

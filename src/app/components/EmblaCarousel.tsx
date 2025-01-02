@@ -17,13 +17,13 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
   ])
 
   return (
-    <div className="embla text-white w-full px-96 transparent-x-gradient opacity-50">
-      <div className="embla__viewport" ref={emblaRef}>
-        <div className="embla__container">
+    <div className="embla text-white w-full px-96 transparent-x-gradient opacity-50 pointer-events-none">
+      <div className="embla__viewport pointer-events-none" ref={emblaRef}>
+        <div className="embla__container pointer-events-none">
           {slides.map((imagePath) => (
             <div className="embla__slide" key={imagePath}>
-              <div className="embla__slide__number overflow-hidden rounded-lg">
-                <img src={imagePath}></img>
+              <div className="embla__slide__number h-64 w-full overflow-hidden rounded-lg mx-2">
+                <img className="object-cover w-full h-full mx-2 rounded-lg" src={imagePath}></img>
               </div>
             </div>
           ))}
