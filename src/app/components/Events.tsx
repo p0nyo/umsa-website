@@ -1,7 +1,19 @@
 
 import Bounded from "@/app/components/Bounded";
 import Event from "@/app/components/Event"
+import EventsCarousel from "./EventsCarousel";
+import { EmblaOptionsType } from 'embla-carousel'
 
+const OPTIONS: EmblaOptionsType = { loop: true } 
+const SLIDES = [
+    "/landing-1.jpg",
+    "/landing-2.jpg",
+    "/landing-3.jpg",
+    "/landing-4.jpg",
+    "/landing-5.jpg"
+]
+const SLIDE_COUNT = 5
+const INDEX = Array.from(Array(SLIDE_COUNT).keys())
 
 export default function Events() {
   return (
@@ -22,7 +34,7 @@ export default function Events() {
                 </span>
             </p>
             <div className="flex flex-col justify-center items-center mt-6">
-              <div className="grid grid-cols-3 items-center justify-center">
+              {/* <div className="grid grid-cols-3 items-center justify-center">
                   <div className="flex justify-center">
                     <div className="h-60 w-60">
                       <img className="rounded-sm object-cover h-full" src="/landing-1.jpg"></img>
@@ -44,7 +56,8 @@ export default function Events() {
                   <p className="text-umsaBlue text-3xl ">view all</p>
                   <img className="h-6" src="/blue-arrow.svg"></img>
                 </div>
-              </div>
+              </div> */}
+              <EventsCarousel index={INDEX} slides={SLIDES} options={OPTIONS} />
             </div>
           </div>
           <span className="text-4xl text-white font-light transparent-y-gradient"> 

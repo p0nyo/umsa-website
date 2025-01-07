@@ -1,4 +1,4 @@
-import EmblaCarousel from "./EmblaCarousel";
+import LandingCarousel from "./LandingCarousel";
 import { EmblaOptionsType } from 'embla-carousel'
 
 const OPTIONS: EmblaOptionsType = { loop: true } 
@@ -32,7 +32,7 @@ export default function Landing() {
                             <img className="rounded-md object-cover w-full h-full" draggable="false" src="/landing-4.jpg"></img>
                         </div>
                     </div> */}
-                    <EmblaCarousel slides={SLIDES} options={OPTIONS}/>
+                    <LandingCarousel slides={SLIDES} options={OPTIONS}/>
                 </div>
             </div>
             <div className="absolute bottom-0 -translate-x-1/2 left-1/2  scale-hover">
