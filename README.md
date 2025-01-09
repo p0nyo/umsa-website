@@ -21,11 +21,10 @@
   - [x] format description text
   - [x] globe background
 - [ ] events page
-  - [ ] image carousel
+  - [x] image carousel
   - [ ] link to "all events" -> "home/events" from "view all"
   - [ ] coming soon events 
   - [ ] links to events
-  - [ ] globe background
 - [ ] teams page
   - [ ] get photos
   - [ ] globe background

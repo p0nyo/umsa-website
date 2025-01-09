@@ -4,15 +4,20 @@ import Event from "@/app/components/Event"
 import EventsCarousel from "./EventsCarousel";
 import { EmblaOptionsType } from 'embla-carousel'
 
-const OPTIONS: EmblaOptionsType = { loop: true } 
+const OPTIONS: EmblaOptionsType = { loop: true,  } 
 const SLIDES = [
+    "/landing-1.jpg",
+    "/landing-2.jpg",
+    "/landing-3.jpg",
+    "/landing-4.jpg",
+    "/landing-5.jpg",
     "/landing-1.jpg",
     "/landing-2.jpg",
     "/landing-3.jpg",
     "/landing-4.jpg",
     "/landing-5.jpg"
 ]
-const SLIDE_COUNT = 5
+const SLIDE_COUNT = 10
 const INDEX = Array.from(Array(SLIDE_COUNT).keys())
 
 export default function Events() {

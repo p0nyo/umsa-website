@@ -4,6 +4,7 @@ import React, { useState, useEffect, useCallback } from 'react'
 import { EmblaOptionsType } from 'embla-carousel'
 import useEmblaCarousel from 'embla-carousel-react'
 import { EventsCarouselButton } from './EventsCarouselButtons'
+import AutoScroll from 'embla-carousel-auto-scroll'
 
 type PropType = {
   slides: string[]
@@ -42,33 +43,34 @@ const EventsCarousel: React.FC<PropType> = (props) => {
   }, [emblaMainApi, onSelect])
 
   return (
-      <div className="embla w-full text-white">
-        <div className="embla__viewport w-full" ref={emblaMainRef}>
-        <div className="embla__container w-full">
-          {index.map((index) => (
-            <div className="embla__slide overflow-hidden border-white border-2" key={index}>
-                <div className="embla__slide__number object-cover">
-                    <img src={slides[index]}></img>{slides[index]}
+    <div className="events-carousel text-white">
+        <div className="events-carousel-viewport rounded-lg w-full" ref={emblaMainRef}>
+            <div className="events-carousel-container w-full">
+            {index.map((index) => (
+                <div className="events-carousel-slide overflow-hidden" key={index}>
+                    <div className="events-carousel-image">
+                        <img className="w-full h-full object-cover" src={slides[index]}></img>
+                    </div>
+                </div>
+            ))}
+            </div>
+        </div>
+
+        <div className="events-buttons">
+            <div className="events-buttons-viewport" ref={emblaThumbsRef}>
+                <div className="events-buttons-container">
+                    {index.map((index) => (
+                    <EventsCarouselButton
+                        slides={slides[index]}
+                        key={index}
+                        onClick={() => onThumbClick(index)}
+                        selected={index === selectedIndex}
+                        index={index}
+                    />
+                    ))}
                 </div>
             </div>
-          ))}
         </div>
-      </div>
-
-      <div className="embla-thumbs">
-        <div className="embla-thumbs__viewport" ref={emblaThumbsRef}>
-          <div className="embla-thumbs__container">
-            {index.map((index) => (
-              <EventsCarouselButton
-                key={index}
-                onClick={() => onThumbClick(index)}
-                selected={index === selectedIndex}
-                index={index}
-              />
-            ))}
-          </div>
-        </div>
-      </div>
     </div>
   )
 }
