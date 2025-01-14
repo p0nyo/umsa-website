@@ -27,13 +27,14 @@
   - [ ] links to events
 - [ ] teams page
   - [ ] get photos
+  - [ ] finish grid layout for teams
   - [ ] globe background
 - [ ] faq page
 - [ ] sponsor list
 - [x] finish footer
 
 # INPROGRESS
-- [ ] embla carousel on events page
+- [ ]
 
 
 ## wip
