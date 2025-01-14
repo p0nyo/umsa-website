@@ -13,8 +13,8 @@
 - [ ] (*) loading screen animation -> rotating globe
 - [x] hover effects for all icons
   - [ ] fix: hover:scaling doesnt go past bounds of parent container (landing page)
-- [ ] about page
-  - [ ] update description (larger + smaller font, 2 separate sections)
+- [x] about page
+  - [x] update description (larger + smaller font, 2 separate sections)
   - [x] image 
     - [ ] image carousel (potentially)
   - [x] stretch grid to parent container size
