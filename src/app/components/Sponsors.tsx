@@ -8,7 +8,7 @@ export default function Sponsors() {
         <div className="text-umsaBlue">
               <p className="text-4xl text-center"> 
                   <span className="font-light">
-                      sponsors.
+                      sponsored by
                   </span> 
               </p>
           </div>

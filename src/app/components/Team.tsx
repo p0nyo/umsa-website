@@ -2,23 +2,23 @@
 import Bounded from "@/app/components/Bounded";
 
 const ExecPictures = [
-  "/joseph-team.jpeg",
-  "/joseph-team.jpeg",
-  "/joseph-team.jpeg",
-  "/joseph-team.jpeg"
+  { src: "/joseph-team.jpeg", title: "President" },
+  { src: "/joseph-team.jpeg", title: "Vice-President" },
+  { src: "/joseph-team.jpeg", title: "Secretary" },
+  { src: "/joseph-team.jpeg", title: "Treasurer" },
 ]
 
 const GeneralPictures = [
-  "/joseph-team.jpeg",
-  "/joseph-team.jpeg",
-  "/joseph-team.jpeg",
-  "/joseph-team.jpeg",
-  "/joseph-team.jpeg",
-  "/joseph-team.jpeg",
-  "/joseph-team.jpeg",
-  "/joseph-team.jpeg",
-  "/joseph-team.jpeg",
-  "/joseph-team.jpeg"
+  { src: "/joseph-team.jpeg", title: "Social" },
+  { src: "/joseph-team.jpeg", title: "Social" },
+  { src: "/joseph-team.jpeg", title: "Public Relations" },
+  { src: "/joseph-team.jpeg", title: "Public Relations" },
+  { src: "/joseph-team.jpeg", title: "Cultural" },
+  { src: "/joseph-team.jpeg", title: "Cultural" },
+  { src: "/joseph-team.jpeg", title: "Sports" },
+  { src: "/joseph-team.jpeg", title: "Sports" },
+  { src: "/joseph-team.jpeg", title: "Communications" },
+  { src: "/joseph-team.jpeg", title: "Communications" }
 ]
 
 export default function Team() {
@@ -36,7 +36,7 @@ export default function Team() {
                       &nbsp;umsa. 
                   </span>
               </p>
-              
+
               <div className="pb-4">
                 <span className="text-4xl font-semibold"> 
                   executives.
@@ -44,15 +44,17 @@ export default function Team() {
               </div>
 
               <div className="grid grid-cols-9 gap-4 py-4">
-                <div className="col-span-3 row-span-3 text-center">
+                <div className="relative col-span-3 row-span-3 text-center">
                   <div className="h-full ">
-                    <img className="object-cover h-full rounded-md transparent-y-gradient-sm" src={ExecPictures[0]}></img>
+                    <img className="object-cover h-full rounded-md transparent-y-gradient-sm" src={ExecPictures[0].src}></img>
+                    <p className="absolute bottom-0 right-1/2 translate-x-1/2 text-3xl whitespace-nowrap">{ExecPictures[0].title}</p>
                   </div>
                 </div>
-                {ExecSublist.map((src) => (
-                  <div className="col-span-2">
+                {ExecSublist.map((item) => (
+                  <div className="relative col-span-2">
                     <div className="h-full">
-                      <img className="object-cover h-full w-full rounded-md transparent-y-gradient-sm" src={src}></img>
+                      <img className="object-cover h-full w-full rounded-md transparent-y-gradient-sm" src={item.src}></img>
+                      <p className="absolute bottom-0 right-1/2 translate-x-1/2 whitespace-nowrap">{item.title}</p>
                     </div>
                   </div>
                 ))}
@@ -64,11 +66,12 @@ export default function Team() {
                 </span>
               </div>
 
-              <div className="grid grid-cols-5 gap-6 py-4">
-                {GeneralPictures.map((src) => (
-                  <div className="text-center">
+              <div className="grid grid-cols-5 gap-x-5 gap-y-16 py-4">
+                {GeneralPictures.map((item, index) => (
+                  <div className="relative text-center">
                     <div className="h-full">
-                      <img className="object-cover h-full rounded-md transparent-y-gradient-sm" src={src}></img>
+                      <img className="object-cover h-full rounded-md transparent-y-gradient-sm" src={item.src}></img>
+                      <p className="absolute bottom-0 right-1/2 translate-x-1/2 whitespace-nowrap">{item.title}</p>
                     </div>
                   </div>
                 ))}
