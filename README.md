@@ -19,7 +19,6 @@
     - [ ] image carousel (potentially)
   - [x] stretch grid to parent container size
   - [x] format description text
-  - [x] globe background
 - [ ] events page
   - [x] image carousel
   - [ ] link to "all events" -> "home/events" from "view all"
@@ -27,10 +26,9 @@
   - [ ] links to events
 - [ ] teams page
   - [ ] get photos
-  - [ ] finish grid layout for teams
-  - [ ] globe background
-- [ ] faq page
+  - [x] finish grid layout for teams
 - [ ] sponsor list
+- [ ] faq page
 - [x] finish footer
 
 # INPROGRESS
