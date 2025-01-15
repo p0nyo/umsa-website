@@ -3,8 +3,8 @@ import Landing from "./components/Landing";
 import About from "./components/About";
 import Events from "./components/Events";
 import Team from "./components/Team";
-import Faq from "./components/Faq";
 import Sponsors from "./components/Sponsors";
+import Faq from "./components/Faq";
 
 
 export default function Home() {
@@ -14,7 +14,7 @@ export default function Home() {
       <About />
       <Events />
       <Team />
-      <Sponsors />
+      {/* <Sponsors /> */}
       <Faq />
     </div>
   )

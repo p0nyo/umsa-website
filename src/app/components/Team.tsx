@@ -27,7 +27,7 @@ export default function Team() {
   return (
     <div className="relative bg-white" id="team">
       <Bounded>
-        <div className="text-umsaBlue min-h-screen">
+        <div className="text-umsaBlue pb-16">
               <p className="text-8xl pb-12"> 
                   <span className="font-light">
                       team
@@ -67,7 +67,7 @@ export default function Team() {
               </div>
 
               <div className="grid grid-cols-5 gap-x-5 gap-y-16 py-4">
-                {GeneralPictures.map((item, index) => (
+                {GeneralPictures.map((item) => (
                   <div className="relative text-center">
                     <div className="h-full">
                       <img className="object-cover h-full rounded-md transparent-y-gradient-sm" src={item.src}></img>
