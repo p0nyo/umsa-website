@@ -20,6 +20,7 @@
   - [x] stretch grid to parent container size
   - [x] format description text
 - [ ] events page
+  - [ ] shrink the images on events and add description on the right
   - [x] image carousel
   - [ ] link to "all events" -> "home/events" from "view all"
   - [ ] coming soon events 
@@ -33,7 +34,7 @@
 - [x] finish footer
 
 # INPROGRESS
-- [ ]
+- [ ] fixing up teams page
 
 
 ## wip

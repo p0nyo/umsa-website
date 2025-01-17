@@ -2,10 +2,10 @@
 import Bounded from "@/app/components/Bounded";
 
 const ExecPictures = [
-  { src: "/joseph-team.jpeg", title: "President" },
-  { src: "/joseph-team.jpeg", title: "Vice-President" },
-  { src: "/joseph-team.jpeg", title: "Secretary" },
-  { src: "/joseph-team.jpeg", title: "Treasurer" },
+  { src: "/joseph-team.jpeg", title: "Janelle" },
+  { src: "/joseph-team.jpeg", title: "Hayley" },
+  { src: "/joseph-team.jpeg", title: "Eunice" },
+  { src: "/joseph-team.jpeg", title: "Francine" },
 ]
 
 const GeneralPictures = [
@@ -45,15 +45,15 @@ export default function Team() {
 
               <div className="grid grid-cols-9 gap-4 py-4">
                 <div className="relative col-span-3 row-span-3 text-center">
-                  <div className="h-full ">
-                    <img className="object-cover h-full rounded-md transparent-y-gradient-sm" src={ExecPictures[0].src}></img>
-                    <p className="absolute bottom-0 right-1/2 translate-x-1/2 text-3xl whitespace-nowrap">{ExecPictures[0].title}</p>
+                  <div className="h-full">
+                    <img className="object-cover h-full rounded-md opacity-65 hover:opacity-100 transition-opacity duration-300x" draggable="false" src={ExecPictures[0].src}></img>
+                    <p className="absolute bottom-0 right-1/2 translate-x-1/2 text-3xl font-semibold whitespace-nowrap">{ExecPictures[0].title}</p>
                   </div>
                 </div>
                 {ExecSublist.map((item) => (
                   <div className="relative col-span-2">
                     <div className="h-full">
-                      <img className="object-cover h-full w-full rounded-md transparent-y-gradient-sm" src={item.src}></img>
+                      <img className="object-cover h-full w-full rounded-md opacity-65 hover:opacity-100 transition-opacity duration-300" draggable="false" src={item.src}></img>
                       <p className="absolute bottom-0 right-1/2 translate-x-1/2 whitespace-nowrap">{item.title}</p>
                     </div>
                   </div>
@@ -70,7 +70,7 @@ export default function Team() {
                 {GeneralPictures.map((item) => (
                   <div className="relative text-center">
                     <div className="h-full">
-                      <img className="object-cover h-full rounded-md transparent-y-gradient-sm" src={item.src}></img>
+                      <img className="object-cover h-full rounded-md opacity-65 hover:opacity-100 transition-opacity duration-300" draggable="false" src={item.src}></img>
                       <p className="absolute bottom-0 right-1/2 translate-x-1/2 whitespace-nowrap">{item.title}</p>
                     </div>
                   </div>
