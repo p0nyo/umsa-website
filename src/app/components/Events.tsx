@@ -38,8 +38,18 @@ export default function Events() {
                     &nbsp;umsa. 
                 </span>
             </p>
-            <div className="flex flex-col justify-center items-center">
-              <EventsCarousel index={INDEX} slides={SLIDES} options={OPTIONS} />
+            <div className="grid grid-cols-3 gap-x-10 justify-center items-center">
+              <div className="col-span-2">
+                <EventsCarousel index={INDEX} slides={SLIDES} options={OPTIONS} />
+              </div>
+              <div className="h-full items-start justify-start">
+                <div className="flex flex-col gap-y-3 text-start">
+                  <p className="text-4xl">join our events!</p>
+                  <p>
+                    If you're looking for random paragraphs, you've come to the right place. When a random word or a random sentence isn't quite enough, the next logical step is to find a random paragraph. We created the Random Paragraph Generator with you in mind. The process is quite simple. Choose the number of random paragraphs you'd like to see and click the button. Your chosen number of paragraphs will instantly appear.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
           {/* <span className="text-4xl text-white font-light transparent-y-gradient"> 

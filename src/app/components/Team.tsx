@@ -45,16 +45,16 @@ export default function Team() {
 
               <div className="grid grid-cols-9 gap-4 py-4">
                 <div className="relative col-span-3 row-span-3 text-center">
-                  <div className="h-full">
-                    <img className="object-cover h-full rounded-md opacity-65 hover:opacity-100 transition-opacity duration-300x" draggable="false" src={ExecPictures[0].src}></img>
-                    <p className="absolute bottom-0 right-1/2 translate-x-1/2 text-3xl font-semibold whitespace-nowrap">{ExecPictures[0].title}</p>
+                  <div className="h-full group">
+                    <img className="object-cover h-full rounded-md opacity-65 hover:opacity-100 transition-opacity duration-300" draggable="false" src={ExecPictures[0].src}></img>
+                    <p className="absolute bottom-0 right-1/2 translate-x-1/2 text-3xl font-semibold whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-500">{ExecPictures[0].title}</p>
                   </div>
                 </div>
                 {ExecSublist.map((item) => (
                   <div className="relative col-span-2">
-                    <div className="h-full">
+                    <div className="h-full group">
                       <img className="object-cover h-full w-full rounded-md opacity-65 hover:opacity-100 transition-opacity duration-300" draggable="false" src={item.src}></img>
-                      <p className="absolute bottom-0 right-1/2 translate-x-1/2 whitespace-nowrap">{item.title}</p>
+                      <p className="absolute bottom-0 right-1/2 translate-x-1/2 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-500">{item.title}</p>
                     </div>
                   </div>
                 ))}
@@ -69,9 +69,9 @@ export default function Team() {
               <div className="grid grid-cols-5 gap-x-5 gap-y-16 py-4">
                 {GeneralPictures.map((item) => (
                   <div className="relative text-center">
-                    <div className="h-full">
-                      <img className="object-cover h-full rounded-md opacity-65 hover:opacity-100 transition-opacity duration-300" draggable="false" src={item.src}></img>
-                      <p className="absolute bottom-0 right-1/2 translate-x-1/2 whitespace-nowrap">{item.title}</p>
+                    <div className="h-full group">
+                      <img className="object-cover h-full rounded-md opacity-65 group-hover:opacity-100 transition-opacity duration-300" draggable="false" src={item.src}></img>
+                      <p className="absolute bottom-0 right-1/2 translate-x-1/2 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-500">{item.title}</p>
                     </div>
                   </div>
                 ))}
