@@ -35,7 +35,7 @@
 
 # INPROGRESS
 - [ ] fixing up teams page
-
+- [ ] changing events page structure
 
 ## wip
 
