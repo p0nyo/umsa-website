@@ -31,7 +31,7 @@ export default function About() {
               <div className="flex w-full justify-end">
                 <a href="https://linktr.ee/Umsanz" target="_blank">
                   <div className="flex gap-x-4 items-center justify-center bg-umsaBlue rounded-md p-3 scale-hover">
-                    <p className="text-white text-xl font-bold">sign up now!</p>
+                    <p className="text-white text-xl font-bold">join us here!</p>
                     <img className="h-6" src="/white-arrow.svg"></img>
                   </div>
                 </a>

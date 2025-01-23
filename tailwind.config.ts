@@ -62,7 +62,7 @@ export default {
     function ({ addComponents, theme }) {
       addComponents({
         '.scale-hover': {
-          '@apply hover:scale-125 transition-transform duration-300': {},
+          '@apply hover:scale-110 transition-transform duration-300': {},
         },
       });
     },

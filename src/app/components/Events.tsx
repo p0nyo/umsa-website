@@ -38,27 +38,32 @@ export default function Events() {
                     &nbsp;umsa. 
                 </span>
             </p>
-            <div className="grid grid-cols-3 gap-x-10 justify-center items-center">
-              <div className="col-span-2">
+            <div className="grid grid-cols-6 gap-x-10 justify-center items-center">
+              <div className="col-span-4">
                 <EventsCarousel index={INDEX} slides={SLIDES} options={OPTIONS} />
               </div>
-              <div className="h-full items-start justify-start">
+              <div className="col-span-2 h-full items-start justify-start">
                 <div className="flex flex-col gap-y-3 text-start">
-                  <p className="text-4xl">join our events!</p>
+                  <p className="text-4xl font-extrabold">Join our events!</p>
                   <p>
-                    If you're looking for random paragraphs, you've come to the right place. When a random word or a random sentence isn't quite enough, the next logical step is to find a random paragraph. We created the Random Paragraph Generator with you in mind. The process is quite simple. Choose the number of random paragraphs you'd like to see and click the button. Your chosen number of paragraphs will instantly appear.
+                    <span className="font-medium text-lg">
+                      Looking for something fun and meaningful to do? We've got a range of exciting events lined up, perfect for all interests!
+                    </span>
+                    <br></br>
+                    <span className="font-light text-sm">
+                      Whether you're into exploring diverse cultures, making new friends, or learning something new, there's always something for you here. Check out our upcoming events and find the one that suits your vibe. Don't miss out—join us and be part of the vibrant university community!
+                    </span>
                   </p>
+                  <a href="https://linktr.ee/Umsanz" target="_blank">
+                    <div className="flex gap-x-4 items-center justify-center bg-white rounded-md p-3 scale-hover">
+                      <p className="text-umsaBlue text-xl font-bold">upcoming events!</p>
+                      <img className="h-6" src="/blue-arrow.svg"></img>
+                    </div>
+                  </a>
                 </div>
               </div>
             </div>
           </div>
-          {/* <span className="text-4xl text-white font-light transparent-y-gradient"> 
-            upcoming...  
-          </span>
-          <div className="grid grid-cols-2 gap-x-5">
-            <Event />
-            <Event />
-          </div> */}
           <img className="absolute bottom-0 right-0 translate-y-2/3 -translate-x-2/3 w-3/4 -z-50 opacity-15" draggable="false" src="/umsa-globe.svg"></img>
         </div>
 
