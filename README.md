@@ -12,7 +12,6 @@
 - [ ] (*) parallax scrolling
 - [ ] (*) loading screen animation -> rotating globe
 - [x] hover effects for all icons
-  - [ ] fix: hover:scaling doesnt go past bounds of parent container (landing page)
 - [x] about page
   - [x] update description (larger + smaller font, 2 separate sections)
   - [x] image 
@@ -20,11 +19,12 @@
   - [x] stretch grid to parent container size
   - [x] format description text
 - [ ] events page
-  - [ ] shrink the images on events and add description on the right
+  - [x] shrink the images on events and add description on the right
   - [x] image carousel
   - [ ] link to "all events" -> "home/events" from "view all"
   - [ ] coming soon events 
   - [ ] links to events
+  - [x] hover for more info about each event on carousel
 - [ ] teams page
   - [ ] get photos
   - [x] finish grid layout for teams
@@ -34,8 +34,7 @@
 - [x] finish footer
 
 # INPROGRESS
-- [ ] fixing up teams page
-- [ ] changing events page structure
+- [ ] implementing hover cursor on events page
 
 ## wip
 
