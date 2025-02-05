@@ -18,47 +18,46 @@ const SLIDES = [
 export default function Landing() {
     useEffect(() => {
 
-        gsap.fromTo(
-          ".landing-page-umsa-globe", // target the image
-          {
-            scale: 2, // start position (100px below the current position)
-            opacity: 0, // start fully transparent
-          },
-          {
-            scale: 1,
-            opacity: 0.8, // end fully visible
-            duration: 7, // animation duration in seconds
-            ease: "power3.out", // easing function
-            onComplete: () => {
-                gsap.to(".landing-page-umsa-globe", {
-                    delay: 0.5,    
-                    scale: 1.04, // scale up to 1.04
-                    opacity: 1, // opacity remains at 1
-                    duration: 3, // duration for one pulse
-                    repeat: -1, // repeat indefinitely
-                    yoyo: true, // reverse the animation to create a pulse effect
-                    ease: "ease-in-out", // smooth ease
-                });
-              },
-          },
-        );
-
         const tl = gsap.timeline();
 
         tl.fromTo(
             ".landing-page-carousel", // target the image
             {
-                scale: 0.7,
+                x: 200,
                 opacity: 0, // start fully transparent
             },
             {
-                scale: 1,
+                x: 0,
                 opacity: 1, // end fully visible
-                duration: 10, // animation duration in seconds
+                duration: 5, // animation duration in seconds
                 ease: "power3.out", // easing function
 
             },
         )
+            .fromTo(
+                ".landing-page-umsa-globe", // target the image
+                {
+                scale: 2, // start position (100px below the current position)
+                opacity: 0, // start fully transparent
+                },
+                {
+                scale: 1,
+                opacity: 0.8, // end fully visible
+                duration: 7, // animation duration in seconds
+                ease: "power3.out", // easing function
+                onComplete: () => {
+                    gsap.to(".landing-page-umsa-globe", {
+                        delay: 0.5,    
+                        scale: 1.04, // scale up to 1.04
+                        opacity: 1, // opacity remains at 1
+                        duration: 3, // duration for one pulse
+                        repeat: -1, // repeat indefinitely
+                        yoyo: true, // reverse the animation to create a pulse effect
+                        ease: "ease-in-out", // smooth ease
+                    });
+                    },
+                },
+            )
             .fromTo(
                 ".landing-page-header", // target the image
                 {
