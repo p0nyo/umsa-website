@@ -1,4 +1,4 @@
-import Bounded from "./Bounded"
+import Bounded from "../Bounded"
 
 const FaqItems = [
     { question: "How do I become a member of UMSA?", answer: "Shoot an e-mail to our helpful communication officers at comm.umsanz@gmail.com and we will be more the merrier to help you get things sorted out. You can also sign up online! Simply click on this link, and follow the step-by-step guide, and you're good to go! During the first week of every new semester, catch our booth at the University of Auckland's club expo."},

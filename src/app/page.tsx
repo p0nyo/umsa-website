@@ -1,10 +1,10 @@
 
-import Landing from "./components/Landing";
-import About from "./components/About";
-import Events from "./components/Events";
-import Team from "./components/Team";
-import Sponsors from "./components/Sponsors";
-import Faq from "./components/Faq";
+import Landing from "./components/pages/Landing";
+import About from "./components/pages/About";
+import Events from "./components/pages/Events";
+import Team from "./components/pages/Team";
+import Sponsors from "./components/pages/Sponsors";
+import Faq from "./components/pages/Faq";
 
 
 export default function Home() {

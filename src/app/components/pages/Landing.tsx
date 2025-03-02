@@ -1,10 +1,10 @@
 "use client"
 
-import LandingCarousel from "./LandingCarousel";
+import LandingCarousel from "../LandingCarousel";
 import { EmblaOptionsType } from 'embla-carousel'
 import { useEffect } from "react";
 import gsap from "gsap";
-import Header from "./Header";
+import Header from "../Header";
 
 const OPTIONS: EmblaOptionsType = { loop: true } 
 const SLIDES = [

@@ -1,7 +1,7 @@
 
 import Bounded from "@/app/components/Bounded";
 import Event from "@/app/components/Event"
-import EventsCarousel from "./EventsCarousel";
+import EventsCarousel from "../EventsCarousel";
 import { EmblaOptionsType } from 'embla-carousel'
 
 const OPTIONS: EmblaOptionsType = { loop: true,  } 
