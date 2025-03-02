@@ -26,7 +26,7 @@
   - [ ] links to events
   - [x] hover for more info about each event on carousel
 - [ ] teams page
-  - [ ] get photos
+  - [x] get photos
   - [x] finish grid layout for teams
   - [ ] flex instead of absolute pos. for the role titles
 - [ ] sponsor list
@@ -34,7 +34,6 @@
 - [x] finish footer
 
 # INPROGRESS
-- [ ] implementing hover cursor on events page
 
 ## wip
 

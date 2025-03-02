@@ -90,12 +90,12 @@ export default function Landing() {
         <div className="relative flex flex-col min-h-screen justify-center bg-starImg bg-cover">
             <div className="absolute inset-0 opacity-65 bg-blueOverlay"></div>
             <div className="relative w-full h-96">
-                <img className="opacity-80 landing-page-umsa-globe pointer-events-none z-40 absolute inset-0 w-full h-full object-contain transparent-y-gradient" draggable="false" src="/umsa-globe1.svg" style={{ opacity: 0.8 }}/>
+                <img className="landing-page-umsa-globe pointer-events-none z-40 absolute inset-0 w-full h-full object-contain transparent-y-gradient" draggable="false" src="/umsa-globe1.svg" style={{ opacity: 0.8 }}/>
                 <div className="landing-page-carousel absolute inset-0 flex items-center justify-center transparent-x-gradient">
                     <LandingCarousel slides={SLIDES} options={OPTIONS}/>
                 </div>
             </div>
-            <div className="absolute bottom-0 -translate-x-1/2 left-1/2  scale-hover">
+            <div className="absolute bottom-0 -translate-x-1/2 left-1/2 scale-hover">
                 <a href="#about" className="animate-bounce-custom">
                     <img src="/arrow-down.svg" className="landing-page-arrow animate-bounce-custom"></img>
                 </a>

@@ -80,10 +80,6 @@ const EventsCarousel: React.FC<PropType> = (props) => {
                         <img className="w-full h-full object-cover group-hover:opacity-50 transition-opacity duration-300 rounded-md" src={slides[index]}></img>
                         <p className="absolute opacity-0 group-hover:opacity-100 transition-opacity duration-500 text-5xl font-medium left-0 bottom-0">malaysian mania</p>
                         <p className="absolute opacity-0 group-hover:opacity-100 transition-opacity duration-500 text-2xl font-semibold right-0 bottom-0">26.10.23</p>
-                        <div className="container-hover-cursor absolute transition-transform ease-in-out" style={{
-                          transform: `translate(${mousePosition.x}px, ${mousePosition.y}px)`,
-                          pointerEvents: 'none',
-                        }}>press for more!</div>
                     </div>
                 </div>
             ))}
