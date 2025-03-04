@@ -17,8 +17,8 @@ const GeneralPictures = [
   { src: "/comm-pics/sports-2.jpg", name: "Nicholas Tee", role: "Sports"},
   { src: "/comm-pics/public-relations-1.jpg", name: "Joie Ting", role: "Public Relations"},
   { src: "/comm-pics/public-relations-2.jpg", name: "Natania Ling", role: "Public Relations"},
-  { src: "/comm-pics/comms-1.jpg", name: "Caitlyn Liu", role: "Communications"},
-  { src: "/comm-pics/comms-2.jpg", name: "Isabella Castillo", role: "Communications"}
+  { src: "/comm-pics/comms-1.jpg", name: "Caitlyn Liu", role: "Comms"},
+  { src: "/comm-pics/comms-2.jpg", name: "Issy Castillo", role: "Comms"}
 ]
 
 export default function Team() {
@@ -47,17 +47,17 @@ export default function Team() {
                 <div className="relative col-span-3 row-span-3 text-center group">
                   <div className="h-full">
                     <img className="object-cover h-full rounded-md group-hover:opacity-65 transition-opacity duration-300" draggable="false" src={ExecPictures[0].src}></img>
-                    <p className="absolute bottom-0 right-1/2 translate-x-1/2 text-white text-3xl font-semibold whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-500">{ExecPictures[0].role}</p>
+                    <p className="absolute bottom-0 right-1/2 translate-x-1/2 text-white text-5xl font-extrabold whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-500">{ExecPictures[0].role}</p>
                   </div>
-                  <p className="text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-500">{ExecPictures[0].name}</p>
+                  <p className="text-xl font-extrabold opacity-0 group-hover:opacity-100 transition-opacity duration-500">{ExecPictures[0].name}</p>
                 </div>
                 {ExecSublist.map((item) => (
                   <div className="relative col-span-2 text-center group">
                     <div className="h-full">
                       <img className="object-cover h-full w-full rounded-md group-hover:opacity-65 transition-opacity duration-300" draggable="false" src={item.src}></img>
-                      <p className="absolute bottom-0 right-1/2 translate-x-1/2 text-white text-xl font-semibold whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-500">{item.role}</p>
+                      <p className="absolute bottom-0 right-1/2 translate-x-1/2 text-white text-2xl font-extrabold whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-500">{item.role}</p>
                     </div>
-                    <p className="text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-500">{item.name}</p>
+                    <p className="text-xl font-extrabold opacity-0 group-hover:opacity-100 transition-opacity duration-500">{item.name}</p>
                   </div>
                 ))}
               </div>
@@ -73,9 +73,9 @@ export default function Team() {
                   <div className="relative text-center group">
                     <div className="h-full">
                       <img className="object-cover h-full rounded-md group-hover:opacity-65 transition-opacity duration-300" draggable="false" src={item.src}></img>
-                      <p className="absolute bottom-0 right-1/2 translate-x-1/2 text-white text-xl font-semibold whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-500">{item.role}</p>
+                      <p className="absolute bottom-0 right-1/2 translate-x-1/2 text-white text-xl font-extrabold whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-500">{item.role}</p>
                     </div>
-                    <p className="text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-500">{item.name}</p>
+                    <p className="text-xl font-extrabold opacity-0 group-hover:opacity-100 transition-opacity duration-500">{item.name}</p>
                   </div>
                 ))}
               </div>

@@ -29,7 +29,7 @@ export default function About() {
             </div>
             <div className=""> 
               <div className="flex w-full justify-end">
-                <a href="https://linktr.ee/Umsanz" target="_blank">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSeTeGK0rsdPF3clfo82LVGL2kcxrc_JN9okTYGGXe98_2WRyQ/viewform" target="_blank">
                   <div className="flex gap-x-4 items-center justify-center bg-umsaBlue rounded-md p-3 scale-hover">
                     <p className="text-white text-xl font-bold">join us here!</p>
                     <img className="h-6" src="/white-arrow.svg"></img>

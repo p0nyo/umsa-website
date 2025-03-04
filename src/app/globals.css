@@ -7,6 +7,14 @@
   scroll-behavior: smooth;
 }
 
+.landing-page-carousel,
+.landing-page-umsa-globe,
+.landing-page-header,
+.landing-page-arrow {
+  opacity: 0;
+  visibility: hidden;
+}
+
 @layer utilities {
   .transparent-x-gradient {
     -webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 100%);

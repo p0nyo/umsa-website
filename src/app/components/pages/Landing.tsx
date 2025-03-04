@@ -19,67 +19,70 @@ export default function Landing() {
     useEffect(() => {
 
         const tl = gsap.timeline();
-
         tl.fromTo(
-            ".landing-page-carousel", // target the image
+            ".landing-page-carousel", 
             {
                 x: 800,
-                opacity: 0, // start fully transparent
+                opacity: 0, 
+                visibility: "visible",
             },
             {
                 x: 0,
-                opacity: 1, // end fully visible
-                duration: 3, // animation duration in seconds
-                ease: "power1.in", // easing function
+                opacity: 1, 
+                duration: 3, 
+                ease: "power1.in", 
 
             },
         )
             .fromTo(
-                ".landing-page-umsa-globe", // target the image
+                ".landing-page-umsa-globe", 
                 {
-                scale: 2, // start position (100px below the current position)
-                opacity: 0, // start fully transparent
+                scale: 2, 
+                opacity: 0, 
+                visibility: "visible",
                 },
                 {
                 scale: 1,
-                opacity: 0.8, // end fully visible
-                duration: 7, // animation duration in seconds
-                ease: "power3.out", // easing function
+                opacity: 0.8, 
+                duration: 7, 
+                ease: "power3.out", 
                 onComplete: () => {
                     gsap.to(".landing-page-umsa-globe", {
                         delay: 0.5,    
-                        scale: 1.04, // scale up to 1.04
-                        opacity: 1, // opacity remains at 1
-                        duration: 3, // duration for one pulse
-                        repeat: -1, // repeat indefinitely
+                        scale: 1.04, 
+                        opacity: 1, 
+                        duration: 3, 
+                        repeat: -1, 
                         yoyo: true, // reverse the animation to create a pulse effect
-                        ease: "ease-in-out", // smooth ease
+                        ease: "ease-in-out", 
                     });
                     },
                 },
             )
             .fromTo(
-                ".landing-page-header", // target the image
+                ".landing-page-header", 
                 {
-                    opacity: 0, // start fully transparent
+                    opacity: 0, 
+                    visibility: "visible",
                 },
                 {
-                    opacity: 1, // end fully visible
-                    duration: 8, // animation duration in seconds
-                    ease: "power3.out", // easing function
+                    opacity: 1, 
+                    duration: 8, 
+                    ease: "power3.out", 
                 },
                 "-=6"
             )
 
             .fromTo(
-                ".landing-page-arrow", // target the image
+                ".landing-page-arrow", 
                 {
-                    opacity: 0, // start fully transparent
+                    opacity: 0, 
+                    visibility: "visible",
                 },
                 {
-                    opacity: 1, // end fully visible
-                    duration: 8, // animation duration in seconds
-                    ease: "power3.out", // easing function
+                    opacity: 1, 
+                    duration: 8,
+                    ease: "power3.out", 
                 },
                 "-=8"
             );

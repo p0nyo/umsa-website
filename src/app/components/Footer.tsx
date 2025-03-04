@@ -37,8 +37,10 @@ export default function Footer() {
             </div>
             <div className="border-white border-t-2 "></div>
             <div className="grid grid-cols-2">
-                <p className="text-left px-4">all right reserved UMSA 2024.</p>
-                <p className="text-right px-4">designed and developed by treyson.</p>
+                <p className="text-left px-4">all right reserved UMSA 2025.</p>
+                <a href="https://www.linkedin.com/in/tsen/" target="_blank">
+                    <p className="text-right px-4">designed and developed by <u>in/tsen.</u></p>
+                </a>
             </div>
         </div>
     );

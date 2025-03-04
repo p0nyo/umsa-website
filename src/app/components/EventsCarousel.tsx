@@ -78,6 +78,14 @@ const EventsCarousel: React.FC<PropType> = (props) => {
                 <div className="events-carousel-slide overflow-hidden" key={index}>
                     <div ref={containerRef}className="events-carousel-container-image relative p-4 events-carousel-image group">
                         <img className="w-full h-full object-cover group-hover:opacity-50 transition-opacity duration-300 rounded-md" src={slides[index]}></img>
+                        <div className="absolute opacity-0 group-hover:opacity-100 transition-opacity duration-500 right-0 top-0">
+                          <div className="flex group gap-x-2 items-center p-1">
+                            <p className="text-base"></p>
+                            <a href="https://www.facebook.com/media/set/?set=a.978074094344282&type=3" target="_blank">
+                              <img className="h-10 bg-white p-2 rounded-md scale-hover" src="/blue-arrow.svg"></img>
+                            </a>
+                          </div>
+                        </div>
                         <p className="absolute opacity-0 group-hover:opacity-100 transition-opacity duration-500 text-5xl font-medium left-0 bottom-0">malaysian mania</p>
                         <p className="absolute opacity-0 group-hover:opacity-100 transition-opacity duration-500 text-2xl font-semibold right-0 bottom-0">26.10.23</p>
                     </div>
