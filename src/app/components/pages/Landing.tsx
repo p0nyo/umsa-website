@@ -23,14 +23,14 @@ export default function Landing() {
         tl.fromTo(
             ".landing-page-carousel", // target the image
             {
-                x: 200,
+                x: 800,
                 opacity: 0, // start fully transparent
             },
             {
                 x: 0,
                 opacity: 1, // end fully visible
-                duration: 5, // animation duration in seconds
-                ease: "power3.out", // easing function
+                duration: 3, // animation duration in seconds
+                ease: "power1.in", // easing function
 
             },
         )
