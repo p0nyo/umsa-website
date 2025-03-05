@@ -13,14 +13,14 @@ export default function Faq() {
         <div className="relative min-h-screen" id="faq">
             <Bounded>
                 <div className="flex flex-col text-white justify-center">
-                    <p className="text-7xl text-start mb-12">
+                    <p className="text-2xl sm:text-7xl text-center sm:text-start mb-12">
                         <span className="font-normal transparent-y-gradient-sm whitespace-nowrap">frequently asked questions.</span>
                     </p>
-                    <div className="grid grid-cols-2 gap-x-10">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10">
                         {FaqItems.map((item) => (
-                            <div className="py-4">
-                                <p className="font-normal text-2xl pb-3">{item.question}</p>
-                                <p className="font-extralight">{item.answer}</p>
+                            <div className="py-4 text-center sm:text-start">
+                            <p className="font-normal text-md sm:text-2xl pb-3">{item.question}</p>
+                                <p className="font-extralight text-xs sm:text-sm">{item.answer}</p>
                             </div>
                         ))}
                     </div>

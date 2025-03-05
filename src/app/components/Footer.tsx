@@ -1,7 +1,7 @@
 export default function Footer() {
     return(
         <div className="text-white" id="footer">
-            <div className="grid grid-cols-4 p-4 gap-x-28">
+            <div className="grid grid-cols-4 p-4 gap-x-6 sm:gap-x-28">
                 <div className="z-50 col-span-3 text-center inline-block transparent-y-gradient">
                     <img className="w-full" src="/umsa-footer-title.svg"></img>
                 </div>
@@ -37,9 +37,9 @@ export default function Footer() {
             </div>
             <div className="border-white border-t-2 "></div>
             <div className="grid grid-cols-2">
-                <p className="text-left px-4">all right reserved UMSA 2025.</p>
+                <p className="text-left text-xs sm:text-md px-4">all rights reserved UMSA 2025.</p>
                 <a href="https://www.linkedin.com/in/tsen/" target="_blank">
-                    <p className="text-right px-4">designed and developed by <u>in/tsen.</u></p>
+                    <p className="text-right text-xs sm:text-md px-4">designed and developed by <u>in/tsen.</u></p>
                 </a>
             </div>
         </div>

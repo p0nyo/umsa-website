@@ -27,6 +27,9 @@ export default {
       backgroundColor: {
         umsaBlue: "rgba(12,30,70,1)"
       },
+      borderColor: {
+        umsaBlue: "rgba(12,30,70,1)"
+      },
       width: {
         "100xl": "1000px",
       },

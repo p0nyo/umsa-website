@@ -29,8 +29,8 @@ export default function Landing() {
             {
                 x: 0,
                 opacity: 1, 
-                duration: 3, 
-                ease: "power1.in", 
+                duration: 1.5, 
+                ease: "power4.in", 
 
             },
         )
@@ -44,7 +44,7 @@ export default function Landing() {
                 {
                 scale: 1,
                 opacity: 0.8, 
-                duration: 7, 
+                duration: 5, 
                 ease: "power3.out", 
                 onComplete: () => {
                     gsap.to(".landing-page-umsa-globe", {
@@ -93,14 +93,14 @@ export default function Landing() {
         <div className="relative flex flex-col min-h-screen justify-center bg-starImg bg-cover">
             <div className="absolute inset-0 opacity-65 bg-blueOverlay"></div>
             <div className="relative w-full h-96">
-                <img className="landing-page-umsa-globe pointer-events-none z-40 absolute inset-0 w-full h-full object-contain transparent-y-gradient" draggable="false" src="/umsa-globe1.svg" style={{ opacity: 0.8 }}/>
-                <div className="landing-page-carousel absolute inset-0 flex items-center justify-center transparent-x-gradient">
+                <img className="landing-page-umsa-globe pointer-events-none z-40 absolute top-0 right-1/2 translate-x-1/2 sm:translate-x-0 sm:top-0 sm:right-0 w-3/4 sm:w-full h-full object-contain transparent-y-gradient" draggable="false" src="/umsa-globe1.svg" style={{ opacity: 0.8 }}/>
+                <div className="landing-page-carousel absolute inset-0 hidden sm:flex items-center justify-center transparent-x-gradient">
                     <LandingCarousel slides={SLIDES} options={OPTIONS}/>
                 </div>
             </div>
             <div className="absolute bottom-0 -translate-x-1/2 left-1/2 scale-hover">
                 <a href="#about" className="animate-bounce-custom">
-                    <img src="/arrow-down.svg" className="landing-page-arrow animate-bounce-custom"></img>
+                    <img src="/arrow-down.svg" className="landing-page-arrow animate-bounce-custom w-24 sm:w-full h-auto"></img>
                 </a>
             </div>
         </div>

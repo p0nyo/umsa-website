@@ -73,10 +73,10 @@ const EventsCarousel: React.FC<PropType> = (props) => {
   return (
     <div className="events-carousel text-white">
         <div className="events-carousel-viewport w-full" ref={emblaMainRef}>
-            <div className="events-carousel-container w-full">
+            <div className="events-carousel-container w-full h-auto">
             {index.map((index) => (
-                <div className="events-carousel-slide overflow-hidden" key={index}>
-                    <div ref={containerRef}className="events-carousel-container-image relative p-4 events-carousel-image group">
+                <div className="events-carousel-slide overflow-hidden h-full" key={index}>
+                    <div ref={containerRef} className="events-carousel-container-image relative p-4 events-carousel-image group">
                         <img className="w-full h-full object-cover group-hover:opacity-50 transition-opacity duration-300 rounded-md" src={slides[index]}></img>
                         <div className="absolute opacity-0 group-hover:opacity-100 transition-opacity duration-500 right-0 top-0">
                           <div className="flex group gap-x-2 items-center p-1">
@@ -86,8 +86,8 @@ const EventsCarousel: React.FC<PropType> = (props) => {
                             </a>
                           </div>
                         </div>
-                        <p className="absolute opacity-0 group-hover:opacity-100 transition-opacity duration-500 text-5xl font-medium left-0 bottom-0">malaysian mania</p>
-                        <p className="absolute opacity-0 group-hover:opacity-100 transition-opacity duration-500 text-2xl font-semibold right-0 bottom-0">26.10.23</p>
+                        <p className="absolute opacity-0 group-hover:opacity-100 transition-opacity duration-500 text-3xl sm:text-5xl font-medium left-0 bottom-0">malaysian mania</p>
+                        <p className="absolute opacity-0 group-hover:opacity-100 transition-opacity duration-500 text-xl sm:text-2xl font-semibold right-0 bottom-0">26.10.23</p>
                     </div>
                 </div>
             ))}
