@@ -30,12 +30,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Head>
+      {/* <Head>
         <script
           src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"
           type="text/javascript">
         </script>
-      </Head>
+      </Head> */}
       <body
         className={clsx(poppins.className, 
           'italic',

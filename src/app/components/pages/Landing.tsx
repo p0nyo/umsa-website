@@ -4,7 +4,7 @@ import LandingCarousel from "../LandingCarousel";
 import { EmblaOptionsType } from 'embla-carousel'
 import { useEffect } from "react";
 import gsap from "gsap";
-import Header from "../Header";
+// import Header from "../Header";
 
 const OPTIONS: EmblaOptionsType = { loop: true } 
 const SLIDES = [
@@ -178,7 +178,7 @@ export default function Landing() {
         <div className="relative flex flex-col min-h-screen justify-center bg-starImg bg-cover">
             <div className="absolute inset-0 opacity-65 bg-blueOverlay"></div>
             <div className="flex justify-center items-center relative h-96 w-auto">
-                <img className="landing-page-umsa-globe pointer-events-none z-40 h-80 sm:h-auto transparent-y-gradient" draggable="false" src="/umsa-globe1.svg" style={{ opacity: 0.8 }}/>
+                <img className="landing-page-umsa-globe pointer-events-none z-40 h-80 sm:h-auto transparent-y-gradient" draggable="false" src="/umsa-globe1.svg" style={{ opacity: 0.8 }} alt=""/>
                 {/* <img className="landing-page-umsa-globe pointer-events-none z-40 absolute top-0 right-1/2 translate-x-1/2 sm:translate-x-0 sm:top-0 sm:right-0 w-3/4 sm:w-full h-full object-contain transparent-y-gradient" draggable="false" src="/umsa-globe1.svg" style={{ opacity: 0.8 }}/> */}
                 <div className="landing-page-carousel absolute inset-0 hidden xl:flex items-center justify-center transparent-x-gradient">
                     <LandingCarousel slides={SLIDES} options={OPTIONS}/>
@@ -186,7 +186,7 @@ export default function Landing() {
             </div>
             <div className="absolute bottom-0 -translate-x-1/2 left-1/2 scale-hover">
                 <a href="#about" className="animate-bounce-custom">
-                    <img src="/arrow-down.svg" className="landing-page-arrow animate-bounce-custom w-24 sm:w-full h-auto"></img>
+                    <img src="/arrow-down.svg" className="landing-page-arrow animate-bounce-custom w-24 sm:w-full h-auto" alt=""></img>
                 </a>
             </div>
         </div>

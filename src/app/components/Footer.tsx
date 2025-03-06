@@ -3,7 +3,7 @@ export default function Footer() {
         <div className="text-white" id="footer">
             <div className="flex flex-col-reverse sm:grid sm:grid-cols-4 p-4 gap-x-6 sm:gap-x-28 gap-y-6 sm:gap-y-0">
                 <div className="z-50 col-span-3 text-center inline-block transparent-y-gradient">
-                    <img className="w-full" src="/umsa-footer-title.svg"></img>
+                    <img className="w-full" src="/umsa-footer-title.svg" alt="UMSA"></img>
                 </div>
                 <div className="flex w-full items-center col-span-1">
                     <div className="flex flex-row sm:flex-col gap-x-4 sm:gap-y-4 text-2xl font-extralight text-left w-full">
@@ -25,13 +25,13 @@ export default function Footer() {
             <div className="flex items-start p-4">
                 <div className="grid grid-cols-3 gap-x-3"> 
                     <a href="https://www.instagram.com/umsanz/" target="_blank" className="scale-hover">
-                    <img src="/instagram.svg"></img>
+                    <img src="/instagram.svg" alt="Instagram Icon"></img>
                     </a>
                     <a href="https://www.facebook.com/umsanz/" target="_blank" className="scale-hover">
-                    <img src="/facebook.svg"></img>
+                    <img src="/facebook.svg" alt="Facebook Icon"></img>
                     </a>
                     <a href="mailto:comm.umsanz@gmail.com" className="scale-hover">
-                    <img src="/email.svg"></img>
+                    <img src="/email.svg" alt="Mail Icon"></img>
                     </a>
                 </div>
             </div>

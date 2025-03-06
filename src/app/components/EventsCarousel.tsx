@@ -4,7 +4,7 @@ import React, { useState, useEffect, useCallback, useRef } from 'react'
 import { EmblaOptionsType } from 'embla-carousel'
 import useEmblaCarousel from 'embla-carousel-react'
 import { EventsCarouselButton } from './EventsCarouselButtons'
-import AutoScroll from 'embla-carousel-auto-scroll'
+// import AutoScroll from 'embla-carousel-auto-scroll'
 
 type Slide = {
   src: string;
@@ -28,33 +28,7 @@ const EventsCarousel: React.FC<PropType> = (props) => {
     dragFree: true
   })
 
-  const [mousePosition, setMousePosition] = useState<{ x: number; y: number }>({x:0, y:0})
   const containerRef = useRef<HTMLDivElement | null>(null);
-  const handleMouseMove = (event: MouseEvent) => {
-    if (containerRef.current) {
-      const containerBounds = containerRef.current.getBoundingClientRect();
-      
-      // Adjust for scroll position by adding window.scrollX and window.scrollY
-      const x = event.clientX + window.scrollX - containerBounds.left;
-      const y = event.clientY + window.scrollY - containerBounds.top;
-  
-      setMousePosition({ x, y });
-    }
-  };
-
-  useEffect(() => {
-    const container = document.querySelector(".events-carousel-container-image");
-
-    if (container) {
-      container.addEventListener('mousemove', handleMouseMove as EventListener);
-    }
-
-    return () => {
-      if (container) {
-        container.removeEventListener('mousemove', handleMouseMove as EventListener);
-      }
-    };
-  }, []);
 
   const onThumbClick = useCallback(
     (index: number) => {
@@ -110,7 +84,6 @@ const EventsCarousel: React.FC<PropType> = (props) => {
                         key={index}
                         onClick={() => onThumbClick(index)}
                         selected={index === selectedIndex}
-                        index={index}
                     />
                     ))}
                 </div>

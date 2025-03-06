@@ -2,13 +2,12 @@ import React from 'react'
 
 type PropType = {
   selected: boolean
-  index: number
   slides: string
   onClick: () => void
 }
 
 export const EventsCarouselButton: React.FC<PropType> = (props) => {
-  const { slides, selected, index, onClick } = props
+  const { slides, selected, onClick } = props
 
   return (
     <div

@@ -1,6 +1,5 @@
 
 import Bounded from "@/app/components/Bounded";
-import Event from "@/app/components/Event"
 import EventsCarousel from "../EventsCarousel";
 import { EmblaOptionsType } from 'embla-carousel'
 
@@ -46,18 +45,18 @@ export default function Events() {
                 <p className="text-4xl font-extrabold hidden sm:block">Join our events!</p>
                 <p className="flex flex-col text-center sm:text-start">
                   <span className="font-medium text-sm sm:text-lg">
-                    Looking for something fun and meaningful to do? We've got a range of exciting events lined up, perfect for all interests!
+                    Looking for something fun and meaningful to do? We&apos;ve got a range of exciting events lined up, perfect for all interests!
                   </span>
                   <br></br>
                   <span className="font-light text-xs sm:text-sm">
-                    Whether you're into exploring diverse cultures, making new friends, or learning something new, there's always something for you here. Check out our upcoming events and find the one that suits your vibe.
+                    Whether you&apos;re into exploring diverse cultures, making new friends, or learning something new, there&apos;s always something for you here. Check out our upcoming events and find the one that suits your vibe.
                   </span>
                 </p>
                 <div className="flex w-full justify-center sm:justify-start">
                   <a href="https://linktr.ee/Umsanz" target="_blank">
                     <div className="flex gap-x-4 items-center justify-center bg-white rounded-md p-3 scale-hover">
                       <p className="text-umsaBlue text-xl font-bold">upcoming events!</p>
-                      <img className="h-6" src="/blue-arrow.svg"></img>
+                      <img className="h-6" src="/blue-arrow.svg" alt=""></img>
                     </div>
                   </a>
                 </div>
@@ -65,7 +64,7 @@ export default function Events() {
             </div>
           </div>
         </div>
-        <img className="absolute bottom-0 right-0 translate-y-2/3 -translate-x-2/3 w-3/4 -z-50 opacity-15" draggable="false" src="/umsa-globe.svg"></img>
+        {/* <img className="absolute bottom-0 right-0 translate-y-2/3 -translate-x-2/3 w-3/4 -z-50 opacity-15" draggable="false" src="/umsa-globe.svg" alt="UMSA Globe"></img> */}
       </Bounded>
     </div>
   );

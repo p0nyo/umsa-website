@@ -46,27 +46,27 @@ export default function Team() {
               <div className="grid grid-cols-2 sm:grid-cols-9 gap-4">
                 <div className="sm:col-span-3 sm:row-span-3 text-center group">
                   <div className="relative w-full">
-                    <img className="object-cover w-full rounded-md group-hover:opacity-65 border-umsaBlue border-2 transition-opacity duration-300" draggable="false" src={ExecPictures[0].src}></img>
+                    <img className="object-cover w-full rounded-md group-hover:opacity-65 border-umsaBlue border-2 transition-opacity duration-300" draggable="false" src={ExecPictures[0].src} alt=""></img>
                     <p className="absolute bottom-0 right-1/2 translate-x-1/2 text-white text-2xl sm:text-5xl font-extrabold whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-500">{ExecPictures[0].role}</p>
                     <div className="absolute opacity-0 group-hover:opacity-100 transition-opacity duration-500 right-0 top-0">
                         <div className="flex group gap-x-2 items-center p-1">
                           <a href={ExecPictures[0].linkedin} target="_blank">
-                            <img className="h-10 sm:h-12 bg-white p-2 rounded-md scale-hover" src="/blue-arrow.svg"></img>
+                            <img className="h-10 sm:h-12 bg-white p-2 rounded-md scale-hover" src="/blue-arrow.svg" alt=""></img>
                           </a>
                         </div>
                       </div>
                   </div>
                   <p className="text-xl font-extrabold opacity-0 group-hover:opacity-100 transition-opacity duration-500">{ExecPictures[0].name}</p>
                 </div>
-                {ExecSublist.map((item) => (
-                  <div className="sm:col-span-2 text-center group">
+                {ExecSublist.map((item, index) => (
+                  <div key={index} className="sm:col-span-2 text-center group">
                     <div className="relative w-full">
-                      <img className="object-cover w-full rounded-md group-hover:opacity-65 border-umsaBlue border-2 transition-opacity duration-300" draggable="false" src={item.src}></img>
+                      <img className="object-cover w-full rounded-md group-hover:opacity-65 border-umsaBlue border-2 transition-opacity duration-300" draggable="false" src={item.src} alt=""></img>
                       <p className="absolute bottom-0 right-1/2 translate-x-1/2 text-white text-2xl font-extrabold opacity-0 group-hover:opacity-100 transition-opacity duration-500">{item.role}</p>
                       <div className="absolute opacity-0 group-hover:opacity-100 transition-opacity duration-500 right-0 top-0">
                         <div className="flex group gap-x-2 items-center p-1">
                           <a href={item.linkedin} target="_blank">
-                            <img className="h-10 bg-white p-2 rounded-md scale-hover" src="/blue-arrow.svg"></img>
+                            <img className="h-10 bg-white p-2 rounded-md scale-hover" src="/blue-arrow.svg" alt=""></img>
                           </a>
                         </div>
                       </div>
@@ -83,15 +83,15 @@ export default function Team() {
               </div>
 
               <div className="grid grid-cols-2 sm:grid-cols-5 gap-x-5 gap-y-5">
-                {GeneralPictures.map((item) => (
-                  <div className="text-center group">
+                {GeneralPictures.map((item, index) => (
+                  <div key={index} className="text-center group">
                     <div className="relative w-full">
-                      <img className="object-cover w-full rounded-md group-hover:opacity-65 border-umsaBlue border-2 transition-opacity duration-300" draggable="false" src={item.src}></img>
+                      <img className="object-cover w-full rounded-md group-hover:opacity-65 border-umsaBlue border-2 transition-opacity duration-300" draggable="false" src={item.src} alt=""></img>
                       <p className="absolute bottom-0 right-1/2 translate-x-1/2 text-white text-xl font-black opacity-0 group-hover:opacity-100 transition-opacity duration-500">{item.role}</p>
                       <div className="absolute opacity-0 group-hover:opacity-100 transition-opacity duration-500 right-0 top-0">
                         <div className="flex gap-x-2 items-center p-1">
                           <a href={item.linkedin} target="_blank">
-                            <img className="h-8 bg-white p-2 rounded-md scale-hover" src="/blue-arrow.svg"></img>
+                            <img className="h-8 bg-white p-2 rounded-md scale-hover" src="/blue-arrow.svg" alt=""></img>
                           </a>
                         </div>
                       </div>

@@ -1,6 +1,5 @@
 "use client"
 
-import React, { useCallback, useEffect, useState } from 'react'
 import { EmblaOptionsType } from 'embla-carousel'
 import useEmblaCarousel from 'embla-carousel-react'
 import AutoScroll from 'embla-carousel-auto-scroll'
@@ -23,7 +22,7 @@ const LandingCarousel: React.FC<PropType> = (props) => {
           {slides.map((imagePath) => (
             <div className="landing-slide" key={imagePath}>
               <div className="landing-slide-image h-64 w-full overflow-hidden rounded-lg mx-2">
-                <img className="object-cover w-full h-full mx-2 rounded-lg" src={imagePath}></img>
+                <img className="object-cover w-full h-full mx-2 rounded-lg" src={imagePath} alt="Landing Page Image Slide"></img>
               </div>
             </div>
           ))}
