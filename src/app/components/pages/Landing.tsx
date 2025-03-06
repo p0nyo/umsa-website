@@ -26,6 +26,8 @@ export default function Landing() {
 
         const isMobile = window.innerWidth <= 640;
 
+        gsap.set("body", { overflow: "hidden" });
+
         if (isMobile) {
             tl.fromTo(
                 ".landing-page-umsa-globe", 
@@ -39,6 +41,9 @@ export default function Landing() {
                 opacity: 0.8, 
                 duration: 2, 
                 ease: "back.inOut",
+                onComplete: () => {
+                    gsap.set("body", { overflow: "auto" });
+                    },
                 },
             )
             .fromTo(
@@ -53,6 +58,7 @@ export default function Landing() {
                 duration: 2, 
                 ease: "power3.out", 
                 onComplete: () => {
+                    gsap.set("body", { overflow: "auto" });
                     gsap.to(".landing-page-umsa-globe", {
                         delay: 0.5,    
                         scale: 1.04, 
@@ -105,6 +111,9 @@ export default function Landing() {
                 opacity: 0.8, 
                 duration: 2, 
                 ease: "back.inOut",
+                onComplete: () => {
+                    gsap.set("body", { overflow: "auto" });
+                    },
                 },
             )
             .fromTo(
@@ -188,7 +197,7 @@ export default function Landing() {
                     <LandingCarousel slides={SLIDES} options={OPTIONS}/>
                 </div>
             </div>
-            <div className="absolute bottom-0 -translate-x-1/2 left-1/2 scale-hover">
+            <div className="absolute bottom-0 -translate-x-1/2 left-1/2 -translate-y-12 sm:translate-y-0 scale-hover">
                 <a href="#about" className="animate-bounce-custom">
                     <img src="/arrow-down.svg" className="landing-page-arrow animate-bounce-custom w-24 sm:w-full h-auto" alt=""></img>
                 </a>
