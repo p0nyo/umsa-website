@@ -19,32 +19,34 @@ export default function Landing() {
     useEffect(() => {
 
         const tl = gsap.timeline();
-        tl.fromTo(
-            ".landing-page-carousel", 
-            {
-                x: 800,
-                opacity: 0, 
-                visibility: "visible",
-            },
-            {
-                x: 0,
-                opacity: 1, 
-                duration: 1.5, 
-                ease: "power4.in", 
 
-            },
-        )
-            .fromTo(
+        const isMobile = window.innerWidth <= 640;
+
+        if (isMobile) {
+            tl.fromTo(
                 ".landing-page-umsa-globe", 
                 {
-                scale: 2, 
+                scale: 0.4, 
                 opacity: 0, 
                 visibility: "visible",
                 },
                 {
-                scale: 1,
+                rotation: 360,
                 opacity: 0.8, 
-                duration: 5, 
+                duration: 2, 
+                ease: "back.inOut",
+                },
+            )
+            .fromTo(
+                ".landing-page-umsa-globe", 
+                {
+                scale: 0.4, 
+                visibility: "visible",
+                },
+                {
+                delay: 0.5,
+                scale: 1,
+                duration: 2, 
                 ease: "power3.out", 
                 onComplete: () => {
                     gsap.to(".landing-page-umsa-globe", {
@@ -70,7 +72,7 @@ export default function Landing() {
                     duration: 8, 
                     ease: "power3.out", 
                 },
-                "-=6"
+                "-=2"
             )
 
             .fromTo(
@@ -86,15 +88,99 @@ export default function Landing() {
                 },
                 "-=8"
             );
+        } else {
+            tl.fromTo(
+                ".landing-page-umsa-globe", 
+                {
+                scale: 0.4, 
+                opacity: 0, 
+                visibility: "visible",
+                },
+                {
+                rotation: 360,
+                opacity: 0.8, 
+                duration: 2, 
+                ease: "back.inOut",
+                },
+            )
+            .fromTo(
+                ".landing-page-umsa-globe", 
+                {
+                scale: 0.4, 
+                visibility: "visible",
+                },
+                {
+                delay: 0.5,
+                scale: 1,
+                duration: 2, 
+                ease: "power3.out", 
+                onComplete: () => {
+                    gsap.to(".landing-page-umsa-globe", {
+                        delay: 0.5,    
+                        scale: 1.04, 
+                        opacity: 1, 
+                        duration: 3, 
+                        repeat: -1, 
+                        yoyo: true, // reverse the animation to create a pulse effect
+                        ease: "ease-in-out", 
+                    });
+                    },
+                },
+            )
+            .fromTo(
+                ".landing-page-carousel", 
+                {
+                    scale: 0.4,
+                    opacity: 0, 
+                    visibility: "visible",
+                },
+                {
+                    scale: 1,
+                    opacity: 1, 
+                    duration: 2, 
+                    ease: "power3.out", 
+    
+                },
+                "-=2"
+            )
+            .fromTo(
+                ".landing-page-header", 
+                {
+                    opacity: 0, 
+                    visibility: "visible",
+                },
+                {
+                    opacity: 1, 
+                    duration: 8, 
+                    ease: "power3.out",
+                },
+                "-=2"
+            )
+
+            .fromTo(
+                ".landing-page-arrow", 
+                {
+                    opacity: 0, 
+                    visibility: "visible",
+                },
+                {
+                    opacity: 1, 
+                    duration: 8,
+                    ease: "power3.out", 
+                },
+                "-=8"
+            );
+        }
       }, []);
 
 
     return(
         <div className="relative flex flex-col min-h-screen justify-center bg-starImg bg-cover">
             <div className="absolute inset-0 opacity-65 bg-blueOverlay"></div>
-            <div className="relative w-full h-96">
-                <img className="landing-page-umsa-globe pointer-events-none z-40 absolute top-0 right-1/2 translate-x-1/2 sm:translate-x-0 sm:top-0 sm:right-0 w-3/4 sm:w-full h-full object-contain transparent-y-gradient" draggable="false" src="/umsa-globe1.svg" style={{ opacity: 0.8 }}/>
-                <div className="landing-page-carousel absolute inset-0 hidden sm:flex items-center justify-center transparent-x-gradient">
+            <div className="flex justify-center items-center relative h-96 w-auto">
+                <img className="landing-page-umsa-globe pointer-events-none z-40 h-80 sm:h-auto transparent-y-gradient" draggable="false" src="/umsa-globe1.svg" style={{ opacity: 0.8 }}/>
+                {/* <img className="landing-page-umsa-globe pointer-events-none z-40 absolute top-0 right-1/2 translate-x-1/2 sm:translate-x-0 sm:top-0 sm:right-0 w-3/4 sm:w-full h-full object-contain transparent-y-gradient" draggable="false" src="/umsa-globe1.svg" style={{ opacity: 0.8 }}/> */}
+                <div className="landing-page-carousel absolute inset-0 hidden xl:flex items-center justify-center transparent-x-gradient">
                     <LandingCarousel slides={SLIDES} options={OPTIONS}/>
                 </div>
             </div>

@@ -21,7 +21,7 @@ export const EventsCarouselButton: React.FC<PropType> = (props) => {
         type="button"
         className="events-buttons-slide-number italic transform opacity-50 hover:opacity-100 transition-opacity duration-200"
       >
-        <img className="rounded-md" src={slides}></img>
+        <img className="rounded-sm w-full h-2/3 object-cover" src={slides}></img>
       </button>
     </div>
   )

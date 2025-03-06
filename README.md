@@ -28,13 +28,12 @@
 - [ ] teams page
   - [x] get photos
   - [x] finish grid layout for teams
-  - [ ] flex instead of absolute pos. for the role titles
 - [ ] sponsor list
-- [ ] faq page
+- [x] faq page
 - [x] finish footer
 
 # INPROGRESS
-
+- [ ] gsap landing page for mobile
 ## wip
 
 ![umsa wip](umsa-wip.jpg)
