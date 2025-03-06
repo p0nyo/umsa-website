@@ -19,6 +19,19 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: 'UMSA New Zealand',
   description: 'The Official Page of the Union of Malaysian Students in Auckland, NZ',
+  openGraph: {
+    title: 'UMSA New Zealand',
+    description: 'The Official Page of the Union of Malaysian Students in Auckland NZ',
+    url: 'https://www.umsanz.com',
+    images: [
+      {
+        url: 'umsa-og-image.svg',
+        width: 1200,
+        height: 630,
+        alt: 'UMSA New Zealand'
+      }
+    ],
+  },
 }
  
 
