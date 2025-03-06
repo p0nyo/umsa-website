@@ -52,6 +52,7 @@ export default function RootLayout({
       </Head> */}
       <head>
         <link rel="preload" href="star-background.jpg" as="image" />
+        <Analytics />
       </head>
       <body
         className={clsx(poppins.className, 
