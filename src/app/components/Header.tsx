@@ -2,7 +2,7 @@
 export default function Header() {
 
     return(
-    <div className="landing-page-header absolute left-0 right-0 z-50 py-4 pt-6 sm:pt-0">
+    <div className="landing-page-header absolute left-0 right-0 z-50 py-4 pt-6 sm:pt-4">
         <div className="grid grid-cols-[1fr,auto,1fr] items-center text-white text-center gap-x-2 sm:gap-x-4">
             <div className="flex justify-end text-md sm:text-lg font-normal space-x-6 sm:space-x-12 mx-4">
                 <a href="#about" className="scale-hover">about</a>
