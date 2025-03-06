@@ -1,4 +1,7 @@
 import type { Config } from "tailwindcss";
+import { PluginAPI } from 'tailwindcss/types/config';
+
+const plugin = require('tailwindcss/plugin');
 
 export default {
   content: [
@@ -62,12 +65,12 @@ export default {
     },
   },
   plugins: [
-    function ({ addComponents, theme }) {
+    plugin(function({ addComponents, theme }: PluginAPI) {
       addComponents({
         '.scale-hover': {
           '@apply hover:scale-110 transition-transform duration-300': {},
         },
       });
-    },
+    }),
   ],
 } satisfies Config;
