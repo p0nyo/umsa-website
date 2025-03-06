@@ -28,7 +28,8 @@ export default {
         umsaBlue: "rgba(12,30,70,1)"
       },
       backgroundColor: {
-        umsaBlue: "rgba(12,30,70,1)"
+        umsaBlue: "rgba(12,30,70,1)",
+        starBlue: "rgba(4,31,66,1)"        
       },
       borderColor: {
         umsaBlue: "rgba(12,30,70,1)"
