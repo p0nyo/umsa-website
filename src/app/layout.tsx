@@ -49,6 +49,9 @@ export default function RootLayout({
           type="text/javascript">
         </script>
       </Head> */}
+      <head>
+        <link rel="preload" href="star-background.jpg" as="image" />
+      </head>
       <body
         className={clsx(poppins.className, 
           'italic',
