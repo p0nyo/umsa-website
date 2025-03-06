@@ -8,11 +8,15 @@ import gsap from "gsap";
 
 const OPTIONS: EmblaOptionsType = { loop: true } 
 const SLIDES = [
-    "/landing-1.jpg",
-    "/landing-2.jpg",
-    "/landing-3.jpg",
-    "/landing-4.jpg",
-    "/landing-5.jpg"
+    "/landing-page-images/landing-1.jpg",
+    "/landing-page-images/landing-2.jpg",
+    "/landing-page-images/landing-3.JPG",
+    "/landing-page-images/landing-4.jpg",
+    "/landing-page-images/landing-5.jpg",
+    "/landing-page-images/landing-6.jpg",
+    "/landing-page-images/landing-7.jpg",
+    "/landing-page-images/landing-8.jpg",
+    "/landing-page-images/landing-9.jpg",
 ]
 
 export default function Landing() {

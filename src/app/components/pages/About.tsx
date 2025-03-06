@@ -36,7 +36,7 @@ export default function About() {
             </div>
           </div>
           <div className="flex justify-center items-center">
-            <img className="rounded-md" draggable="false" src="/about-image.jpg" alt="UMSA Group Photo"></img>
+            <img className="rounded-md" draggable="false" src="/about-image.JPG" alt="UMSA Group Photo"></img>
           </div>
         </div>
         {/* <img className="absolute bottom-0 right-0 translate-y-1/2 translate-x-1/3 w-3/4 -z-50 opacity-15" draggable="false" src="/umsa-globe.svg" alt=""></img> */}

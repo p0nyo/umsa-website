@@ -12,7 +12,7 @@ const SLIDES = [
   { src: "/event-pics/hari-raya-1.jpg", name: "hari raya", date: "21.04.24", link: "https://www.facebook.com/media/set/?set=a.849718833846476&type=3"},
   { src: "/event-pics/makan-night-1.jpg", name: "makan night", date: "05.10.24", link: "https://www.facebook.com/media/set/?set=a.978074094344282&type=3"},
   { src: "/event-pics/malaysian-day-1.jpg", name: "malaysian day", date: "16.09.24", link: "https://www.facebook.com/media/set/?set=a.963076405844051&type=3"},
-  { src: "/event-pics/speed-friending-1.jpg", name: "speed friending", date: "23.03.24", link: "https://www.facebook.com/media/set/?set=a.822598359891857&type=3"},
+  { src: "/event-pics/speed-friending-1.JPG", name: "speed friending", date: "23.03.24", link: "https://www.facebook.com/media/set/?set=a.822598359891857&type=3"},
   { src: "/event-pics/sports-day-1.jpg", name: "UMSA x UABC", date: "03.07.24", link: "https://www.facebook.com/media/set/?set=a.925451169606575&type=3"},
   { src: "/event-pics/sports-orientation-1.jpg", name: "orientation x sports", date: "09.03.24", link: "https://www.facebook.com/media/set/?set=a.820986293386397&type=3"},
   { src: "/event-pics/yap-night-1.jpg", name: "yap night", date: "18.07.24", link: "https://www.facebook.com/media/set/?set=a.905493061602386&type=3"}
