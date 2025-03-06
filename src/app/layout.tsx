@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Poppins } from "next/font/google";
 import clsx from "clsx";
-import Head from "next/head";
+// import Head from "next/head";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
@@ -18,7 +18,7 @@ const poppins = Poppins({
  
 export const metadata: Metadata = {
   title: 'UMSA New Zealand',
-  description: 'The Official Page of the Union of Malaysian Students in Auckland',
+  description: 'The Official Page of the Union of Malaysian Students in Auckland, NZ',
 }
  
 

@@ -58,12 +58,12 @@ const EventsCarousel: React.FC<PropType> = (props) => {
             {index.map((index) => (
                 <div className="events-carousel-slide h-full" key={index}>
                     <div ref={containerRef} className="events-carousel-container-image relative p-4 mb-2 events-carousel-image group">
-                        <img className="w-full h-full object-cover group-hover:opacity-50 transition-opacity duration-300 rounded-md" src={slides[index].src}></img>
+                        <img className="w-full h-full object-cover group-hover:opacity-50 transition-opacity duration-300 rounded-md" src={slides[index].src} alt=""></img>
                         <div className="absolute opacity-0 group-hover:opacity-100 transition-opacity duration-500 right-0 top-0">
                           <div className="flex group gap-x-2 items-center p-1">
                             <p className="text-base"></p>
                             <a href={slides[index].link} target="_blank">
-                              <img className="h-10 bg-white p-2 rounded-md scale-hover" src="/blue-arrow.svg"></img>
+                              <img className="h-10 bg-white p-2 rounded-md scale-hover" src="/blue-arrow.svg" alt=""></img>
                             </a>
                           </div>
                         </div>
