@@ -55,7 +55,7 @@ export default function Landing() {
                 {
                 delay: 0.5,
                 scale: 1,
-                duration: 2, 
+                duration: 3, 
                 ease: "power3.out", 
                 onComplete: () => {
                     gsap.set("body", { overflow: "auto" });
@@ -70,6 +70,18 @@ export default function Landing() {
                     });
                     },
                 },
+            )
+            .fromTo(
+                ".landing-page-placeholder",
+                {
+                opacity: 1,
+                duration: 3,
+                },{
+                opacity: 0,
+                duration: 3,
+                ease: "power3.out", 
+                },
+                "-=3"
             )
             .fromTo(
                 ".landing-page-header", 
@@ -125,7 +137,7 @@ export default function Landing() {
                 {
                 delay: 0.5,
                 scale: 1,
-                duration: 2, 
+                duration: 3, 
                 ease: "power3.out", 
                 onComplete: () => {
                     gsap.to(".landing-page-umsa-globe", {
@@ -141,20 +153,16 @@ export default function Landing() {
                 },
             )
             .fromTo(
-                ".landing-page-carousel", 
+                ".landing-page-placeholder",
                 {
-                    scale: 0.4,
-                    opacity: 0, 
-                    visibility: "visible",
+                opacity: 1,
+                duration: 3,
+                },{
+                opacity: 0,
+                duration: 3,
+                ease: "power3.out", 
                 },
-                {
-                    scale: 1,
-                    opacity: 1, 
-                    duration: 2, 
-                    ease: "power3.out", 
-    
-                },
-                "-=2"
+                "-=3"
             )
             .fromTo(
                 ".landing-page-header", 
@@ -201,6 +209,9 @@ export default function Landing() {
                 <a href="#about" className="animate-bounce-custom">
                     <img src="/arrow-down.svg" className="landing-page-arrow animate-bounce-custom w-24 sm:w-full h-auto" alt=""></img>
                 </a>
+            </div>
+            <div className="landing-page-placeholder absolute inset-0 bg-black">
+                <div className="absolute inset-0 opacity-65 bg-blueOverlay"></div>
             </div>
         </div>
     )
