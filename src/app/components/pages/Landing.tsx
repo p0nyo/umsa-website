@@ -94,7 +94,7 @@ export default function Landing() {
                     duration: 8, 
                     ease: "power3.out", 
                 },
-                "-=2"
+                "-=3"
             )
 
             .fromTo(
@@ -175,9 +175,8 @@ export default function Landing() {
                     duration: 8, 
                     ease: "power3.out",
                 },
-                "-=2"
+                "-=3"
             )
-
             .fromTo(
                 ".landing-page-arrow", 
                 {
