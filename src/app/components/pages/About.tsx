@@ -19,7 +19,7 @@ export default function About() {
         <div className="flex flex-col sm:grid sm:grid-cols-2 h-full flex-1 gap-x-10 gap-y-10 z-10">
           <div className="flex flex-col gap-y-6 items-start justify-start">
             <div className="flex flex-col gap-y-6 justify-center sm:justify-start">
-              <p className="text-xl sm:text-4xl text-center sm:text-start font-extrabold whitespace-nowrap">A home away from home.</p>
+              <p className="text-xl sm:text-4xl text-center sm:text-start font-extrabold whitespace-nowrap">a home away from home.</p>
               <p className="flex flex-col text-center sm:text-start">
                 <span className="font-medium text-sm sm:text-lg">Connecting Malaysians across campus, our club celebrates Malaysian culture, fosters friendships, and creates a welcoming space for all students.&nbsp;</span>
                 <br></br>
