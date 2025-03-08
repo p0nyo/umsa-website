@@ -10,7 +10,7 @@ export default function About() {
         className="relative"
       >
       <div className="text-umsaBlue flex flex-col pb-10">
-        <div className="flex justify-center sm:justify-start">
+        <div className="flex justify-center sm:justify-start pb-6">
           <p className="text-5xl sm:text-9xl whitespace-nowrap">
             <span className="font-light">we are</span>
             <span className="font-bold">&nbsp;umsa.</span>
