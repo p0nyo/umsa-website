@@ -54,7 +54,7 @@ export default function RootLayout({
       <head>
         <link rel="preload" href="star-background.jpg" as="image" />
         <Analytics />
-        <SpeedInsights/>
+        <SpeedInsights />
       </head>
       <body
         className={clsx(poppins.className, 
