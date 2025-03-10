@@ -19,10 +19,10 @@ const poppins = Poppins({
 
  
 export const metadata: Metadata = {
-  title: 'Union of Malaysian Students in Auckland',
+  title: 'UMSA',
   description: 'Connecting Malaysians across campus, our club celebrates Malaysian culture, fosters friendships, and creates a welcoming space for all students.',
   openGraph: {
-    title: 'Union of Malaysian Students in Auckland',
+    title: 'UMSA',
     description: 'Connecting Malaysians across campus, our club celebrates Malaysian culture, fosters friendships, and creates a welcoming space for all students.',
     url: 'https://www.umsanz.com',
     images: [
@@ -52,6 +52,7 @@ export default function RootLayout({
         </script>
       </Head> */}
       <head>
+        <title>Union of Malaysian Students in Auckland</title>
         <link rel="preload" href="star-background.jpg" as="image" />
         <Analytics />
         <SpeedInsights />
