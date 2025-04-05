@@ -66,9 +66,7 @@ export default function RootLayout({
           <div className="opacity-65 absolute inset-0 bg-blueOverlay bg-fixed z-0"></div>
           {/* <ParticleBackground /> */}
           <div className="relative">
-            <Header />
             {children}
-            <Footer />
           </div>
         </div>
       </body>
