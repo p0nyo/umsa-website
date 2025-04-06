@@ -5,8 +5,6 @@ import "./globals.css";
 import { Poppins } from "next/font/google";
 import clsx from "clsx";
 // import Head from "next/head";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
 
 
 const poppins = Poppins({
