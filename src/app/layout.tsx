@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: "https://www.umsanz.com/'umsa-og-image.jpg",
+        url: "https://www.umsanz.com/umsa-og-image.jpg",
         width: 1200,
         height: 630,
         alt: 'UMSA New Zealand'
