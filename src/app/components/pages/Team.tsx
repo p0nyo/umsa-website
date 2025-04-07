@@ -12,7 +12,7 @@ const GeneralPictures = [
   { src: "/comm-pics/social-1.jpg", name: "Amelia Loh", role: "Social", linkedin: "https://www.linkedin.com/in/amelia-loh-5364322bb/" },
   { src: "/comm-pics/social-2.jpg", name: "Chester OwYong", role: "Social", linkedin: "https://www.linkedin.com/in/chester-owyong-360733212/" },
   { src: "/comm-pics/cultural-1.jpg", name: "Yutaka Oishi", role: "Cultural", linkedin: "https://www.linkedin.com/in/yutaka-oishi/" },
-  { src: "/comm-pics/cultural-2.jpg", name: "Hao Xiang Chooi", role: "Cultural", linkedin: "https://www.linkedin.com/in/sam-jin-11b0472bb/" },
+  { src: "/comm-pics/cultural-2.jpg", name: "Hao Xiang Chooi", role: "Cultural", linkedin: "https://www.instagram.com/haoxiangchooi/" },
   { src: "/comm-pics/sports-1.jpg", name: "Sean Ng", role: "Sports", linkedin: "https://www.linkedin.com/in/sean-ng-451312351/" },
   { src: "/comm-pics/sports-2.jpg", name: "Nicholas Tee", role: "Sports", linkedin: "https://www.instagram.com/neekoless/" },
   { src: "/comm-pics/public-relations-1.jpg", name: "Joie Ting", role: "Public Relations", linkedin: "https://www.linkedin.com/in/joie-ting-6b39ab31a/" },
