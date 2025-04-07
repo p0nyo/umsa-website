@@ -23,6 +23,7 @@ export const metadata: Metadata = {
     title: 'UMSA',
     description: 'Connecting Malaysians across campus, our club celebrates Malaysian culture, fosters friendships, and creates a welcoming space for all students.',
     url: 'https://www.umsanz.com',
+    type: 'website',
     images: [
       {
         url: "https://www.umsanz.com/'umsa-og-image.jpg",
