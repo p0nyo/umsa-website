@@ -63,7 +63,6 @@ export default function RootLayout({
         "bg-starImg bg-cover bg-fixed")}>
         <div className="relative min-h-screen overflow-x-hidden" id="landing">
           <div className="opacity-65 absolute inset-0 bg-blueOverlay bg-fixed z-0"></div>
-          {/* <ParticleBackground /> */}
           <div className="relative">
             {children}
           </div>

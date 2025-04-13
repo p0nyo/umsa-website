@@ -1,7 +1,6 @@
 "use client"
 import { useState } from "react";
-import { supabase } from "@/lib/supabase";
-import getEvents from "../api/get-posts/route"
+import getEvents from "../api/get-requests/route"
 
 export default function signIn() {
     const [events, setEvents] = useState<any[]>([]);
