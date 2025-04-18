@@ -18,10 +18,10 @@ const poppins = Poppins({
  
 export const metadata: Metadata = {
   title: 'UMSA',
-  description: 'Connecting Malaysians across campus, our club celebrates Malaysian culture, fosters friendships, and creates a welcoming space for all students.',
+  description: 'Union of Malaysian Students in Auckland (UMSA), connecting Malaysians across campus, our club celebrates Malaysian culture, fosters friendships, and creates a welcoming space for all students.',
   openGraph: {
     title: 'UMSA',
-    description: 'Connecting Malaysians across campus, our club celebrates Malaysian culture, fosters friendships, and creates a welcoming space for all students.',
+    description: 'Union of Malaysian Students in Auckland (UMSA), connecting Malaysians across campus, our club celebrates Malaysian culture, fosters friendships, and creates a welcoming space for all students.',
     url: 'https://www.umsanz.com',
     type: 'website',
     images: [
