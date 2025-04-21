@@ -2,8 +2,16 @@
 import { useState } from "react";
 import getEvents from "../api/get-requests/route"
 
-export default function signIn() {
-    const [events, setEvents] = useState<any[]>([]);
+type RequestType = {
+    id: number;
+    title: string;
+    image: string;
+    date: string;
+    link: string;
+};
+
+export default function SignIn() {
+    const [events, setEvents] = useState<RequestType[]>([]);
 
     const handleClick = async () => {
         const data = await getEvents();

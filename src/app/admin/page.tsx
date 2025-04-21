@@ -1,18 +1,27 @@
 "use client"
-import AdminEvents from "../components/AdminEvents";
+// import AdminEvents from "../components/AdminEvents";
 import AdminHeader from "../components/AdminHeader";
 import getEvents from "../api/get-requests/route"
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
+type RequestType = {
+    id: number;
+    title: string;
+    image: string;
+    date: string;
+    link: string;
+  };
 
 export default function Admin() {
-    const [events, setEvents] = useState<any[]>([]);
+    const [events, setEvents] = useState<RequestType[]>([]);
 
     const handleClick = async () => {
         const data = await getEvents();
         setEvents(data || []);
     };
-
-    handleClick();
+    useEffect(() => {
+        handleClick();
+    })
 
     return (
         <div>
