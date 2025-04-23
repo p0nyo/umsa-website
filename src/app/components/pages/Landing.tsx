@@ -21,7 +21,6 @@ const SLIDES = [
 
 export default function Landing() {
     useEffect(() => {
-
         const tl = gsap.timeline();
 
         const isMobile = window.innerWidth <= 640;

@@ -18,7 +18,7 @@ export default function SignIn() {
                 <img className="pointer-events-none sm:h-auto transparent-y-gradient" draggable="false" src="/umsa-globe1.svg"/>
                 <div className="border-4 border-white bg-white rounded-md flex justify-center items-center scale-hover">
                     <p className="text-umsaBlue text-2xl">sign in with</p>
-                    <img src="/google.svg"></img>
+                    <img src="/Google.svg"></img>
                 </div>
             </div>
         </div>

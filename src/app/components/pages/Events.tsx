@@ -26,7 +26,7 @@ export default function Events() {
   const [index, setIndex] = useState<number[]>([]);
 
   const getEvents = async () => {
-      const response = await fetch('/api/get-requests');
+      const response = await fetch('/api/get-events');
       const data = await response.json()
 
       if (data) {
