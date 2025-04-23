@@ -16,7 +16,7 @@ export default function Landing() {
     const [landing, setLanding] = useState<string[]>([]);
 
     const getLanding = async () => {
-        const response = await fetch('/api/get-landing');
+        const response = await fetch('/api/get/landing');
         const data = await response.json();
         console.log(data);
 

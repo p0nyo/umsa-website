@@ -24,13 +24,13 @@ export default function Admin() {
     const [team, setTeam] = useState<TeamRequestType[]>([]);
     
     const getEvents = async () => {
-        const response = await fetch('/api/get-events');
+        const response = await fetch('/api/get/events');
         const data = await response.json();
         setEvents(data || []);
     };
 
     const getTeam = async () => {
-        const response = await fetch('/api/get-team');
+        const response = await fetch('/api/get/team');
         const data = await response.json();
         console.log(data);
         setTeam(data || []);
@@ -47,18 +47,11 @@ export default function Admin() {
             <div className="flex justify-center items-center">
                 <div className="grid grid-rows-2 gap-y-2">
                     {events.map((event, index) => {
-                        const formattedDate = new Date(event.date)
-                            .toLocaleDateString("en-GB")
-                            .split("/")
-                            .reverse()
-                            .map((part, index) => index === 0 ? part.slice(-2) : part)
-                            .reverse()
-                            .join(".");
                         return (
                             <div key={index} className="flex col-span-1 p-4 bg-white rounded-md justify-center items-center">
                                 <p className="text-umsaBlue text-2xl">{event.title}</p>
                                 <img src={event.image} className="h-10 w-10"></img>
-                                <p>{formattedDate}</p>
+                                <p>{event.date}</p>
                                 <a href={event.link}>link to photos</a>
                             </div>
                         );

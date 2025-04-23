@@ -12,7 +12,7 @@ export default function Faq() {
     const [faq, setFaq] = useState<FaqRequestTypes[]>([]);
 
     const getFaq = async () => {
-        const response = await fetch('/api/get-faq');
+        const response = await fetch('/api/get/faq');
         const data = await response.json();
         console.log(data);
         setFaq(data || []);

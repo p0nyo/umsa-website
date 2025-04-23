@@ -17,7 +17,7 @@ export default function Team() {
   const [genSubList, setGenSubList] = useState<TeamRequestType[]>([]);
 
   const getTeam = async () => {
-    const response = await fetch('/api/get-team');
+    const response = await fetch('/api/get/team');
     const data = await response.json();
     setTeam(data || []);
     setExecSubList(data.slice(1,4) || []);

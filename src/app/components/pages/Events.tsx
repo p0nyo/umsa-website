@@ -26,14 +26,14 @@ export default function Events() {
   const [index, setIndex] = useState<number[]>([]);
 
   const getEvents = async () => {
-      const response = await fetch('/api/get-events');
+      const response = await fetch('/api/get/events');
       const data = await response.json()
 
       if (data) {
         const transformedData = data.map((event: RequestType) => ({
           src: event.image, 
           name: event.title, 
-          date: new Date(event.date).toLocaleDateString('en-GB').replace(/\//g, '.'),
+          date: event.date,
           link: event.link, 
         }));
         setEvents(transformedData);
