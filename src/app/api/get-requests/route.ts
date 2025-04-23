@@ -1,16 +1,14 @@
 import { supabase } from '../../../lib/supabase';
+import { NextResponse } from 'next/server';
 
-const getEvents = async () => {
+
+export async function GET() {
     const { data, error } = await supabase
-        .from("EVENTS")
-        .select("*")
+    .from("EVENTS")
+    .select("*")
 
-        if (error) {
-            console.error("Error posting events:" + error.message);
-            return;
-        }
-        console.log(data);
-        return data;
-};
-
-export default getEvents;
+    if (error) {
+        return NextResponse.json({ error: error.message }, { status: 500 });
+    }
+    return NextResponse.json(data, { status: 200 });
+}

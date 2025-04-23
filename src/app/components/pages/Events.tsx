@@ -2,8 +2,7 @@
 import Bounded from "@/app/components/Bounded";
 import EventsCarousel from "../EventsCarousel";
 import { EmblaOptionsType } from 'embla-carousel'
-import { useEffect, useState, useCallback } from "react";
-import getEvents from "../../api/get-requests/route"
+import { useEffect, useState } from "react";
 
 const OPTIONS: EmblaOptionsType = { loop: true };
 
@@ -26,11 +25,11 @@ export default function Events() {
   const [events, setEvents] = useState<EventType[]>([]);
   const [index, setIndex] = useState<number[]>([]);
 
-  const callEvents = useCallback(async () => {
-      const data = await getEvents();
+  const getEvents = async () => {
+      const response = await fetch('/api/get-requests');
+      const data = await response.json()
 
       if (data) {
-        console.log(data);
         const transformedData = data.map((event: RequestType) => ({
           src: event.image, 
           name: event.title, 
@@ -38,17 +37,16 @@ export default function Events() {
           link: event.link, 
         }));
         setEvents(transformedData);
-        console.log(events)
         setIndex(Array.from(Array(data.length).keys()));
       } else {
         console.log("No data received");
         setEvents([]);
       }
-  }, [events]);
+  };
 
   useEffect(() => {
-    callEvents();
-  }, [callEvents]);
+    getEvents();
+  }, []);
 
 
 

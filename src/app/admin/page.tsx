@@ -1,7 +1,6 @@
 "use client"
 // import AdminEvents from "../components/AdminEvents";
 import AdminHeader from "../components/AdminHeader";
-import getEvents from "../api/get-requests/route"
 import { useState, useEffect } from "react";
 
 type RequestType = {
@@ -14,14 +13,15 @@ type RequestType = {
 
 export default function Admin() {
     const [events, setEvents] = useState<RequestType[]>([]);
-
-    const handleClick = async () => {
-        const data = await getEvents();
+    
+    const getEvents = async () => {
+        const response = await fetch('/api/get-requests');
+        const data = await response.json()
         setEvents(data || []);
     };
     useEffect(() => {
-        handleClick();
-    })
+        getEvents();
+    }, [])
 
     return (
         <div>
