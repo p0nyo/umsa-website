@@ -1,14 +1,28 @@
+'use client'
 import Bounded from "../Bounded"
+import { useState, useEffect } from "react"
 
-const FaqItems = [
-    { question: "How do I become a member of UMSA?", answer: "Shoot an e-mail to our helpful communication officers at comm.umsanz@gmail.com and we will be more the merrier to help you get things sorted out. You can also sign up online! Simply click on this link, and follow the step-by-step guide, and you're good to go! During the first week of every new semester, catch our booth at the University of Auckland's club expo."},
-    { question: "I'm not Malaysian, can I still join?", answer: "The more the merrier! You do not have to be a Malaysian to join the UMSA family. We happily welcome people from all cultures and backgrounds."},
-    { question: "Does it cost to join UMSA?", answer: "The price to join UMSA is $8 - for both new and returning members."},
-    { question: "I'm not a UOA student, can I still join?", answer: "Absolutely! In fact, invite any other friends outside of the University of Auckland to join the family as well!"},
-    { question: "How do I find out or keep myself updated on UMSA's events?", answer: "Make sure to follow our social media platforms! Keep yourself updated by checking UMSA's website, Facebook and Instagram constantly. We will be updating you with up-coming events, opportunities and what is going on with the community."}
-]
+type FaqRequestTypes ={
+    id: number;
+    question: string;
+    answer: string;
+}
 
 export default function Faq() {
+    const [faq, setFaq] = useState<FaqRequestTypes[]>([]);
+
+    const getFaq = async () => {
+        const response = await fetch('/api/get-faq');
+        const data = await response.json();
+        console.log(data);
+        setFaq(data || []);
+    }
+
+    useEffect(() => {
+        getFaq();
+    }, []);
+    
+
     return(
         <div className="relative min-h-screen" id="faq">
             <Bounded>
@@ -17,7 +31,7 @@ export default function Faq() {
                         <span className="font-normal transparent-y-gradient-sm whitespace-nowrap">frequently asked questions.</span>
                     </p>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10">
-                        {FaqItems.map((item, index) => (
+                        {faq.map((item, index) => (
                             <div key={index} className="py-4 text-center sm:text-start">
                                 <p className="font-normal text-md sm:text-2xl pb-3">{item.question}</p>
                                 <p className="font-extralight text-xs sm:text-sm">{item.answer}</p>

@@ -1,13 +1,4 @@
 "use client"
-import { useState } from "react";
-
-type RequestType = {
-    id: number;
-    title: string;
-    image: string;
-    date: string;
-    link: string;
-};
 
 export default function SignIn() {
 

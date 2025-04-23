@@ -25,7 +25,7 @@ export default function Team() {
   }
 
   useEffect(() => {
-    getTeam()
+    getTeam();
   }, [])
 
   return (
