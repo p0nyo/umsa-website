@@ -1,3 +1,5 @@
+import AdminSaveCancel from "./AdminSaveCancel";
+
 type TeamRequestType = {
     id: number;
     name: string;
@@ -23,6 +25,7 @@ export default function TeamCMS({teamData}: TeamCMSProps) {
                     </div>
                 )
             })}
+            {/* <AdminSaveCancel />  */}
         </div>
     )
 }

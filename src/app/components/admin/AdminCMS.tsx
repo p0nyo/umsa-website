@@ -52,8 +52,8 @@ export default function AdminCMS({ landingData, eventData, teamData, faqData}: A
     const [activeTab, setActiveTab] = useState<TabType>('landing');
     
     return (
-        <div className="flex flex-col justify-start items-center w-screen h-full">
-            <div className="w-2/3">
+        <div className="relative flex flex-col justify-start items-center w-screen h-full">
+            <div className="w-[1000px]">
                 {TABS.map((tab) => (
                         <button
                         key={tab.value}
@@ -72,7 +72,7 @@ export default function AdminCMS({ landingData, eventData, teamData, faqData}: A
                         </button>
                 ))}
             </div>
-            <div className="h-5/6 w-2/3 bg-white rounded-b-md rounded-tr-md">
+            <div className="h-[550px] w-[1000px] bg-white rounded-b-md rounded-tr-md overflow-y-scroll">
                 {activeTab === 'landing' && <LandingCMS landingData={landingData}/>}
                 {activeTab === 'events' && <EventsCMS eventData={eventData}/>}
                 {activeTab === 'team' && <TeamCMS teamData={teamData}/>}

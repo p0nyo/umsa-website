@@ -1,3 +1,5 @@
+import AdminSaveCancel from "./AdminSaveCancel";
+
 type EventRequestType = {
     id: number;
     title: string;
@@ -21,8 +23,9 @@ export default function EventsCMS({eventData}: EventCMSProps) {
                         <p>{event.image}</p>
                         <p>{event.link}</p>
                     </div>
-                )
+                );
             })}
+            {/* <AdminSaveCancel /> */}
         </div>
     )
 }

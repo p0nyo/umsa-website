@@ -77,7 +77,7 @@ export default function Landing() {
                         opacity: 1, 
                         duration: 3, 
                         repeat: -1, 
-                        yoyo: true, // reverse the animation to create a pulse effect
+                        yoyo: true,
                         ease: "ease-in-out", 
                     });
                     },

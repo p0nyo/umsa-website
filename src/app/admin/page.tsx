@@ -15,7 +15,7 @@ type EventRequestType = {
     image: string;
     date: string;
     link: string;
-};
+}
 
 type TeamRequestType = {
     id: number;
@@ -78,30 +78,6 @@ export default function Admin() {
             {landing.length > 0 && events.length > 0 && team.length > 0 && faq.length > 0 && (
                 <AdminCMS landingData={landing} eventData={events} teamData={team} faqData={faq} />
             )}
-            {/* <div className="grid grid-rows-2 gap-y-2">
-                {events.map((event, index) => {
-                    return (
-                        <div key={index} className="flex col-span-1 p-4 bg-white rounded-md justify-center items-center">
-                            <p className="text-umsaBlue text-2xl">{event.title}</p>
-                            <img src={event.image} className="h-10 w-10"></img>
-                            <p>{event.date}</p>
-                            <a href={event.link}>link to photos</a>
-                        </div>
-                    );
-                })}
-            </div>
-            <div className="grid grid-rows-2 gap-y-2">
-                {team.map((team, index) => {
-                    return (
-                        <div key={index} className="flex col-span-1 p-4 bg-white rounded-md justify-center items-center">
-                            <p className="text-umsaBlue text-2xl">{team.name}</p>
-                            <img src={team.image} className="h-10 w-10"></img>
-                            <a href={team.socials}>link to socials</a>
-                            <a href={team.image}>link to photos</a>
-                        </div>
-                    );
-                })}
-            </div> */}
         </div>
     )
 }
