@@ -1,6 +1,6 @@
 "use client"
 
-import LandingCarousel from "../LandingCarousel";
+import LandingCarousel from "../landing/LandingCarousel";
 import { EmblaOptionsType } from 'embla-carousel'
 import { useEffect, useState } from "react";
 import gsap from "gsap";

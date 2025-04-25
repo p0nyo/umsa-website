@@ -1,7 +1,7 @@
 
 
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+import Header from "./components/shared/Header";
+import Footer from "./components/shared/Footer";
 import Landing from "./components/pages/Landing";
 import About from "./components/pages/About";
 import Events from "./components/pages/Events";

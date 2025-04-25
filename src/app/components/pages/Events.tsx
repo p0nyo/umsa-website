@@ -1,6 +1,6 @@
 "use client"
-import Bounded from "@/app/components/Bounded";
-import EventsCarousel from "../EventsCarousel";
+import Bounded from "@/app/components/shared/Bounded";
+import EventsCarousel from "../events/EventsCarousel";
 import { EmblaOptionsType } from 'embla-carousel'
 import { useEffect, useState } from "react";
 

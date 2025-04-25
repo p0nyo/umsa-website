@@ -1,7 +1,13 @@
 "use client"
-// import AdminEvents from "../components/AdminEvents";
-import AdminHeader from "../components/AdminHeader";
+
+import AdminCMS from "@/app/components/admin/AdminCMS";
+import AdminHeader from "@/app/components/admin/AdminHeader";
 import { useState, useEffect } from "react";
+
+type LandingRequestType = {
+    id: number;
+    image: string;
+}
 
 type EventRequestType = {
     id: number;
@@ -19,10 +25,26 @@ type TeamRequestType = {
     socials: string;
 }
 
+type FaqRequestType = {
+    id: number;
+    question: string;
+    answer: string;
+}
+
+
 export default function Admin() {
+    const [landing, setLanding] = useState<LandingRequestType[]>([]);
     const [events, setEvents] = useState<EventRequestType[]>([]);
     const [team, setTeam] = useState<TeamRequestType[]>([]);
+    const [faq, setFaq] = useState<FaqRequestType[]>([]);
     
+    const getLanding = async () => {
+        const response = await fetch('/api/get/landing');
+        const data = await response.json();
+        console.log(data);
+        setLanding(data || []);   
+    }
+
     const getEvents = async () => {
         const response = await fetch('/api/get/events');
         const data = await response.json();
@@ -36,41 +58,50 @@ export default function Admin() {
         setTeam(data || []);
     }
 
+    const getFaq = async () => {
+        const response = await fetch('/api/get/faq');
+        const data = await response.json();
+        console.log(data);
+        setFaq(data || []);   
+    }
+
     useEffect(() => {
+        getLanding();
         getEvents();
         getTeam();
+        getFaq();
     }, [])
 
     return (
-        <div>
+        <div className="flex flex-col justify-center items-center h-full">
             <AdminHeader />
-            <div className="flex justify-center items-center">
-                <div className="grid grid-rows-2 gap-y-2">
-                    {events.map((event, index) => {
-                        return (
-                            <div key={index} className="flex col-span-1 p-4 bg-white rounded-md justify-center items-center">
-                                <p className="text-umsaBlue text-2xl">{event.title}</p>
-                                <img src={event.image} className="h-10 w-10"></img>
-                                <p>{event.date}</p>
-                                <a href={event.link}>link to photos</a>
-                            </div>
-                        );
-                    })}
-                </div>
-                <div className="grid grid-rows-2 gap-y-2">
-                    {team.map((team, index) => {
-                        return (
-                            <div key={index} className="flex col-span-1 p-4 bg-white rounded-md justify-center items-center">
-                                <p className="text-umsaBlue text-2xl">{team.name}</p>
-                                <img src={team.image} className="h-10 w-10"></img>
-                                <a href={team.socials}>link to socials</a>
-                                <a href={team.image}>link to photos</a>
-                            </div>
-                        );
-                    })}
-                </div>
+            {landing.length > 0 && events.length > 0 && team.length > 0 && faq.length > 0 && (
+                <AdminCMS landingData={landing} eventData={events} teamData={team} faqData={faq} />
+            )}
+            {/* <div className="grid grid-rows-2 gap-y-2">
+                {events.map((event, index) => {
+                    return (
+                        <div key={index} className="flex col-span-1 p-4 bg-white rounded-md justify-center items-center">
+                            <p className="text-umsaBlue text-2xl">{event.title}</p>
+                            <img src={event.image} className="h-10 w-10"></img>
+                            <p>{event.date}</p>
+                            <a href={event.link}>link to photos</a>
+                        </div>
+                    );
+                })}
             </div>
+            <div className="grid grid-rows-2 gap-y-2">
+                {team.map((team, index) => {
+                    return (
+                        <div key={index} className="flex col-span-1 p-4 bg-white rounded-md justify-center items-center">
+                            <p className="text-umsaBlue text-2xl">{team.name}</p>
+                            <img src={team.image} className="h-10 w-10"></img>
+                            <a href={team.socials}>link to socials</a>
+                            <a href={team.image}>link to photos</a>
+                        </div>
+                    );
+                })}
+            </div> */}
         </div>
-
     )
 }

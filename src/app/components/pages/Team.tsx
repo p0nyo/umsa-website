@@ -1,5 +1,5 @@
 'use client'
-import Bounded from "@/app/components/Bounded";
+import Bounded from "@/app/components/shared/Bounded";
 import { useEffect, useState } from "react";
 
 

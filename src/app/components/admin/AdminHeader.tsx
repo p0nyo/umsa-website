@@ -6,7 +6,7 @@ export default function AdminHeader() {
             <div className="justify-self-center scale-hover">
                 <Link href="/">
                     <p className="font-bold leading-none">
-                        <span className="text-4xl">umsa/admin</span>
+                        <span className="text-6xl">umsa/admin</span>
                     </p>
                     <h1 className="text-xl font-light">new zealand</h1>
                 </Link>

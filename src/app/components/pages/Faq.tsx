@@ -1,5 +1,5 @@
 'use client'
-import Bounded from "../Bounded"
+import Bounded from "../shared/Bounded"
 import { useState, useEffect } from "react"
 
 type FaqRequestTypes ={

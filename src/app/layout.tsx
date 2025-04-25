@@ -61,11 +61,9 @@ export default function RootLayout({
           'italic',
           'bg-starBlue',
         "bg-starImg bg-cover bg-fixed")}>
-        <div className="relative min-h-screen overflow-x-hidden" id="landing">
-          <div className="opacity-65 absolute inset-0 bg-blueOverlay bg-fixed z-0"></div>
-          <div className="relative">
-            {children}
-          </div>
+        <div className="opacity-65 absolute inset-0 bg-blueOverlay bg-fixed z-0"></div>
+        <div className="relative h-screen overflow-x-hidden z-10" id="landing">
+          {children}
         </div>
       </body>
     </html>
