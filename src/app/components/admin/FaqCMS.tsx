@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import AdminSaveCancel from "./AdminSaveCancel";
 
 type FaqRequestType = {
     id: number;
     question: string;
     answer: string;
+    deleted?: boolean;
 }
 
 type FaqCMSProps = {
@@ -13,6 +14,7 @@ type FaqCMSProps = {
 }
 
 export default function FaqCMS({faqData, containerRef}: FaqCMSProps) {
+    const originalFaqs = useRef<FaqRequestType[]>([...faqData]);
     const [faqs, setFaqs] = useState<FaqRequestType[]>(faqData);
     const [increment, setIncrement] = useState<number>(0);
 
@@ -24,15 +26,24 @@ export default function FaqCMS({faqData, containerRef}: FaqCMSProps) {
         );
     };
 
-    // useEffect(() => {
-    //     console.log(faqs);
-    // },[faqs]);
+    useEffect(() => {
+        setFaqs(prev => 
+            prev.map(faq => ({ ...faq, deleted: false }))
+        );
+    },[]);
+
+    useEffect(() => {
+        console.log(faqs);
+        console.log(originalFaqs);
+    },[faqs]);
 
     const saveFaqs = async() => {
         for (const faq of faqs) {
             if (faq.id <= 0) {
                 console.log(faq.question);
                 await postFaq(faq);
+            } else if (faq.deleted == true){
+                await deleteFaq(faq.id);
             } else {
                 await putFaq(faq);
             }
@@ -40,14 +51,25 @@ export default function FaqCMS({faqData, containerRef}: FaqCMSProps) {
         window.location.reload();
     };
 
+    const cancelFaqs = () => {
+        setFaqs([...originalFaqs.current]);
+        setTimeout(() => {
+            containerRef.current?.scrollTo({
+                top: containerRef.current.scrollHeight,
+                behavior: "smooth",
+            });
+        }, 0);
+    }
+
     const addFaq = () => {
-        faqs.push(
+        setFaqs(prev => [
+            ...prev,
             {
                 id: increment,
                 question: "",
                 answer: "",
             }
-        )
+        ]);
         setIncrement(increment-1);
 
         setTimeout(() => {
@@ -57,7 +79,17 @@ export default function FaqCMS({faqData, containerRef}: FaqCMSProps) {
             });
         }, 0);
     }
+
     
+        
+    const markFaqAsDeleted = (id: number) => {
+        setFaqs(prev => 
+            prev.map(faq =>
+                faq.id === id ? { ...faq, deleted: true } : faq
+            )
+        );
+    }; 
+
     const putFaq = async(faq: FaqRequestType) => {
         await fetch('/api/put/faq',{
             method: 'PUT',
@@ -78,12 +110,25 @@ export default function FaqCMS({faqData, containerRef}: FaqCMSProps) {
             body: JSON.stringify(faq), 
         })
         console.log('POST Request Successful');
-    }
+    };
+
+    const deleteFaq = async(faqId: number) => {
+        await fetch('/api/delete/faq',{
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                id: faqId,
+            }),
+        })
+        console.log('DELETE Request Successful');
+    };
 
 
     return (
         <div className="flex flex-col w-full">
-            {faqs.map((faq) => {
+            {faqs.filter(faq => !faq.deleted).map((faq ) => {
                 return (
                     <form key={faq.id} className="flex flex-row w-full gap-x-6 p-10">
                         <div className="flex flex-col w-full">
@@ -111,13 +156,13 @@ export default function FaqCMS({faqData, containerRef}: FaqCMSProps) {
                                 placeholder="Write answer here . . ."
                             />
                         </div>
-                        <div className="flex items-center not-italic text-red-600 text-4xl">
-                            x
+                        <div onClick={() => markFaqAsDeleted(faq.id)} className="flex items-center not-italic text-red-600 text-4xl cursor-pointer scale-hover">
+                            <img src="cross.svg" className="w-16"></img>
                         </div>
                     </form>
                 )
             })}
-            <AdminSaveCancel onClickSave={saveFaqs} onClickAdd={addFaq}/>
+            <AdminSaveCancel onClickSave={saveFaqs} onClickAdd={addFaq} onClickCancel={cancelFaqs}/>
         </div>
     )
 }
