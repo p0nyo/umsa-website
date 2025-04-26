@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import LandingCMS from "./LandingCMS";
 import EventsCMS from "./EventsCMS";
 import TeamCMS from "./TeamCMS";
@@ -50,6 +50,7 @@ const TABS: { label: string, value: TabType}[] = [
 
 export default function AdminCMS({ landingData, eventData, teamData, faqData}: AdminCMSProps) {
     const [activeTab, setActiveTab] = useState<TabType>('landing');
+    const containerRef = useRef<HTMLDivElement>(null!);
     
     return (
         <div className="relative flex flex-col justify-start items-center w-screen h-full">
@@ -72,11 +73,11 @@ export default function AdminCMS({ landingData, eventData, teamData, faqData}: A
                         </button>
                 ))}
             </div>
-            <div className="h-[550px] w-[1000px] bg-white rounded-b-md rounded-tr-md overflow-y-scroll">
+            <div ref={containerRef} className="h-[550px] w-[1000px] bg-white rounded-b-md rounded-tr-md overflow-y-scroll">
                 {activeTab === 'landing' && <LandingCMS landingData={landingData}/>}
                 {activeTab === 'events' && <EventsCMS eventData={eventData}/>}
                 {activeTab === 'team' && <TeamCMS teamData={teamData}/>}
-                {activeTab === 'faq' && <FaqCMS faqData={faqData} />}
+                {activeTab === 'faq' && <FaqCMS faqData={faqData} containerRef={containerRef} />}
             </div>
         </div>
     )

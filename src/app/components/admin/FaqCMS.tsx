@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import AdminSaveCancel from "./AdminSaveCancel";
 
 type FaqRequestType = {
@@ -9,10 +9,12 @@ type FaqRequestType = {
 
 type FaqCMSProps = {
     faqData: FaqRequestType[];
+    containerRef: React.RefObject<HTMLDivElement>;
 }
 
-export default function FaqCMS({faqData}: FaqCMSProps) {
+export default function FaqCMS({faqData, containerRef}: FaqCMSProps) {
     const [faqs, setFaqs] = useState<FaqRequestType[]>(faqData);
+    const [increment, setIncrement] = useState<number>(0);
 
     const handleChange = (id: number, field: keyof FaqRequestType, value: string) => {
         setFaqs(prev =>
@@ -28,10 +30,34 @@ export default function FaqCMS({faqData}: FaqCMSProps) {
 
     const saveFaqs = async() => {
         for (const faq of faqs) {
-            await putFaq(faq);
+            if (faq.id <= 0) {
+                console.log(faq.question);
+                await postFaq(faq);
+            } else {
+                await putFaq(faq);
+            }
         }
+        window.location.reload();
     };
 
+    const addFaq = () => {
+        faqs.push(
+            {
+                id: increment,
+                question: "",
+                answer: "",
+            }
+        )
+        setIncrement(increment-1);
+
+        setTimeout(() => {
+            containerRef.current?.scrollTo({
+                top: containerRef.current.scrollHeight,
+                behavior: "smooth",
+            });
+        }, 0);
+    }
+    
     const putFaq = async(faq: FaqRequestType) => {
         await fetch('/api/put/faq',{
             method: 'PUT',
@@ -40,8 +66,20 @@ export default function FaqCMS({faqData}: FaqCMSProps) {
             },
             body: JSON.stringify(faq),
         })
-        console.log('PUT Request Successful')
+        console.log('PUT Request Successful');
     };
+
+    const postFaq = async(faq: FaqRequestType) => {
+        await fetch('/api/post/faq',{
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(faq), 
+        })
+        console.log('POST Request Successful');
+    }
+
 
     return (
         <div className="flex flex-col w-full">
@@ -58,6 +96,7 @@ export default function FaqCMS({faqData}: FaqCMSProps) {
                                 onChange={(e) => handleChange(faq.id, 'question', e.target.value)}
                                 className="w-full p-2 border border-gray-300 rounded"
                                 required
+                                placeholder="Write question here . . ."
                             />
                         </div>
                         <div className="flex flex-col w-full">
@@ -69,6 +108,7 @@ export default function FaqCMS({faqData}: FaqCMSProps) {
                                 onChange={(e) => handleChange(faq.id, 'answer', e.target.value)}
                                 className="w-full p-2 border border-gray-300 rounded"
                                 required
+                                placeholder="Write answer here . . ."
                             />
                         </div>
                         <div className="flex items-center not-italic text-red-600 text-4xl">
@@ -77,7 +117,7 @@ export default function FaqCMS({faqData}: FaqCMSProps) {
                     </form>
                 )
             })}
-            <AdminSaveCancel onClick={saveFaqs}/>
+            <AdminSaveCancel onClickSave={saveFaqs} onClickAdd={addFaq}/>
         </div>
     )
 }
