@@ -79,8 +79,6 @@ export default function FaqCMS({faqData, containerRef}: FaqCMSProps) {
             });
         }, 0);
     }
-
-    
         
     const markFaqAsDeleted = (id: number) => {
         setFaqs(prev => 
@@ -128,7 +126,7 @@ export default function FaqCMS({faqData, containerRef}: FaqCMSProps) {
 
     return (
         <div className="flex flex-col w-full">
-            {faqs.filter(faq => !faq.deleted).map((faq ) => {
+            {faqs.filter(faq => !faq.deleted).map((faq) => {
                 return (
                     <form key={faq.id} className="flex flex-row w-full gap-x-6 p-10">
                         <div className="flex flex-col w-full">

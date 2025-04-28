@@ -1,3 +1,4 @@
+import { useState } from "react";
 import AdminSaveCancel from "./AdminSaveCancel";
 
 type TeamRequestType = {
@@ -13,16 +14,79 @@ type TeamCMSProps = {
 }
 
 export default function TeamCMS({teamData}: TeamCMSProps) {
+    const [team, setTeam] = useState<TeamRequestType[]>(teamData);
+
+    const handleChange = (id: number, field: keyof TeamRequestType, value: string) => {
+        setTeam(prev =>
+            prev.map(team =>
+                team.id === id ? { ...team, [field]: value } : team
+            )
+        );
+    };
+
     return (
         <div className="flex flex-col">
-            {teamData.map((team) => {
+            {team.map((team) => {
                 return (
-                    <div key={team.id} className="flex flex-row">
-                        <p>{team.name}</p>
-                        <p>{team.role}</p>
-                        <p>{team.image}</p>
-                        <p>{team.socials}</p>
-                    </div>
+                    <form key={team.id} className="flex flex-row w-full gap-x-6 p-10">
+                        <a href={team.image} className="w-4/5 scale-hover" target="_blank" draggable="false">
+                            <img src={team.image} className="rounded-md" draggable="false"></img>
+                            <p>click to zoom!</p>
+                        </a>
+                        <div className="flex flex-col w-full">
+                            <label className="text-xl font-bold block">Name</label>
+                            <input
+                                type="text"
+                                id={`name-${team.id}`}
+                                name="name"
+                                value={team.name}
+                                onChange={(e) => handleChange(team.id, 'name', e.target.value)}
+                                className="w-full p-2 border border-gray-300 rounded"
+                                required
+                                placeholder="Write name here . . ."
+                            />
+                        </div>
+                        <div className="flex flex-col w-full">
+                            <label className="text-xl font-bold block">Role</label>
+                            <input
+                                type="text"
+                                id={`role-${team.id}`}
+                                name="role"
+                                value={team.role}
+                                onChange={(e) => handleChange(team.id, 'role', e.target.value)}
+                                className="w-full p-2 border border-gray-300 rounded"
+                                required
+                                placeholder="Write role here . . ."
+                            />
+                        </div>
+                        <div className="flex flex-col w-full">
+                            <label className="text-xl font-bold block">Image Link</label>
+                            <textarea
+                                id={`image-${team.id}`}
+                                name="image"
+                                value={team.image}
+                                onChange={(e) => handleChange(team.id, 'image', e.target.value)}
+                                className="w-full p-2 border border-gray-300 rounded"
+                                required
+                                placeholder="Insert Image Link here . . ."
+                            />
+                        </div>
+                        <div className="flex flex-col w-full">
+                            <label className="text-xl font-bold block">Socials Link</label>
+                            <textarea
+                                id={`socials-${team.id}`}
+                                name="socials"
+                                value={team.socials}
+                                onChange={(e) => handleChange(team.id, 'socials', e.target.value)}
+                                className="w-full p-2 border border-gray-300 rounded"
+                                required
+                                placeholder="Insert Socials Link here . . ."
+                            />
+                        </div>
+                        <div className="flex items-center not-italic text-red-600 text-4xl cursor-pointer scale-hover">
+                            <img src="cross.svg" className="w-36"></img>
+                        </div>
+                    </form>
                 )
             })}
             {/* <AdminSaveCancel />  */}
