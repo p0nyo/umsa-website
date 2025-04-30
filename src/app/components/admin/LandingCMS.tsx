@@ -1,5 +1,6 @@
 import AdminSaveCancel from "./AdminSaveCancel";
 import { useState } from "react";
+import ImageUploader from "./ImageUploader";
 
 type LandingRequestType = {
     id: number;
@@ -43,6 +44,7 @@ export default function LandingCMS({landingData}: LandingCMSProps) {
                                 placeholder="Insert Image Link here . . ."
                             />
                         </div>
+                        <ImageUploader />
                         <div className="flex items-center not-italic text-red-600 text-4xl cursor-pointer scale-hover">
                             <img src="cross.svg" className="w-8"></img>
                         </div>
