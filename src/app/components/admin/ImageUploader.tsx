@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useRef } from 'react'
 
 type ImageUploaderProps = {
     onFileSelect: (file: File) => void;
@@ -6,17 +6,18 @@ type ImageUploaderProps = {
 
 
 export default function ImageUploader({ onFileSelect }: ImageUploaderProps) {
-  const [image, setImage] = useState<File | null>(null)
-  const [preview, setPreview] = useState<string | null>(null)
+    const inputRef = useRef<HTMLInputElement>(null);
 
-  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0]
-    if (file) {
-      setImage(file);
-      onFileSelect(file);
-      setPreview(URL.createObjectURL(file));
+    const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const file = e.target.files?.[0]
+        console.log(file);
+        if (file) {
+            onFileSelect(file);
+            if (inputRef.current) {
+                inputRef.current.value = "";
+            }
+        }
     }
-  }
 
   return (
     <div className="flex flex-col justify-center">
@@ -24,6 +25,7 @@ export default function ImageUploader({ onFileSelect }: ImageUploaderProps) {
             id="file-upload"
             type="file" 
             accept="image/*" 
+            ref={inputRef}
             onChange={handleImageChange} 
             className="hidden"
         />

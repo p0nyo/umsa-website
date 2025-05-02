@@ -1,5 +1,5 @@
 import AdminSaveCancel from "./AdminSaveCancel";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import ImageUploader from "./ImageUploader";
 
 type LandingRequestType = {
@@ -10,9 +10,10 @@ type LandingRequestType = {
 
 type LandingCMSProps = {
     landingData: LandingRequestType[];
+    containerRef: React.RefObject<HTMLDivElement>;
 }
 
-export default function LandingCMS({landingData}: LandingCMSProps) {
+export default function LandingCMS({landingData, containerRef}: LandingCMSProps) {
     const originalLanding = useRef<LandingRequestType[]>([...landingData]);
     const [landing, setLanding] = useState<LandingRequestType[]>(landingData);
 
@@ -25,13 +26,14 @@ export default function LandingCMS({landingData}: LandingCMSProps) {
     };
 
     const handleFileSelect = (id: number, file: File) => {
+        console.log("handle file select");
         setLanding(prev =>
             prev.map(landing =>
                 landing.id === id ? { ...landing, image: URL.createObjectURL(file), new_image: file} : landing
             )
         );
     };
-
+    
     const saveLanding = async() => {
         console.log("save landing");
     }
@@ -75,6 +77,7 @@ export default function LandingCMS({landingData}: LandingCMSProps) {
                                 value={landing.image}
                                 className="w-full p-2 border border-gray-300 rounded"
                                 required
+                                readOnly
                                 placeholder="Insert Image Link here . . ."
                             />
                         </div>
