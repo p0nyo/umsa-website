@@ -1,14 +1,20 @@
 import { useState } from 'react'
 
-export default function ImageUploader() {
+type ImageUploaderProps = {
+    onFileSelect: (file: File) => void;
+}
+
+
+export default function ImageUploader({ onFileSelect }: ImageUploaderProps) {
   const [image, setImage] = useState<File | null>(null)
   const [preview, setPreview] = useState<string | null>(null)
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0]
     if (file) {
-      setImage(file)
-      setPreview(URL.createObjectURL(file))
+      setImage(file);
+      onFileSelect(file);
+      setPreview(URL.createObjectURL(file));
     }
   }
 
@@ -27,9 +33,6 @@ export default function ImageUploader() {
         >
             Upload Image
         </label>
-        {preview && (
-            <img src={preview} alt="Preview" className="w-48 h-48 object-contain" />
-        )}
     </div>
   )
 }
