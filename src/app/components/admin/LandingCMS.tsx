@@ -119,7 +119,7 @@ export default function LandingCMS({landingData, containerRef}: LandingCMSProps)
                 resource_type: 'image',
             }),
         });
-    }
+    };
 
     // HTTP Requests to Database
 

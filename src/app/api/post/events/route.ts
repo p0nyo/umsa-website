@@ -1,3 +1,4 @@
+import cloudinary from '@/lib/cloudinary';
 import { supabase } from '../../../../lib/supabase';
 import { NextRequest, NextResponse } from 'next/server';
 
@@ -12,6 +13,7 @@ export async function POST(request: NextRequest) {
             date: body.date,
             link: body.link,
             image: body.image,
+            cloudinary_id: body.cloudinary_id,
         },
     ])
 
