@@ -19,6 +19,7 @@ export default function Team() {
   const getTeam = async () => {
     const response = await fetch('/api/get/team');
     const data = await response.json();
+    data.sort((a: TeamRequestType, b: TeamRequestType) => a.id - b.id);
     setTeam(data || []);
     setExecSubList(data.slice(1,4) || []);
     setGenSubList(data.slice(4,14) || []);

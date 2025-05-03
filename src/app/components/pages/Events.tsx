@@ -28,6 +28,8 @@ export default function Events() {
   const getEvents = async () => {
       const response = await fetch('/api/get/events');
       const data = await response.json()
+      data.sort((a: RequestType, b: RequestType) => a.id - b.id);
+      console.log(data);
 
       if (data) {
         const transformedData = data.map((event: RequestType) => ({
