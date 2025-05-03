@@ -7,7 +7,7 @@ export async function PUT(request: NextRequest) {
     const { id, name, role, image, socials, cloudinary_id } = body;
 
     const { data, error } = await supabase
-    .from("EVENTS")
+    .from("TEAM")
     .update({
             name,
             role,
