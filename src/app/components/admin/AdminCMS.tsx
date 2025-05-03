@@ -51,7 +51,7 @@ const TABS: { label: string, value: TabType}[] = [
 export default function AdminCMS({ landingData, eventData, teamData, faqData}: AdminCMSProps) {
     const [activeTab, setActiveTab] = useState<TabType>('landing');
     const containerRef = useRef<HTMLDivElement>(null!);
-    
+
     return (
         <div className="relative flex flex-col justify-start items-center w-screen h-full">
             <div className="w-[1000px]">

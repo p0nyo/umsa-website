@@ -18,6 +18,8 @@ export default function FaqCMS({faqData, containerRef}: FaqCMSProps) {
     const [faqs, setFaqs] = useState<FaqRequestType[]>(faqData);
     const [increment, setIncrement] = useState<number>(0);
 
+    // Updater Functions
+
     const handleChange = (id: number, field: keyof FaqRequestType, value: string) => {
         setFaqs(prev =>
             prev.map(faq =>
@@ -26,29 +28,7 @@ export default function FaqCMS({faqData, containerRef}: FaqCMSProps) {
         );
     };
 
-    useEffect(() => {
-        setFaqs(prev => 
-            prev.map(faq => ({ ...faq, deleted: false }))
-        );
-    },[]);
-
-    // useEffect(() => {
-    //     console.log(faqs);
-    //     console.log(originalFaqs);
-    // },[faqs]);
-
-    const saveFaqs = async() => {
-        for (const faq of faqs) {
-            if (faq.deleted) {
-                await deleteFaq(faq.id);
-            } else if (faq.id <= 0){
-                await postFaq(faq);
-            } else {
-                await putFaq(faq);
-            }
-        }
-        window.location.reload();
-    };
+    // State Setter Functions
 
     const cancelFaqs = () => {
         setFaqs([...originalFaqs.current]);
@@ -77,7 +57,7 @@ export default function FaqCMS({faqData, containerRef}: FaqCMSProps) {
                 behavior: "smooth",
             });
         }, 0);
-    }
+    };
         
     const markFaqAsDeleted = (id: number) => {
         setFaqs(prev => 
@@ -86,6 +66,8 @@ export default function FaqCMS({faqData, containerRef}: FaqCMSProps) {
             )
         );
     }; 
+
+    // HTTP Requests to Database
 
     const putFaq = async(faq: FaqRequestType) => {
         await fetch('/api/put/faq',{
@@ -122,6 +104,25 @@ export default function FaqCMS({faqData, containerRef}: FaqCMSProps) {
         console.log('DELETE Request Successful');
     };
 
+    const saveFaqs = async() => {
+        for (const faq of faqs) {
+            if (faq.deleted) {
+                await deleteFaq(faq.id);
+            } else if (faq.id <= 0){
+                await postFaq(faq);
+            } else {
+                await putFaq(faq);
+            }
+        }
+        window.location.reload();
+    };
+
+
+    useEffect(() => {
+        setFaqs(prev => 
+            prev.map(faq => ({ ...faq, deleted: false }))
+        );
+    },[]);
     
     return (
         <div className="flex flex-col w-full">

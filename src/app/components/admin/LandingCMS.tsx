@@ -208,7 +208,7 @@ export default function LandingCMS({landingData, containerRef}: LandingCMSProps)
                         </div>
                         <ImageUploader id={landing.id} onFileSelect={(file: File) => handleFileSelect(landing.id, file)}/>
                         <div onClick={() => markLandingAsDeleted(landing.id)} className="flex items-center not-italic text-red-600 text-4xl cursor-pointer scale-hover">
-                            <img src="cross.svg" className="w-8"></img>
+                            <img src="cross.svg" className="w-12"></img>
                         </div>
                     </form>
                 );
