@@ -182,7 +182,7 @@ export default function TeamCMS({teamData, containerRef}: TeamCMSProps) {
                 await putTeam(team);
             }
         }
-        // window.location.reload();
+        window.location.reload();
     };
 
 

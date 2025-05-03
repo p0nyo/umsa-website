@@ -172,9 +172,9 @@ export default function LandingCMS({landingData, containerRef}: LandingCMSProps)
         window.location.reload();
     };
 
-    useEffect(() => {
-        console.log(landings);
-    },[landings]);
+    // useEffect(() => {
+    //     console.log(landings);
+    // },[landings]);
 
     return (
         <div className="flex flex-col h-full overflow-scroll">
