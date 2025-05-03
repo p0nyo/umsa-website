@@ -7,6 +7,7 @@ type TeamRequestType = {
     role: string;
     image: string;
     socials: string;
+    new_image?: File;
 }
 
 type TeamCMSProps = {
@@ -20,6 +21,14 @@ export default function TeamCMS({teamData}: TeamCMSProps) {
         setTeam(prev =>
             prev.map(team =>
                 team.id === id ? { ...team, [field]: value } : team
+            )
+        );
+    };
+
+    const handleFileSelect = (id: number, file: File) => {
+        setTeam(prev =>
+            prev.map(team =>
+                team.id === id ? { ...team, image: URL.createObjectURL(file), new_image: file } : team
             )
         );
     };

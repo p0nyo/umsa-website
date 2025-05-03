@@ -82,7 +82,7 @@ export default function EventsCMS({eventData, containerRef}: EventCMSProps) {
                 event.id === id ? { ...event, deleted: true } : event
             )
         );
-    }
+    };
 
     // HTTP Requests to Cloudinary
 
