@@ -32,15 +32,14 @@ export default function FaqCMS({faqData, containerRef}: FaqCMSProps) {
         );
     },[]);
 
-    useEffect(() => {
-        console.log(faqs);
-        console.log(originalFaqs);
-    },[faqs]);
+    // useEffect(() => {
+    //     console.log(faqs);
+    //     console.log(originalFaqs);
+    // },[faqs]);
 
     const saveFaqs = async() => {
         for (const faq of faqs) {
             if (faq.id <= 0) {
-                console.log(faq.question);
                 await postFaq(faq);
             } else if (faq.deleted == true){
                 await deleteFaq(faq.id);
@@ -59,7 +58,7 @@ export default function FaqCMS({faqData, containerRef}: FaqCMSProps) {
                 behavior: "smooth",
             });
         }, 0);
-    }
+    };
 
     const addFaq = () => {
         setFaqs(prev => [
@@ -123,7 +122,7 @@ export default function FaqCMS({faqData, containerRef}: FaqCMSProps) {
         console.log('DELETE Request Successful');
     };
 
-
+    
     return (
         <div className="flex flex-col w-full">
             {faqs.filter(faq => !faq.deleted).map((faq) => {

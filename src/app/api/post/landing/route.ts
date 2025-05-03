@@ -9,6 +9,7 @@ export async function POST(request: NextRequest) {
     .insert([
         {
             image: body.image,
+            cloudinary_id: body.cloudinary_id,
         },
     ])
 

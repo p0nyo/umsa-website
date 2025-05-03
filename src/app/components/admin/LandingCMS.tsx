@@ -1,11 +1,14 @@
 import AdminSaveCancel from "./AdminSaveCancel";
 import { useState, useRef, useEffect } from "react";
 import ImageUploader from "./ImageUploader";
+import toBase64 from "@/utils/toBase64";
 
 type LandingRequestType = {
     id: number;
     image: string;
+    cloudinary_id?: string;
     new_image?: File;
+    deleted?: Boolean;
 }
 
 type LandingCMSProps = {
@@ -18,26 +21,17 @@ export default function LandingCMS({landingData, containerRef}: LandingCMSProps)
     const [landings, setLandings] = useState<LandingRequestType[]>(landingData);
     const [increment, setIncrement] = useState<number>(0);
 
-    const handleChange = (id: number, field: keyof LandingRequestType, value: string) => {
-        setLandings(prev =>
-            prev.map(landing =>
-                landing.id === id ? { ...landing, [field]: value } : landing
-            )
-        );
-    };
+    // Updater Functions
 
-    const handleFileSelect = (id: number, file: File) => {
+    const handleFileSelect = async(id: number, file: File) => {
         setLandings(prev =>
             prev.map(landing =>
                 landing.id === id ? { ...landing, image: URL.createObjectURL(file), new_image: file } : landing
             )
         );
-
     };
 
-    const saveLanding = async() => {
-        console.log("save landing");
-    }
+    // State Setter Functions
 
     const cancelLanding = () => {
         console.log("cancel landing");
@@ -48,7 +42,7 @@ export default function LandingCMS({landingData, containerRef}: LandingCMSProps)
                 behavior: "smooth",
             });
         }, 0);
-    }
+    };
 
     const addLanding = () => {
         console.log("add landing");
@@ -67,28 +61,139 @@ export default function LandingCMS({landingData, containerRef}: LandingCMSProps)
                 behavior: "smooth",
             });
         }, 0);
+    };
+
+    const markLandingAsDeleted = (id: number) => {
+        setLandings(prev => 
+            prev.map(landings =>
+                landings.id === id ? { ...landings, deleted: true } : landings
+            )
+        );
+    };
+
+    // HTTP Requests to Cloudinary
+
+    const batchUpdateImages = async (): Promise<LandingRequestType[]> => {
+        const updated = [...landings];
+        for (let i = 0; i < updated.length; i++) {
+            const landing = updated[i];
+            if (landing.new_image) {
+                const data = await postImage(landing.new_image);
+                updated[i] = {
+                    ...landing,
+                    image: data.url,
+                    cloudinary_id: data.public_id,
+                    new_image: undefined,
+                };
+            } else if (landing.deleted && landing.cloudinary_id) {
+                await deleteImage(landing.cloudinary_id);
+            }
+        }
+        setLandings(updated);
+        return updated;
+    };
+
+    const postImage = async(file: File) => {
+        const base64Image = await toBase64(file);
+
+        const response = await fetch('/api/post/cloudinary', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+            file: base64Image,
+            resource_type: 'image',
+            folder: 'landing-page-images',
+            }),
+        });
+        const data = await response.json();
+
+        return data;
+    };
+
+    const deleteImage = async(public_id: string) => {
+        await fetch('/api/delete/cloudinary', {
+            method: 'DELETE',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                public_id: public_id,
+                resource_type: 'image',
+            }),
+        });
     }
+
+    // HTTP Requests to Database
+
+    const putLanding = async(landing: LandingRequestType) => {
+        await fetch('/api/put/landing',{
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(landing),
+        })
+        console.log('PUT Request Successful');
+    };
+
+    const postLanding = async(landing: LandingRequestType) => {
+        await fetch('/api/post/landing',{
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(landing), 
+        })
+        console.log('POST Request Successful');
+    };
+
+    const deleteLanding = async(landingId: number) => {
+        await fetch('/api/delete/landing',{
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                id: landingId,
+            }),
+        })
+        console.log('DELETE Request Successful');
+    };
+
+    const saveLanding = async() => {
+        const updatedLandings = await batchUpdateImages();
+        for (const landing of updatedLandings) {
+            if (landing.deleted) {
+                await deleteLanding(landing.id);
+            } else if (landing.id <= 0){
+                await postLanding(landing);
+            } else {
+                await putLanding(landing);
+            }
+        }
+        window.location.reload();
+    };
 
     useEffect(() => {
         console.log(landings);
-    },[landings])
+    },[landings]);
 
 
     return (
         <div className="flex flex-col h-full overflow-scroll">
-            {landings.map((landing, index) => {
+            {landings.filter(landing => !landing.deleted).map((landing, index) => {
                 return (
                     <form key={index} className="flex flex-row w-full gap-x-8 px-10 py-4">
                         <a href={landing.image} className="w-1/3 scale-hover" target="_blank" draggable="false">
                             <img src={landing.image} className="rounded-md" draggable="false"></img>
-                            <p>image preview</p>
+                            <p>preview image!</p>
                         </a>
                         <div className="flex flex-col w-full">
-                            {landing.new_image ? (
-                                <label className="text-xl font-bold block">Temporary Image Link</label>
-                            ) : (
-                                <label className="text-xl font-bold block">Current Image Link</label>
-                            )}
+                            <label className="text-xl font-bold block">
+                                {landing.new_image ? (
+                                    "Temporary Image Link"
+                                ) : (
+                                    "Current Image Link"
+                                )}
+                            </label>
 
                             <input
                                 type="text"
@@ -102,7 +207,7 @@ export default function LandingCMS({landingData, containerRef}: LandingCMSProps)
                             />
                         </div>
                         <ImageUploader id={landing.id} onFileSelect={(file: File) => handleFileSelect(landing.id, file)}/>
-                        <div className="flex items-center not-italic text-red-600 text-4xl cursor-pointer scale-hover">
+                        <div onClick={() => markLandingAsDeleted(landing.id)} className="flex items-center not-italic text-red-600 text-4xl cursor-pointer scale-hover">
                             <img src="cross.svg" className="w-8"></img>
                         </div>
                     </form>
