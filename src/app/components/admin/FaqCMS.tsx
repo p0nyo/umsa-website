@@ -130,7 +130,7 @@ export default function FaqCMS({faqData, containerRef}: FaqCMSProps) {
                 return (
                     <form key={faq.id} className="flex flex-row w-full gap-x-6 p-10">
                         <div className="flex flex-col w-full">
-                            <label className="text-xl font-bold block">Question</label>
+                            <label className="text-xl font-bold block">question</label>
                             <input
                                 type="text"
                                 id={`question-${faq.id}`}
@@ -143,7 +143,7 @@ export default function FaqCMS({faqData, containerRef}: FaqCMSProps) {
                             />
                         </div>
                         <div className="flex flex-col w-full">
-                            <label className="text-xl font-bold block">Answer</label>
+                            <label className="text-xl font-bold block">answer</label>
                             <textarea
                                 id={`answer-${faq.id}`}
                                 name="answer"

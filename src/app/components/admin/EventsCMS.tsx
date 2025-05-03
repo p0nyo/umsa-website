@@ -188,7 +188,7 @@ export default function EventsCMS({eventData, containerRef}: EventCMSProps) {
 
     return (
         <div className="flex flex-col">
-            {event.map((event) => {
+            {event.filter(event => !event.deleted).map((event) => {
                 return (
                     <form key={event.id} className="flex flex-row w-full gap-x-6 p-10">
                         <a href={event.image} className="w-4/5 scale-hover" target="_blank" draggable="false">
@@ -196,7 +196,7 @@ export default function EventsCMS({eventData, containerRef}: EventCMSProps) {
                             <p>preview image!</p>
                         </a>
                         <div className="flex flex-col w-full">
-                            <label className="text-xl font-bold block">Title</label>
+                            <label className="text-xl font-bold block">title</label>
                             <input
                                 type="text"
                                 id={`title-${event.id}`}
@@ -209,7 +209,7 @@ export default function EventsCMS({eventData, containerRef}: EventCMSProps) {
                             />
                         </div>
                         <div className="flex flex-col w-full">
-                            <label className="text-xl font-bold block">Date</label>
+                            <label className="text-xl font-bold block">date</label>
                             <input
                                 type="text"
                                 id={`date-${event.id}`}
@@ -222,7 +222,7 @@ export default function EventsCMS({eventData, containerRef}: EventCMSProps) {
                             />
                         </div>
                         <div className="flex flex-col w-full">
-                            <label className="text-xl font-bold block">Event Link</label>
+                            <label className="text-xl font-bold block">event link</label>
                             <textarea
                                 id={`link-${event.id}`}
                                 name="link"
@@ -234,7 +234,7 @@ export default function EventsCMS({eventData, containerRef}: EventCMSProps) {
                             />
                         </div>
                         <ImageUploader id={event.id} onFileSelect={(file: File) => handleFileSelect(event.id, file)}/>
-                        <div onClick={() => deleteEvent(event.id)} className="flex items-center not-italic text-red-600 text-4xl cursor-pointer scale-hover">
+                        <div onClick={() => markEventAsDeleted(event.id)} className="flex items-center not-italic text-red-600 text-4xl cursor-pointer scale-hover">
                             <img src="cross.svg" className="w-36"></img>
                         </div>
                     </form>

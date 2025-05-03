@@ -31,10 +31,10 @@ export default function TeamCMS({teamData}: TeamCMSProps) {
                     <form key={team.id} className="flex flex-row w-full gap-x-6 p-10">
                         <a href={team.image} className="w-4/5 scale-hover" target="_blank" draggable="false">
                             <img src={team.image} className="rounded-md" draggable="false"></img>
-                            <p>click to zoom!</p>
+                            <p>preview image!</p>
                         </a>
                         <div className="flex flex-col w-full">
-                            <label className="text-xl font-bold block">Name</label>
+                            <label className="text-xl font-bold block">name</label>
                             <input
                                 type="text"
                                 id={`name-${team.id}`}
@@ -47,7 +47,7 @@ export default function TeamCMS({teamData}: TeamCMSProps) {
                             />
                         </div>
                         <div className="flex flex-col w-full">
-                            <label className="text-xl font-bold block">Role</label>
+                            <label className="text-xl font-bold block">role</label>
                             <input
                                 type="text"
                                 id={`role-${team.id}`}
@@ -60,7 +60,7 @@ export default function TeamCMS({teamData}: TeamCMSProps) {
                             />
                         </div>
                         <div className="flex flex-col w-full">
-                            <label className="text-xl font-bold block">Image Link</label>
+                            <label className="text-xl font-bold block">image link</label>
                             <textarea
                                 id={`image-${team.id}`}
                                 name="image"
@@ -72,7 +72,7 @@ export default function TeamCMS({teamData}: TeamCMSProps) {
                             />
                         </div>
                         <div className="flex flex-col w-full">
-                            <label className="text-xl font-bold block">Socials Link</label>
+                            <label className="text-xl font-bold block">socials link</label>
                             <textarea
                                 id={`socials-${team.id}`}
                                 name="socials"

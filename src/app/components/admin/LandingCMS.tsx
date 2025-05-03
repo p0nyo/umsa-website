@@ -188,9 +188,9 @@ export default function LandingCMS({landingData, containerRef}: LandingCMSProps)
                         <div className="flex flex-col w-full">
                             <label className="text-xl font-bold block">
                                 {landing.new_image ? (
-                                    "Temporary Image Link"
+                                    "temporary image link"
                                 ) : (
-                                    "Current Image Link"
+                                    "current image link"
                                 )}
                             </label>
 

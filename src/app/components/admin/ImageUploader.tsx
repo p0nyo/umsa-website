@@ -33,7 +33,7 @@ export default function ImageUploader({ id, onFileSelect }: ImageUploaderProps) 
             htmlFor={`file-upload-${id}`} 
             className="cursor-pointer px-4 py-2 border-2 border-umsaBlue bg-umsaBlue text-white rounded-md scale-hover hover:bg-white hover:text-umsaBlue transition duration-300"
         >
-            Upload Image
+            upload image
         </label>
     </div>
   )
