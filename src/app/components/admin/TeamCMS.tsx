@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import AdminSaveCancel from "./AdminSaveCancel";
 
 type TeamRequestType = {
@@ -8,14 +8,20 @@ type TeamRequestType = {
     image: string;
     socials: string;
     new_image?: File;
+    deleted?: Boolean;
 }
 
 type TeamCMSProps = {
     teamData: TeamRequestType[];
+    containerRef: React.RefObject<HTMLDivElement>;
 }
 
-export default function TeamCMS({teamData}: TeamCMSProps) {
+export default function TeamCMS({teamData, containerRef}: TeamCMSProps) {
+    const originalTeam = useRef<TeamRequestType[]>([...teamData]);
     const [team, setTeam] = useState<TeamRequestType[]>(teamData);
+    const [increment, setIncrement] = useState<number>(0);
+
+    // Updater Functions
 
     const handleChange = (id: number, field: keyof TeamRequestType, value: string) => {
         setTeam(prev =>
@@ -32,6 +38,49 @@ export default function TeamCMS({teamData}: TeamCMSProps) {
             )
         );
     };
+
+    // State Setter Functions
+
+    const cancelTeam = () => {
+        setTeam([...originalTeam.current]);
+        setTimeout(() => {
+            containerRef.current?.scrollTo({
+                top: containerRef.current.scrollHeight,
+                behavior: "smooth",
+            });
+        }, 0);
+    };
+
+    const addTeam = () => {
+        console.log("add landing");
+        setTeam(prev => [
+            ...prev,
+            {
+                id: increment,
+                name: "",
+                role: "",
+                image: "https://www.umsanz.com/comm-pics/comms-1.jpg",
+                socials: "",
+            }
+        ]);
+        setIncrement(increment-1);
+
+        setTimeout(() => {
+            containerRef.current?.scrollTo({
+                top: containerRef.current.scrollHeight,
+                behavior: "smooth",
+            });
+        }, 0);
+    };
+
+    const markEventAsDeleted = (id: number) => {
+        setTeam(prev => 
+            prev.map(team =>
+                team.id === id ? { ...team, deleted: true } : team
+            )
+        );
+    };
+
 
     return (
         <div className="flex flex-col">
