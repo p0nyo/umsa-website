@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import AdminSaveCancel from "./AdminSaveCancel";
+import toBase64 from "@/utils/toBase64";
 
 type TeamRequestType = {
     id: number;
@@ -8,6 +9,7 @@ type TeamRequestType = {
     image: string;
     socials: string;
     new_image?: File;
+    cloudinary_id?: string;
     deleted?: Boolean;
 }
 
@@ -79,6 +81,56 @@ export default function TeamCMS({teamData, containerRef}: TeamCMSProps) {
                 team.id === id ? { ...team, deleted: true } : team
             )
         );
+    };
+
+    // HTTP Requests to Cloudinary
+
+    const batchUpdateImages = async (): Promise<TeamRequestType[]> => {
+        const updated = [...team];
+        for (let i = 0; i < updated.length; i++) {
+            const event = updated[i];
+            if (event.new_image) {
+                const data = await postImage(event.new_image);
+                updated[i] = {
+                    ...event,
+                    image: data.url,
+                    cloudinary_id: data.public_id,
+                    new_image: undefined,
+                };
+            } else if (event.deleted && event.cloudinary_id) {
+                await deleteImage(event.cloudinary_id);
+            }
+        }
+        setTeam(updated);
+        return updated;
+    };
+
+    const postImage = async(file: File) => {
+        const base64Image = await toBase64(file);
+
+        const response = await fetch('/api/post/cloudinary', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+            file: base64Image,
+            resource_type: 'image',
+            folder: 'team-page-images',
+            }),
+        });
+        const data = await response.json();
+
+        return data;
+    };
+
+    const deleteImage = async(public_id: string) => {
+        await fetch('/api/delete/cloudinary', {
+            method: 'DELETE',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                public_id: public_id,
+                resource_type: 'image',
+            }),
+        });
     };
 
     // HTTP Requests to Database
