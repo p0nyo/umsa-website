@@ -1,4 +1,5 @@
 import { useState } from "react";
+import ImageUploader from "./ImageUploader";
 import AdminSaveCancel from "./AdminSaveCancel";
 
 type EventRequestType = {
@@ -7,14 +8,19 @@ type EventRequestType = {
     image: string;
     date: string;
     link: string;
+    new_image?: File;
+    cloudinary_id?: string;
 };
 
 type EventCMSProps = {
     eventData: EventRequestType[];
+    containerRef: React.RefObject<HTMLDivElement>;
 }
 
-export default function EventsCMS({eventData}: EventCMSProps) {
+export default function EventsCMS({eventData, containerRef}: EventCMSProps) {
     const [event, setEvent] = useState<EventRequestType[]>(eventData)
+
+    // Updater Functions
 
     const handleChange = (id: number, field: keyof EventRequestType, value: string) => {
         setEvent(prev =>
@@ -24,6 +30,15 @@ export default function EventsCMS({eventData}: EventCMSProps) {
         );
     };
 
+    const handleFileSelect = (id: number, file: File) => {
+        setEvent(prev =>
+            prev.map(event =>
+                event.id === id ? { ...event, image: URL.createObjectURL(file), new_image: file } : event
+            )
+        );
+    };
+
+
     return (
         <div className="flex flex-col">
             {event.map((event) => {
@@ -31,7 +46,7 @@ export default function EventsCMS({eventData}: EventCMSProps) {
                     <form key={event.id} className="flex flex-row w-full gap-x-6 p-10">
                         <a href={event.image} className="w-4/5 scale-hover" target="_blank" draggable="false">
                             <img src={event.image} className="rounded-md" draggable="false"></img>
-                            <p>click to zoom!</p>
+                            <p>preview image!</p>
                         </a>
                         <div className="flex flex-col w-full">
                             <label className="text-xl font-bold block">Title</label>
@@ -60,18 +75,6 @@ export default function EventsCMS({eventData}: EventCMSProps) {
                             />
                         </div>
                         <div className="flex flex-col w-full">
-                            <label className="text-xl font-bold block">Image Link</label>
-                            <textarea
-                                id={`image-${event.id}`}
-                                name="image"
-                                value={event.image}
-                                onChange={(e) => handleChange(event.id, 'image', e.target.value)}
-                                className="w-full p-2 border border-gray-300 rounded"
-                                required
-                                placeholder="Insert Image Link here . . ."
-                            />
-                        </div>
-                        <div className="flex flex-col w-full">
                             <label className="text-xl font-bold block">Event Link</label>
                             <textarea
                                 id={`link-${event.id}`}
@@ -83,6 +86,7 @@ export default function EventsCMS({eventData}: EventCMSProps) {
                                 placeholder="Insert Event Link here . . ."
                             />
                         </div>
+                        <ImageUploader id={event.id} onFileSelect={(file: File) => handleFileSelect(event.id, file)}/>
                         <div className="flex items-center not-italic text-red-600 text-4xl cursor-pointer scale-hover">
                             <img src="cross.svg" className="w-36"></img>
                         </div>
