@@ -39,10 +39,10 @@ export default function FaqCMS({faqData, containerRef}: FaqCMSProps) {
 
     const saveFaqs = async() => {
         for (const faq of faqs) {
-            if (faq.id <= 0) {
-                await postFaq(faq);
-            } else if (faq.deleted == true){
+            if (faq.deleted) {
                 await deleteFaq(faq.id);
+            } else if (faq.id <= 0){
+                await postFaq(faq);
             } else {
                 await putFaq(faq);
             }
