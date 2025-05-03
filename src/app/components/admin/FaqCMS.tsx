@@ -117,12 +117,12 @@ export default function FaqCMS({faqData, containerRef}: FaqCMSProps) {
         window.location.reload();
     };
 
-
     useEffect(() => {
         setFaqs(prev => 
             prev.map(faq => ({ ...faq, deleted: false }))
         );
     },[]);
+    
     
     return (
         <div className="flex flex-col w-full">

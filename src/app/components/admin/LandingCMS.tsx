@@ -23,7 +23,7 @@ export default function LandingCMS({landingData, containerRef}: LandingCMSProps)
 
     // Updater Functions
 
-    const handleFileSelect = async(id: number, file: File) => {
+    const handleFileSelect = (id: number, file: File) => {
         setLandings(prev =>
             prev.map(landing =>
                 landing.id === id ? { ...landing, image: URL.createObjectURL(file), new_image: file } : landing
@@ -119,7 +119,7 @@ export default function LandingCMS({landingData, containerRef}: LandingCMSProps)
                 resource_type: 'image',
             }),
         });
-    }
+    };
 
     // HTTP Requests to Database
 
@@ -175,7 +175,6 @@ export default function LandingCMS({landingData, containerRef}: LandingCMSProps)
     useEffect(() => {
         console.log(landings);
     },[landings]);
-
 
     return (
         <div className="flex flex-col h-full overflow-scroll">

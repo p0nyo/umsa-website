@@ -4,7 +4,7 @@ import { NextRequest, NextResponse } from 'next/server';
 export async function PUT(request: NextRequest) {
     const body = await request.json();
 
-    const { id, title, date, link, image } = body;
+    const { id, title, date, link, cloudinary_id, image } = body;
 
     const { data, error } = await supabase
     .from("EVENTS")
@@ -13,6 +13,7 @@ export async function PUT(request: NextRequest) {
             date,
             link,
             image,
+            cloudinary_id,
     })
     .eq("id", id);
 

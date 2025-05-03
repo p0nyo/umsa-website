@@ -75,7 +75,7 @@ export default function AdminCMS({ landingData, eventData, teamData, faqData}: A
             </div>
             <div ref={containerRef} className="h-[550px] w-[1000px] bg-white rounded-b-md rounded-tr-md overflow-y-scroll">
                 {activeTab === 'landing' && <LandingCMS landingData={landingData} containerRef={containerRef} />}
-                {activeTab === 'events' && <EventsCMS eventData={eventData}/>}
+                {activeTab === 'events' && <EventsCMS eventData={eventData} containerRef={containerRef}/>}
                 {activeTab === 'team' && <TeamCMS teamData={teamData}/>}
                 {activeTab === 'faq' && <FaqCMS faqData={faqData} containerRef={containerRef} />}
             </div>
