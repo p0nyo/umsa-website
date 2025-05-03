@@ -12,6 +12,7 @@ export async function POST(request: NextRequest) {
             role: body.role,
             image: body.image,
             socials: body.socials,
+            cloudinary_id: body.cloudinary_id,
         },
     ])
 

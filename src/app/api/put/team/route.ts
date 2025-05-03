@@ -4,15 +4,16 @@ import { NextRequest, NextResponse } from 'next/server';
 export async function PUT(request: NextRequest) {
     const body = await request.json();
 
-    const { id, name, role, image, socials } = body;
+    const { id, name, role, image, socials, cloudinary_id } = body;
 
     const { data, error } = await supabase
-    .from("EVENTS")
+    .from("TEAM")
     .update({
             name,
             role,
             image,
             socials,
+            cloudinary_id,
     })
     .eq("id", id);
 

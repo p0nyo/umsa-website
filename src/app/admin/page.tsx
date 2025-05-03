@@ -41,6 +41,8 @@ export default function Admin() {
     const getLanding = async () => {
         const response = await fetch('/api/get/landing');
         const data = await response.json();
+        data.sort((a: LandingRequestType, b: LandingRequestType) => a.id - b.id);
+        console.log("LANDING Table:");
         console.log(data);
         setLanding(data || []);   
     }
@@ -48,12 +50,17 @@ export default function Admin() {
     const getEvents = async () => {
         const response = await fetch('/api/get/events');
         const data = await response.json();
+        data.sort((a: EventRequestType, b: EventRequestType) => a.id - b.id);
+        console.log("EVENTS Table:");
+        console.log(data);
         setEvents(data || []);
     };
 
     const getTeam = async () => {
         const response = await fetch('/api/get/team');
         const data = await response.json();
+        data.sort((a: TeamRequestType, b: TeamRequestType) => a.id - b.id);
+        console.log("TEAM Table:");
         console.log(data);
         setTeam(data || []);
     }
@@ -61,6 +68,8 @@ export default function Admin() {
     const getFaq = async () => {
         const response = await fetch('/api/get/faq');
         const data = await response.json();
+        data.sort((a: FaqRequestType, b: FaqRequestType) => a.id - b.id);
+        console.log("FAQ Table:");
         console.log(data);
         setFaq(data || []);   
     }
