@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import AdminSaveCancel from "./AdminSaveCancel";
 import toBase64 from "@/utils/toBase64";
+import ImageUploader from "./ImageUploader";
 
 type TeamRequestType = {
     id: number;
@@ -170,10 +171,24 @@ export default function TeamCMS({teamData, containerRef}: TeamCMSProps) {
         console.log("DELETE Request Successful");
     };
 
+    const saveTeam = async() => {
+        const updatedTeam = await batchUpdateImages();
+        for (const team of updatedTeam) {
+            if (team.deleted) {
+                await deleteTeam(team.id);
+            } else if (team.id <= 0) {
+                await postTeam(team);
+            } else {
+                await putTeam(team);
+            }
+        }
+        window.location.reload();
+    };
+
 
     return (
         <div className="flex flex-col">
-            {team.map((team) => {
+            {team.filter(team => !team.deleted).map((team) => {
                 return (
                     <form key={team.id} className="flex flex-row w-full gap-x-6 p-10">
                         <a href={team.image} className="w-4/5 scale-hover" target="_blank" draggable="false">
@@ -207,18 +222,6 @@ export default function TeamCMS({teamData, containerRef}: TeamCMSProps) {
                             />
                         </div>
                         <div className="flex flex-col w-full">
-                            <label className="text-xl font-bold block">image link</label>
-                            <textarea
-                                id={`image-${team.id}`}
-                                name="image"
-                                value={team.image}
-                                onChange={(e) => handleChange(team.id, 'image', e.target.value)}
-                                className="w-full p-2 border border-gray-300 rounded"
-                                required
-                                placeholder="Insert Image Link here . . ."
-                            />
-                        </div>
-                        <div className="flex flex-col w-full">
                             <label className="text-xl font-bold block">socials link</label>
                             <textarea
                                 id={`socials-${team.id}`}
@@ -230,13 +233,14 @@ export default function TeamCMS({teamData, containerRef}: TeamCMSProps) {
                                 placeholder="Insert Socials Link here . . ."
                             />
                         </div>
-                        <div className="flex items-center not-italic text-red-600 text-4xl cursor-pointer scale-hover">
+                        <ImageUploader id={team.id} onFileSelect={(file: File) => handleFileSelect(team.id, file)}/>
+                        <div onClick={() => markEventAsDeleted(team.id)} className="flex items-center not-italic text-red-600 text-4xl cursor-pointer scale-hover">
                             <img src="cross.svg" className="w-36"></img>
                         </div>
                     </form>
                 )
             })}
-            {/* <AdminSaveCancel />  */}
+            <AdminSaveCancel onClickAdd={addTeam} onClickCancel={cancelTeam} onClickSave={saveTeam} /> 
         </div>
     )
 }
