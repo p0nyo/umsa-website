@@ -2,6 +2,7 @@ import AdminSaveCancel from "./AdminSaveCancel";
 import { useState, useRef, useEffect } from "react";
 import ImageUploader from "./ImageUploader";
 import toBase64 from "@/utils/toBase64";
+import FullPageLoadingSpinner from "./FullPageLoadingSpinner";
 
 type LandingRequestType = {
     id: number;
@@ -20,6 +21,7 @@ export default function LandingCMS({landingData, containerRef}: LandingCMSProps)
     const originalLanding = useRef<LandingRequestType[]>([...landingData]);
     const [landings, setLandings] = useState<LandingRequestType[]>(landingData);
     const [increment, setIncrement] = useState<number>(0);
+    const [isLoading, setIsLoading] = useState<boolean>(false);
 
     // Updater Functions
 
@@ -159,17 +161,22 @@ export default function LandingCMS({landingData, containerRef}: LandingCMSProps)
     };
 
     const saveLanding = async() => {
-        const updatedLandings = await batchUpdateImages();
-        for (const landing of updatedLandings) {
-            if (landing.deleted) {
-                await deleteLanding(landing.id);
-            } else if (landing.id <= 0){
-                await postLanding(landing);
-            } else {
-                await putLanding(landing);
+        try {
+            setIsLoading(true);
+            const updatedLandings = await batchUpdateImages();
+            for (const landing of updatedLandings) {
+                if (landing.deleted) {
+                    await deleteLanding(landing.id);
+                } else if (landing.id <= 0){
+                    await postLanding(landing);
+                } else {
+                    await putLanding(landing);
+                }
             }
+            window.location.reload();
+        } finally {
+            setIsLoading(false);
         }
-        window.location.reload();
     };
 
     // useEffect(() => {
@@ -178,6 +185,9 @@ export default function LandingCMS({landingData, containerRef}: LandingCMSProps)
 
     return (
         <div className="flex flex-col h-full overflow-scroll">
+            {isLoading && (
+                <FullPageLoadingSpinner />
+            )}
             {landings.filter(landing => !landing.deleted).map((landing, index) => {
                 return (
                     <form key={index} className="flex flex-row w-full gap-x-8 px-10 py-4">

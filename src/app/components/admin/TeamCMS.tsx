@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import AdminSaveCancel from "./AdminSaveCancel";
 import toBase64 from "@/utils/toBase64";
 import ImageUploader from "./ImageUploader";
+import FullPageLoadingSpinner from "./FullPageLoadingSpinner";
 
 type TeamRequestType = {
     id: number;
@@ -23,6 +24,7 @@ export default function TeamCMS({teamData, containerRef}: TeamCMSProps) {
     const originalTeam = useRef<TeamRequestType[]>([...teamData]);
     const [team, setTeam] = useState<TeamRequestType[]>(teamData);
     const [increment, setIncrement] = useState<number>(0);
+    const [isLoading, setIsLoading] = useState<boolean>(false);
 
     // Updater Functions
 
@@ -172,22 +174,30 @@ export default function TeamCMS({teamData, containerRef}: TeamCMSProps) {
     };
 
     const saveTeam = async() => {
-        const updatedTeam = await batchUpdateImages();
-        for (const team of updatedTeam) {
-            if (team.deleted) {
-                await deleteTeam(team.id);
-            } else if (team.id <= 0) {
-                await postTeam(team);
-            } else {
-                await putTeam(team);
+        try {
+            setIsLoading(true);
+            const updatedTeam = await batchUpdateImages();
+            for (const team of updatedTeam) {
+                if (team.deleted) {
+                    await deleteTeam(team.id);
+                } else if (team.id <= 0) {
+                    await postTeam(team);
+                } else {
+                    await putTeam(team);
+                }
             }
+            window.location.reload();
+        } finally {
+            setIsLoading(false);
         }
-        window.location.reload();
     };
 
 
     return (
         <div className="flex flex-col">
+            {isLoading && (
+                <FullPageLoadingSpinner />
+            )}
             {team.filter(team => !team.deleted).map((team) => {
                 return (
                     <form key={team.id} className="flex flex-row w-full gap-x-6 p-10">

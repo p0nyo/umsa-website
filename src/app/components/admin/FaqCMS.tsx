@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import AdminSaveCancel from "./AdminSaveCancel";
+import FullPageLoadingSpinner from "./FullPageLoadingSpinner";
 
 type FaqRequestType = {
     id: number;
@@ -17,6 +18,8 @@ export default function FaqCMS({faqData, containerRef}: FaqCMSProps) {
     const originalFaqs = useRef<FaqRequestType[]>([...faqData]);
     const [faqs, setFaqs] = useState<FaqRequestType[]>(faqData);
     const [increment, setIncrement] = useState<number>(0);
+    const [isLoading, setIsLoading] = useState<boolean>(false);
+    
 
     // Updater Functions
 
@@ -105,16 +108,21 @@ export default function FaqCMS({faqData, containerRef}: FaqCMSProps) {
     };
 
     const saveFaqs = async() => {
-        for (const faq of faqs) {
-            if (faq.deleted) {
-                await deleteFaq(faq.id);
-            } else if (faq.id <= 0){
-                await postFaq(faq);
-            } else {
-                await putFaq(faq);
+        try {
+            setIsLoading(true);
+            for (const faq of faqs) {
+                if (faq.deleted) {
+                    await deleteFaq(faq.id);
+                } else if (faq.id <= 0){
+                    await postFaq(faq);
+                } else {
+                    await putFaq(faq);
+                }
             }
+            window.location.reload();
+        } finally {
+            setIsLoading(false);
         }
-        window.location.reload();
     };
 
     useEffect(() => {
@@ -126,6 +134,9 @@ export default function FaqCMS({faqData, containerRef}: FaqCMSProps) {
     
     return (
         <div className="flex flex-col w-full">
+            {isLoading && (
+                <FullPageLoadingSpinner />
+            )}
             {faqs.filter(faq => !faq.deleted).map((faq) => {
                 return (
                     <form key={faq.id} className="flex flex-row w-full gap-x-6 p-10">

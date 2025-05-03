@@ -2,6 +2,7 @@ import { useState, useRef } from "react";
 import ImageUploader from "./ImageUploader";
 import toBase64 from "@/utils/toBase64";
 import AdminSaveCancel from "./AdminSaveCancel";
+import FullPageLoadingSpinner from "./FullPageLoadingSpinner";
 
 type EventRequestType = {
     id: number;
@@ -23,6 +24,7 @@ export default function EventsCMS({eventData, containerRef}: EventCMSProps) {
     const originalEvent = useRef<EventRequestType[]>([...eventData]);
     const [event, setEvent] = useState<EventRequestType[]>(eventData);
     const [increment, setIncrement] = useState<number>(0);
+    const [isLoading, setIsLoading] = useState<boolean>(false);
 
     // Updater Functions
 
@@ -172,22 +174,30 @@ export default function EventsCMS({eventData, containerRef}: EventCMSProps) {
     };
 
     const saveEvent = async() => {
-        const updatedEvents = await batchUpdateImages();
-        for (const event of updatedEvents) {
-            if (event.deleted) {
-                await deleteEvent(event.id);
-            } else if (event.id <= 0) {
-                await postEvent(event);
-            } else {
-                await putEvent(event);
+        try {
+            setIsLoading(true);
+            const updatedEvents = await batchUpdateImages();
+            for (const event of updatedEvents) {
+                if (event.deleted) {
+                    await deleteEvent(event.id);
+                } else if (event.id <= 0) {
+                    await postEvent(event);
+                } else {
+                    await putEvent(event);
+                }
             }
+            window.location.reload();
+        } finally {
+            setIsLoading(false);
         }
-        window.location.reload();
     };
 
 
     return (
         <div className="flex flex-col">
+            {isLoading && (
+                <FullPageLoadingSpinner />
+            )}
             {event.filter(event => !event.deleted).map((event) => {
                 return (
                     <form key={event.id} className="flex flex-row w-full gap-x-6 p-10">
