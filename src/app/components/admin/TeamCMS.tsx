@@ -81,6 +81,43 @@ export default function TeamCMS({teamData, containerRef}: TeamCMSProps) {
         );
     };
 
+    // HTTP Requests to Database
+
+    const putTeam = async(team: TeamRequestType) => {
+        await fetch('/api/put/team',{
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(team),
+        })
+        console.log('PUT Request Successful');
+    };
+
+    const postTeam = async(team: TeamRequestType) => {
+        await fetch('/api/post/team', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(team),
+        })
+        console.log("POST Request Successful");
+    };
+
+    const deleteTeam = async(teamId: number) => {
+        await fetch('/api/delete/team', {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                id: teamId,
+            }),
+        })
+        console.log("DELETE Request Successful");
+    };
+
 
     return (
         <div className="flex flex-col">
