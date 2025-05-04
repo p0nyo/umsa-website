@@ -22,7 +22,7 @@ export default function SignIn() {
             <div className="absolute inset-0 opacity-65 bg-blueOverlay"></div>
             <div className="flex-col justify-center items-center z-40 space-y-6">
                 <img className="pointer-events-none sm:h-auto transparent-y-gradient" draggable="false" src="/umsa-globe1.svg"/>
-                <form onSubmit={handleSubmit} className="flex flex-col gap-4 p-8 shadow-md rounded bg-white text-umsaBlue">
+                <form onSubmit={handleSubmit} className="flex flex-col gap-4 p-8 shadow-md rounded-lg bg-white text-umsaBlue">
                     <h1 className="text-xl font-bold text-center">sign in</h1>
                     <input
                     type="text"
@@ -40,7 +40,7 @@ export default function SignIn() {
                     />
                     <button
                     type="submit"
-                    className="bg-umsaBlue text-white py-2 rounded hover:opacity-90"
+                    className="bg-umsaBlue text-white py-2 rounded hover:opacity-90 scale-hover"
                     >
                     sign in
                     </button>

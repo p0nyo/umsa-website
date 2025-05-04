@@ -34,7 +34,8 @@ export const options: NextAuthOptions = {
         updateAge: 10 * 60,
     },
     pages: {
-        signIn: "/signin", 
+        signIn: "/signin",
+        signOut: "/signout", 
       },
 
 }
