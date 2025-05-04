@@ -1,8 +1,12 @@
 "use client"
 
+
+import { useSession } from "next-auth/react";
+import { redirect } from "next/navigation";
 import AdminCMS from "@/app/components/admin/AdminCMS";
 import AdminHeader from "@/app/components/admin/AdminHeader";
 import { useState, useEffect } from "react";
+import FullPageLoadingSpinner from "../components/admin/FullPageLoadingSpinner";
 
 type LandingRequestType = {
     id: number;
@@ -37,7 +41,15 @@ export default function Admin() {
     const [events, setEvents] = useState<EventRequestType[]>([]);
     const [team, setTeam] = useState<TeamRequestType[]>([]);
     const [faq, setFaq] = useState<FaqRequestType[]>([]);
+    const [isLoading, setIsLoading] = useState<boolean>(true);
     
+    const { data: session } = useSession({
+        required: true,
+        onUnauthenticated() {
+            redirect('api/auth/signin?callbackUrl=/admin');
+        },
+    })
+
     const getLanding = async () => {
         const response = await fetch('/api/get/landing');
         const data = await response.json();
@@ -75,17 +87,34 @@ export default function Admin() {
     }
 
     useEffect(() => {
-        getLanding();
-        getEvents();
-        getTeam();
-        getFaq();
-    }, [])
+        const fetchAllData = async () => {
+            try {
+                await Promise.all([
+                    getLanding(),
+                    getEvents(),
+                    getTeam(),
+                    getFaq()
+                ]);
+            } catch (error) {
+                console.error("Error fetching data:", error);
+            } finally {
+                setIsLoading(false);
+            }
+        };
+        fetchAllData();
+    }, []);
 
     return (
         <div className="flex flex-col justify-center items-center h-full">
-            <AdminHeader />
-            {landing.length > 0 && events.length > 0 && team.length > 0 && faq.length > 0 && (
-                <AdminCMS landingData={landing} eventData={events} teamData={team} faqData={faq} />
+            {isLoading ? (
+                <FullPageLoadingSpinner text="loading . . ." opacity={100}/>
+            ) : (
+                <>
+                    <AdminHeader />
+                    {landing.length > 0 && events.length > 0 && team.length > 0 && faq.length > 0 && (
+                        <AdminCMS landingData={landing} eventData={events} teamData={team} faqData={faq} />
+                    )}
+                </>
             )}
         </div>
     )

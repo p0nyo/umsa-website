@@ -196,7 +196,7 @@ export default function EventsCMS({eventData, containerRef}: EventCMSProps) {
     return (
         <div className="flex flex-col">
             {isLoading && (
-                <FullPageLoadingSpinner />
+                <FullPageLoadingSpinner text="saving changes . . . " opacity={90} />
             )}
             {event.filter(event => !event.deleted).map((event) => {
                 return (

@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Poppins } from "next/font/google";
 import clsx from "clsx";
+import AuthProvider from "./context/AuthProvider";
 // import Head from "next/head";
 
 
@@ -56,16 +57,18 @@ export default function RootLayout({
         <Analytics />
         <SpeedInsights />
       </head>
-      <body
-        className={clsx(poppins.className, 
-          'italic',
-          'bg-starBlue',
-        "bg-starImg bg-cover bg-fixed")}>
-        <div className="opacity-65 absolute inset-0 bg-blueOverlay bg-fixed z-0"></div>
-        <div className="relative h-screen overflow-x-hidden z-10" id="landing">
-          {children}
-        </div>
-      </body>
+      <AuthProvider>
+        <body
+          className={clsx(poppins.className, 
+            'italic',
+            'bg-starBlue',
+          "bg-starImg bg-cover bg-fixed")}>
+          <div className="opacity-65 absolute inset-0 bg-blueOverlay bg-fixed z-0"></div>
+          <div className="relative h-screen overflow-x-hidden z-10" id="landing">
+            {children}
+          </div>
+        </body>
+      </AuthProvider>
     </html>
   );
 }
