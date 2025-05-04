@@ -1,5 +1,8 @@
 "use client"
 
+
+import { useSession } from "next-auth/react";
+import { redirect } from "next/navigation";
 import AdminCMS from "@/app/components/admin/AdminCMS";
 import AdminHeader from "@/app/components/admin/AdminHeader";
 import { useState, useEffect } from "react";
@@ -38,6 +41,13 @@ export default function Admin() {
     const [team, setTeam] = useState<TeamRequestType[]>([]);
     const [faq, setFaq] = useState<FaqRequestType[]>([]);
     
+    const { data: session } = useSession({
+        required: true,
+        onUnauthenticated() {
+            redirect('api/auth/signin?callbackUrl=/admin');
+        },
+    })
+
     const getLanding = async () => {
         const response = await fetch('/api/get/landing');
         const data = await response.json();
