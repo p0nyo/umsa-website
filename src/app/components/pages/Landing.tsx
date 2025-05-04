@@ -1,26 +1,38 @@
 "use client"
 
-import LandingCarousel from "../LandingCarousel";
+import LandingCarousel from "../landing/LandingCarousel";
 import { EmblaOptionsType } from 'embla-carousel'
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import gsap from "gsap";
-// import Header from "../Header";
 
 const OPTIONS: EmblaOptionsType = { loop: true } 
-const SLIDES = [
-    "/landing-page-images/landing-1.jpg",
-    "/landing-page-images/landing-2.jpg",
-    "/landing-page-images/landing-3.JPG",
-    "/landing-page-images/landing-4.jpg",
-    "/landing-page-images/landing-5.jpg",
-    "/landing-page-images/landing-6.jpg",
-    "/landing-page-images/landing-7.jpg",
-    "/landing-page-images/landing-8.jpg",
-    "/landing-page-images/landing-9.jpg",
-]
+
+type LandingRequestType = {
+    id: number;
+    image: string;
+};
 
 export default function Landing() {
+    const [landing, setLanding] = useState<string[]>([]);
+
+    const getLanding = async () => {
+        const response = await fetch('/api/get/landing');
+        const data = await response.json();
+        console.log(data);
+
+        if (data) {
+            const imageUrls = data.map((landing: LandingRequestType) => landing.image);
+            console.log(imageUrls);
+            setLanding(imageUrls);
+        } else {
+            console.log("No data received");
+            setLanding([]);
+        }
+    }
+
     useEffect(() => {
+
+        getLanding();
 
         const tl = gsap.timeline();
 
@@ -65,7 +77,7 @@ export default function Landing() {
                         opacity: 1, 
                         duration: 3, 
                         repeat: -1, 
-                        yoyo: true, // reverse the animation to create a pulse effect
+                        yoyo: true,
                         ease: "ease-in-out", 
                     });
                     },
@@ -201,7 +213,7 @@ export default function Landing() {
                 <img className="landing-page-umsa-globe pointer-events-none z-40 h-80 sm:h-auto transparent-y-gradient" draggable="false" src="/umsa-globe1.svg" style={{ opacity: 0.8 }} alt=""/>
                 {/* <img className="landing-page-umsa-globe pointer-events-none z-40 absolute top-0 right-1/2 translate-x-1/2 sm:translate-x-0 sm:top-0 sm:right-0 w-3/4 sm:w-full h-full object-contain transparent-y-gradient" draggable="false" src="/umsa-globe1.svg" style={{ opacity: 0.8 }}/> */}
                 <div className="landing-page-carousel absolute inset-0 hidden xl:flex items-center justify-center transparent-x-gradient">
-                    <LandingCarousel slides={SLIDES} options={OPTIONS}/>
+                    <LandingCarousel slides={landing} options={OPTIONS}/>
                 </div>
             </div>
             <div className="absolute bottom-0 -translate-x-1/2 left-1/2 -translate-y-12 sm:translate-y-0 scale-hover">

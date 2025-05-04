@@ -1,5 +1,5 @@
 
-import Bounded from "@/app/components/Bounded";
+import Bounded from "@/app/components/shared/Bounded";
 
 export default function Sponsors() {
   return (
