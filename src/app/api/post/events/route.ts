@@ -1,4 +1,3 @@
-import cloudinary from '@/lib/cloudinary';
 import { supabase } from '../../../../lib/supabase';
 import { NextRequest, NextResponse } from 'next/server';
 
