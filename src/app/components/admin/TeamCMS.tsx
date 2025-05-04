@@ -12,7 +12,7 @@ type TeamRequestType = {
     socials: string;
     new_image?: File;
     cloudinary_id?: string;
-    deleted?: Boolean;
+    deleted?: boolean;
 }
 
 type TeamCMSProps = {

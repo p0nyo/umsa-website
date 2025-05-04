@@ -43,7 +43,7 @@ export default function Admin() {
     const [faq, setFaq] = useState<FaqRequestType[]>([]);
     const [isLoading, setIsLoading] = useState<boolean>(true);
     
-    const { data: session } = useSession({
+    useSession({
         required: true,
         onUnauthenticated() {
             redirect('api/auth/signin?callbackUrl=/admin');

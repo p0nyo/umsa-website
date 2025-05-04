@@ -1,5 +1,5 @@
 import AdminSaveCancel from "./AdminSaveCancel";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import ImageUploader from "./ImageUploader";
 import toBase64 from "@/utils/toBase64";
 import FullPageLoadingSpinner from "./FullPageLoadingSpinner";
@@ -9,7 +9,7 @@ type LandingRequestType = {
     image: string;
     cloudinary_id?: string;
     new_image?: File;
-    deleted?: Boolean;
+    deleted?: boolean;
 }
 
 type LandingCMSProps = {
