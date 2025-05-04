@@ -196,7 +196,7 @@ export default function TeamCMS({teamData, containerRef}: TeamCMSProps) {
     return (
         <div className="flex flex-col">
             {isLoading && (
-                <FullPageLoadingSpinner />
+                <FullPageLoadingSpinner text="saving changes . . . " opacity={90} />
             )}
             {team.filter(team => !team.deleted).map((team) => {
                 return (

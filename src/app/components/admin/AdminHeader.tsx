@@ -15,7 +15,7 @@ export default function AdminHeader() {
             </div>
             <Link className="absolute top-0 right-0 p-6 justify-center items-center scale-hover" href="/">
                 <p className="font-semibold leading-none">
-                    <span className="text-2xl">sign out</span>
+                    <span className="text-2xl">sign out </span>
                 </p>
             </Link>
         </div>

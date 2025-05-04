@@ -135,7 +135,7 @@ export default function FaqCMS({faqData, containerRef}: FaqCMSProps) {
     return (
         <div className="flex flex-col w-full">
             {isLoading && (
-                <FullPageLoadingSpinner />
+                <FullPageLoadingSpinner text="saving changes . . . " opacity={90} />
             )}
             {faqs.filter(faq => !faq.deleted).map((faq) => {
                 return (

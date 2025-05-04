@@ -186,7 +186,7 @@ export default function LandingCMS({landingData, containerRef}: LandingCMSProps)
     return (
         <div className="flex flex-col h-full overflow-scroll">
             {isLoading && (
-                <FullPageLoadingSpinner />
+                <FullPageLoadingSpinner text="saving changes . . . " opacity={90} />
             )}
             {landings.filter(landing => !landing.deleted).map((landing, index) => {
                 return (
