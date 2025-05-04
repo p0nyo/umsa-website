@@ -28,5 +28,13 @@ export const options: NextAuthOptions = {
             }
         })
     ],
+    session: {
+        strategy: "jwt",
+        maxAge: 60 * 60,
+        updateAge: 10 * 60,
+    },
+    pages: {
+        signIn: "/signin", 
+      },
 
 }

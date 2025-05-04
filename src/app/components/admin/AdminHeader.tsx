@@ -13,7 +13,7 @@ export default function AdminHeader() {
                     </div>
                 </div>
             </div>
-            <Link className="absolute top-0 right-0 p-6 justify-center items-center scale-hover" href="/">
+            <Link className="absolute top-0 right-0 p-6 justify-center items-center scale-hover" href="/api/auth/signout">
                 <p className="font-semibold leading-none">
                     <span className="text-2xl">sign out </span>
                 </p>
